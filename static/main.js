@@ -7,7 +7,7 @@ let isPlaying      = false;
 let playInterval   = null;
 let currentSelectedStop = null;
 let stateHistory   = [];
-let playbackSpeed  = 200;
+let playbackSpeed  = 800; // Default to Slow for better readability
 let currentAlgo    = 'Greedy';
 let totalReallocations = 0;
 let logCount       = 0;
@@ -37,19 +37,29 @@ const ROUTE_COLORS = {
 function routeColor(id) { return ROUTE_COLORS[id] || '#3e4857'; }
 
 // ── Chart ────────────────────────────────────────────────────────────────────
+// Pre-fill labels from 06:00 to 09:10 (191 minutes)
+const chartLabels = [];
+for (let i = 0; i <= 190; i++) {
+    const totalMins = 360 + i;
+    const h = Math.floor(totalMins / 60);
+    const m = totalMins % 60;
+    chartLabels.push(`${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}`);
+}
+
 const ctx = document.getElementById('chart').getContext('2d');
 const strandedChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: [],
+        labels: chartLabels,
         datasets: [{
-            data: [],
+            data: new Array(191).fill(null),
             borderColor: '#c94040',
             backgroundColor: 'rgba(201,64,64,0.08)',
             borderWidth: 1.5,
             pointRadius: 0,
             fill: true,
-            tension: 0.3
+            tension: 0.3,
+            spanGaps: true
         }]
     },
     options: {
@@ -57,7 +67,11 @@ const strandedChart = new Chart(ctx, {
         maintainAspectRatio: false,
         animation: false,
         scales: {
-            x: { display: false },
+            x: { 
+                display: true, 
+                grid: { display: false },
+                ticks: { color: '#3e4857', font: { family: "'IBM Plex Mono'", size: 9 }, maxTicksLimit: 6 }
+            },
             y: {
                 beginAtZero: true,
                 grid: { color: 'rgba(255,255,255,0.04)', drawBorder: false },
@@ -191,7 +205,7 @@ function showNotif(text) {
     document.getElementById('notif-text').innerText = text;
     bar.classList.add('visible');
     clearTimeout(notifTimer);
-    notifTimer = setTimeout(() => bar.classList.remove('visible'), 3500);
+    notifTimer = setTimeout(() => bar.classList.remove('visible'), 8000); // 8 seconds instead of 3.5
 }
 
 function pulseAt(lat, lng) {
@@ -302,8 +316,7 @@ async function stepSim() {
         slider.max   = stateHistory.length - 1;
         slider.value = stateHistory.length - 1;
 
-        strandedChart.data.labels.push(fmtTime(state.time_mins));
-        strandedChart.data.datasets[0].data.push(state.stranded);
+        strandedChart.data.datasets[0].data[idx + 1] = state.stranded;
         strandedChart.update();
 
         state.logs.forEach(l => {
@@ -358,8 +371,7 @@ async function resetSim() {
     const slider = document.getElementById('timeline-scrub');
     slider.max = 0; slider.value = 0;
 
-    strandedChart.data.labels = [];
-    strandedChart.data.datasets[0].data = [];
+    strandedChart.data.datasets[0].data = new Array(191).fill(null);
     strandedChart.update();
 
     document.getElementById('action-log').innerHTML = '';

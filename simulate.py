@@ -69,6 +69,7 @@ class Bus:
         self.state = "IDLE" # IDLE, EN_ROUTE, ARRIVED
         self.start_time = -1 # When to start the trip
         self.is_helper = False
+        self.last_stop_id = None
         
         # Stats
         self.total_transported = 0
@@ -191,6 +192,7 @@ class SimulationEngine:
                 
                 bus.route = route
                 bus.current_stop_idx = start_idx
+                bus.last_stop_id = route.stops[start_idx].stop_id
                 bus.passengers = []
                 # Stagger buses on the same branch by 10 minutes
                 bus_branch_order = i // num_branches
@@ -284,6 +286,7 @@ class SimulationEngine:
                 
                 if bus.time_to_next_stop == 0:
                     current_stop = bus.route.stops[bus.current_stop_idx]
+                    bus.last_stop_id = current_stop.stop_id
                     
                     if bus.current_stop_idx == len(bus.route.stops) - 1:
                         # Final destination

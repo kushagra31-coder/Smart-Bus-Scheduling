@@ -109,6 +109,9 @@ def get_topology():
 def step_simulation():
     global current_tick
     
+    if engine is None:
+        init_engine()
+        
     steps_to_take = request.json.get('steps', 1) if request.json else 1
     
     # The simulation ends when all buses have arrived (shift window closed).
@@ -137,12 +140,13 @@ def step_simulation():
     for bus in engine.buses.values():
         if bus.state in ["EN_ROUTE", "SCHEDULED", "ARRIVED"]:
             if bus.state == "EN_ROUTE":
-                total_time = bus.route.travel_times[bus.current_stop_idx] if bus.current_stop_idx < len(bus.route.travel_times) else 1
+                # Find the index of the stop we just left (to look up the correct travel time leg)
+                prev_idx = next((i for i, s in enumerate(bus.route.stops) if s.stop_id == bus.last_stop_id), 0)
+                total_time = bus.route.travel_times[prev_idx] if prev_idx < len(bus.route.travel_times) else 1
                 if total_time <= 0: total_time = 1
                 progress = 1.0 - (bus.time_to_next_stop / total_time)
                 
-                prev_idx = max(0, bus.current_stop_idx - 1)
-                prev_stop_obj = bus.route.stops[prev_idx]
+                prev_stop_obj = engine.stops.get(bus.last_stop_id)
                 target_stop_obj = bus.route.stops[bus.current_stop_idx]
             elif bus.state == "ARRIVED":
                 # Show bus parked at Acropolis (last stop)
@@ -152,8 +156,11 @@ def step_simulation():
                 target_stop_obj = bus.route.stops[last_idx]
             else:  # SCHEDULED
                 progress = 0.0
-                prev_stop_obj = bus.route.stops[bus.current_stop_idx]
+                prev_stop_obj = engine.stops.get(bus.last_stop_id) if bus.last_stop_id else bus.route.stops[bus.current_stop_idx]
                 target_stop_obj = prev_stop_obj
+            
+            if prev_stop_obj is None: prev_stop_obj = bus.route.stops[0]
+            if target_stop_obj is None: target_stop_obj = bus.route.stops[0]
             
             prev_stop_id = "ACROPOLIS" if "acropolis" in prev_stop_obj.name.lower() else prev_stop_obj.stop_id
             target_stop_id = "ACROPOLIS" if "acropolis" in target_stop_obj.name.lower() else target_stop_obj.stop_id
