@@ -18,8 +18,8 @@ You need **Python 3.8+** installed on your system.
 
 ### Step 1: Clone the repository
 ```bash
-git clone https://github.com/your-username/acropolis-bus-scheduler.git
-cd acropolis-bus-scheduler
+git clone https://github.com/kushagra31-coder/Smart-Bus-Scheduling.git
+cd Smart-Bus-Scheduling
 ```
 
 ### Step 2: Install dependencies

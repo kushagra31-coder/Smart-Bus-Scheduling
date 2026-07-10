@@ -69,33 +69,28 @@ const strandedChart = new Chart(ctx, {
 });
 
 // ── Bus markers ───────────────────────────────────────────────────────────────
+const getBusSvg = (color, isHelper) => {
+    const stroke = isHelper ? '#f0c060' : 'rgba(255,255,255,0.7)';
+    const strokeWidth = isHelper ? '2' : '1';
+    // Professional bus SVG path
+    return `<svg width="22" height="22" viewBox="0 0 24 24" fill="${color}" stroke="${stroke}" stroke-width="${strokeWidth}" stroke-linecap="round" stroke-linejoin="round" style="${isHelper ? 'filter: drop-shadow(0 0 4px #d4922a);' : 'filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));'}"><path d="M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10zm3.5 1c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1.5-6H6V6h12v5z"/></svg>`;
+};
+
 const ICON_NORMAL = (routeId) => {
     const c = routeColor(routeId);
     return L.divIcon({
-        html: `<div style="
-            width:12px; height:12px;
-            background:${c};
-            border:1.5px solid rgba(255,255,255,0.35);
-            border-radius:50%;
-        "></div>`,
+        html: getBusSvg(c, false),
         className: '',
-        iconSize: [12, 12],
-        iconAnchor: [6, 6]
+        iconSize: [22, 22],
+        iconAnchor: [11, 11]
     });
 };
 
 const ICON_HELPER = () => L.divIcon({
-    html: `<div style="
-        width:14px; height:14px;
-        background:#d4922a;
-        border:1.5px solid #f0c060;
-        border-radius:50%;
-        outline: 2px solid rgba(212,146,42,0.3);
-        outline-offset: 2px;
-    "></div>`,
+    html: getBusSvg('#d4922a', true),
     className: '',
-    iconSize: [14, 14],
-    iconAnchor: [7, 7]
+    iconSize: [24, 24],
+    iconAnchor: [12, 12]
 });
 
 const ICON_ACRO = () => L.divIcon({
