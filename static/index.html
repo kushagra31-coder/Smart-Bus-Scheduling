@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acropolis Bus Scheduling — Control View</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <style>
+    :root {
+      --bg:        #0f1117;
+      --panel:     #16191f;
+      --panel2:    #1c2029;
+      --border:    #252c38;
+      --border2:   #2e3848;
+      --text:      #d4cfc8;
+      --text-dim:  #7a8394;
+      --text-faint:#3e4857;
+      --amber:     #d4922a;
+      --amber-dim: #7a5018;
+      --red:       #c94040;
+      --green:     #3a9e6a;
+      --blue:      #3b78b5;
+      --mono:      'IBM Plex Mono', monospace;
+      --sans:      'IBM Plex Sans', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 13px;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* ── HEADER BAR ── */
+    header {
+      display: flex;
+      align-items: center;
+      height: 42px;
+      padding: 0 16px;
+      background: var(--panel);
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+      gap: 24px;
+    }
+    .header-title {
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--amber);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .header-sub {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-dim);
+      letter-spacing: 0.03em;
+    }
+    .header-sep {
+      width: 1px; height: 18px;
+      background: var(--border2);
+    }
+    .header-spacer { flex: 1; }
+    .nav-tab {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-dim);
+      text-decoration: none;
+      padding: 4px 10px;
+      border: 1px solid transparent;
+      letter-spacing: 0.04em;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .nav-tab:hover { color: var(--text); border-color: var(--border2); }
+    .nav-tab.active { color: var(--amber); border-color: var(--amber-dim); }
+    .status-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: blink 2s step-end infinite;
+    }
+    @keyframes blink { 50% { opacity: 0.3; } }
+    .status-text {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--green);
+      letter-spacing: 0.06em;
+    }
+
+    /* ── LAYOUT ── */
+    .workspace {
+      display: grid;
+      grid-template-columns: 258px 1fr 260px;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    /* ── LEFT PANEL ── */
+    .left-panel {
+      background: var(--panel);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .panel-section {
+      border-bottom: 1px solid var(--border);
+      padding: 12px 14px;
+    }
+    .section-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 10px;
+    }
+
+    /* ── TIME & STATS ── */
+    .time-block {
+      font-family: var(--mono);
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--amber);
+      letter-spacing: 0.04em;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .time-date {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-dim);
+      letter-spacing: 0.04em;
+    }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    .stat-cell {
+      background: var(--panel2);
+      padding: 8px 10px;
+    }
+    .stat-cell .s-label {
+      font-family: var(--mono);
+      font-size: 9px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+    .stat-cell .s-val {
+      font-family: var(--mono);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1;
+    }
+    .stat-cell .s-val.red   { color: var(--red); }
+    .stat-cell .s-val.green { color: var(--green); }
+    .stat-cell .s-val.amber { color: var(--amber); }
+
+    /* ── ALGORITHM SELECTOR ── */
+    .algo-list { display: flex; flex-direction: column; gap: 4px; }
+    .algo-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 10px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: border-color 0.15s, background 0.15s;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text-dim);
+    }
+    .algo-row:hover { background: var(--panel2); color: var(--text); }
+    .algo-row.active {
+      border-color: var(--amber-dim);
+      background: rgba(212,146,42,0.06);
+      color: var(--amber);
+    }
+    .algo-pip {
+      width: 4px; height: 14px;
+      flex-shrink: 0;
+    }
+    .algo-complexity {
+      margin-left: auto;
+      font-size: 10px;
+      color: var(--text-faint);
+    }
+    .algo-row.active .algo-complexity { color: var(--amber-dim); }
+
+    /* ── CONTROLS ── */
+    .ctrl-row { display: flex; gap: 6px; }
+    .ctrl-btn {
+      flex: 1;
+      padding: 8px 6px;
+      background: var(--panel2);
+      border: 1px solid var(--border2);
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 500;
+      cursor: pointer;
+      letter-spacing: 0.04em;
+      transition: background 0.15s, color 0.15s;
+    }
+    .ctrl-btn:hover { background: var(--border); }
+    .ctrl-btn.run-btn { background: var(--amber-dim); border-color: var(--amber); color: var(--amber); }
+    .ctrl-btn.run-btn:hover { background: rgba(212,146,42,0.25); }
+
+    select {
+      width: 100%;
+      padding: 7px 8px;
+      background: var(--panel2);
+      border: 1px solid var(--border2);
+      color: var(--text-dim);
+      font-family: var(--mono);
+      font-size: 11px;
+      margin-top: 6px;
+    }
+    select:focus { outline: none; border-color: var(--amber-dim); }
+
+    .timeline-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .tl-label { font-family: var(--mono); font-size: 9px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.07em; flex-shrink: 0; }
+    #timeline-scrub {
+      flex: 1;
+      -webkit-appearance: none;
+      appearance: none;
+      height: 3px;
+      background: var(--border2);
+      outline: none;
+    }
+    #timeline-scrub::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 10px; height: 10px;
+      background: var(--amber);
+      cursor: pointer;
+    }
+
+    /* ── ROUTE LEGEND ── */
+    .route-list { display: flex; flex-direction: column; gap: 6px; }
+    .route-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-dim);
+    }
+    .route-swatch { width: 16px; height: 3px; flex-shrink: 0; }
+    .route-name { flex: 1; }
+    .route-tag { color: var(--text-faint); }
+
+    .legend-divider { height: 1px; background: var(--border); margin: 6px 0; }
+
+    .bus-legend { display: flex; flex-direction: column; gap: 5px; margin-top: 2px; }
+    .bus-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-dim);
+    }
+    .bus-pip {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .left-spacer { flex: 1; }
+
+    /* ── MAP ── */
+    .map-area {
+      position: relative;
+      background: #0c0e12;
+    }
+    #map { width: 100%; height: 100%; }
+
+    /* ── REASSIGN NOTIFICATION BAR ── */
+    #notif-bar {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      background: rgba(212,146,42,0.12);
+      border-bottom: 1px solid var(--amber-dim);
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--amber);
+      padding: 7px 14px;
+      display: none;
+      z-index: 2000;
+      letter-spacing: 0.03em;
+    }
+    #notif-bar.visible { display: flex; align-items: center; gap: 10px; }
+    .notif-indicator {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--amber);
+      flex-shrink: 0;
+    }
+
+    /* ── INJECT PANEL (map overlay) ── */
+    #inject-panel {
+      position: absolute;
+      bottom: 16px; left: 14px;
+      background: var(--panel);
+      border: 1px solid var(--border2);
+      padding: 14px;
+      display: none;
+      z-index: 1500;
+      width: 210px;
+    }
+    #inject-panel h4 {
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      margin-bottom: 6px;
+    }
+    #inject-panel .stop-name {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--amber);
+      margin-bottom: 10px;
+      word-break: break-all;
+    }
+    .inject-fields { display: flex; gap: 8px; margin-bottom: 10px; }
+    .inject-fields label {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-dim);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .inject-fields input {
+      width: 72px;
+      padding: 5px 6px;
+      background: var(--panel2);
+      border: 1px solid var(--border2);
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+    .inject-btns { display: flex; gap: 5px; }
+    .inject-btns button {
+      padding: 6px 10px;
+      background: var(--panel2);
+      border: 1px solid var(--border2);
+      color: var(--text-dim);
+      font-family: var(--mono);
+      font-size: 10px;
+      cursor: pointer;
+      letter-spacing: 0.04em;
+    }
+    .inject-btns button.primary { border-color: var(--amber-dim); color: var(--amber); }
+    .inject-btns button:hover { background: var(--border); }
+
+    /* ── RIGHT PANEL ── */
+    .right-panel {
+      background: var(--panel);
+      border-left: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .log-header {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+    }
+    .log-header span {
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+    }
+    .log-count-badge {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-faint);
+    }
+    #action-log {
+      flex: 1;
+      overflow-y: auto;
+      font-family: var(--mono);
+      font-size: 10.5px;
+      line-height: 1.55;
+      padding: 0;
+    }
+    #action-log::-webkit-scrollbar { width: 3px; }
+    #action-log::-webkit-scrollbar-thumb { background: var(--border2); }
+
+    .log-entry {
+      padding: 5px 14px;
+      color: var(--text-faint);
+      border-left: 2px solid transparent;
+      border-bottom: 1px solid rgba(255,255,255,0.02);
+    }
+    .log-entry .log-time { color: var(--text-dim); }
+    .log-entry.log-reassign {
+      color: var(--amber);
+      border-left-color: var(--amber-dim);
+      background: rgba(212,146,42,0.04);
+    }
+    .log-entry.log-arrive {
+      color: var(--green);
+      border-left-color: rgba(58,158,106,0.4);
+    }
+    .log-entry.log-end {
+      color: var(--text);
+      border-left-color: var(--border2);
+      background: var(--panel2);
+      font-weight: 600;
+    }
+
+    /* ── CHART ── */
+    .chart-area {
+      height: 118px;
+      border-top: 1px solid var(--border);
+      padding: 10px 14px 8px;
+      flex-shrink: 0;
+    }
+    .chart-area .chart-label {
+      font-family: var(--mono);
+      font-size: 9px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      margin-bottom: 6px;
+    }
+    #chart { display: block; }
+
+    /* ── REASSIGN RING (map) ── */
+    @keyframes ring-out {
+      0%   { opacity: 0.9; transform: scale(1); }
+      100% { opacity: 0; transform: scale(3.5); }
+    }
+    .evt-ring {
+      position: absolute;
+      pointer-events: none;
+      border: 1.5px solid var(--amber);
+      border-radius: 50%;
+      animation: ring-out 1s ease-out forwards;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <span class="header-title">Acropolis Bus Control</span>
+    <div class="header-sep"></div>
+    <span class="header-sub">Morning Shift Scheduler — Indore</span>
+    <div class="header-spacer"></div>
+    <a href="/" class="nav-tab active">Simulation</a>
+    <a href="/explain" class="nav-tab">Analysis</a>
+    <div class="header-sep"></div>
+    <div class="status-dot"></div>
+    <span class="status-text">RUNNING</span>
+  </header>
+
+  <!-- WORKSPACE -->
+  <div class="workspace">
+
+    <!-- LEFT PANEL -->
+    <div class="left-panel">
+
+      <!-- Clock + Stats -->
+      <div class="panel-section">
+        <div class="section-label">Shift Clock</div>
+        <div class="time-block" id="time-display">06:00</div>
+        <div class="time-date">07 JUL · Shift 1 · Target 08:10</div>
+      </div>
+
+      <div class="panel-section">
+        <div class="stat-row">
+          <div class="stat-cell">
+            <div class="s-label">Stranded</div>
+            <div class="s-val red" id="val-stranded">0</div>
+          </div>
+          <div class="stat-cell">
+            <div class="s-label">Transported</div>
+            <div class="s-val green" id="val-moved">0</div>
+          </div>
+          <div class="stat-cell">
+            <div class="s-label">Reallocations</div>
+            <div class="s-val amber" id="val-realloc">0</div>
+          </div>
+          <div class="stat-cell">
+            <div class="s-label">Active Buses</div>
+            <div class="s-val" id="val-buses">—</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Algorithm -->
+      <div class="panel-section">
+        <div class="section-label">Scheduling Algorithm</div>
+        <div class="algo-list">
+          <div class="algo-row active" id="algo-greedy" onclick="selectAlgo('Greedy')">
+            <div class="algo-pip" style="background:#3b78b5;"></div>
+            Greedy
+            <span class="algo-complexity">O(n log n)</span>
+          </div>
+          <div class="algo-row" id="algo-dp" onclick="selectAlgo('DP')">
+            <div class="algo-pip" style="background:#7a5090;"></div>
+            Dynamic Programming
+            <span class="algo-complexity">O(2ⁿ)</span>
+          </div>
+          <div class="algo-row" id="algo-baseline" onclick="selectAlgo('Baseline')">
+            <div class="algo-pip" style="background:#3e4857;"></div>
+            Baseline — No Scheduler
+            <span class="algo-complexity">—</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="panel-section">
+        <div class="section-label">Controls</div>
+        <div class="ctrl-row" style="margin-bottom:6px;">
+          <button class="ctrl-btn" onclick="resetSim()">Reset</button>
+          <button class="ctrl-btn run-btn" id="play-btn" onclick="togglePlay()">Run</button>
+          <button class="ctrl-btn run-btn" id="pause-btn" onclick="togglePlay()" style="display:none;">Pause</button>
+        </div>
+        <select id="speed-select" onchange="updateSpeed()">
+          <option value="30">Ultra fast — 30ms/tick</option>
+          <option value="100">Fast — 100ms/tick</option>
+          <option value="200" selected>Normal — 200ms/tick</option>
+          <option value="600">Slow — 600ms/tick</option>
+        </select>
+        <div class="timeline-row">
+          <span class="tl-label">History</span>
+          <input type="range" id="timeline-scrub" min="0" max="0" value="0" oninput="scrubTimeline(this.value)">
+        </div>
+      </div>
+
+      <!-- Route Legend -->
+      <div class="panel-section" style="flex:1; overflow-y:auto;">
+        <div class="section-label">Routes</div>
+        <div class="route-list">
+          <div class="route-item">
+            <div class="route-swatch" style="background:#3b78b5;"></div>
+            <span class="route-name">R15</span>
+            <span class="route-tag">Dewas Rd → Acropolis</span>
+          </div>
+          <div class="route-item">
+            <div class="route-swatch" style="background:#c0392b;"></div>
+            <span class="route-name">R16</span>
+            <span class="route-tag">Kanadia → Acropolis</span>
+          </div>
+          <div class="route-item">
+            <div class="route-swatch" style="background:#27ae60;"></div>
+            <span class="route-name">R18</span>
+            <span class="route-tag">Bypass → Acropolis</span>
+          </div>
+          <div class="route-item">
+            <div class="route-swatch" style="background:#7a5090;"></div>
+            <span class="route-name">R08</span>
+            <span class="route-tag">Rangwasa → Acropolis</span>
+          </div>
+          <div class="route-item">
+            <div class="route-swatch" style="background:#1a8070;"></div>
+            <span class="route-name">R09</span>
+            <span class="route-tag">East Indore → Acropolis</span>
+          </div>
+        </div>
+        <div class="legend-divider"></div>
+        <div class="bus-legend">
+          <div class="bus-legend-item">
+            <div class="bus-pip" style="background:#3b78b5; border:1px solid #5a9ad5;"></div>
+            Bus on assigned route
+          </div>
+          <div class="bus-legend-item">
+            <div class="bus-pip" style="background:#d4922a; border:1px solid #e8b040;"></div>
+            Bus reassigned by scheduler
+          </div>
+          <div class="bus-legend-item">
+            <div class="bus-pip" style="background:#c94040; border:1px solid #e06060;"></div>
+            Acropolis terminal
+          </div>
+        </div>
+        <div class="legend-divider"></div>
+        <div class="bus-legend">
+          <div class="bus-legend-item">
+            <div class="bus-pip" style="background:#c94040; opacity:0.8;"></div>
+            Stop — high demand (&gt;30)
+          </div>
+          <div class="bus-legend-item">
+            <div class="bus-pip" style="background:#d4922a; opacity:0.8;"></div>
+            Stop — medium demand
+          </div>
+          <div class="bus-legend-item">
+            <div class="bus-pip" style="background:#3a9e6a; opacity:0.7;"></div>
+            Stop — low demand
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- MAP -->
+    <div class="map-area">
+      <div id="notif-bar">
+        <div class="notif-indicator"></div>
+        <span id="notif-text">Scheduler intervention</span>
+      </div>
+      <div id="map"></div>
+      <div id="inject-panel">
+        <h4>Set Stop Demand</h4>
+        <div class="stop-name" id="selected-node-name">—</div>
+        <div class="inject-fields">
+          <label>Students<input type="number" id="inject-students" value="50"></label>
+          <label>Faculty<input type="number" id="inject-faculty" value="0"></label>
+        </div>
+        <div class="inject-btns">
+          <button class="primary" onclick="injectPassengers()">Apply</button>
+          <button onclick="document.getElementById('inject-panel').style.display='none'">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="right-panel">
+      <div class="log-header">
+        <span>Dispatch Log</span>
+        <span class="log-count-badge" id="log-count">0 entries</span>
+      </div>
+      <div id="action-log"></div>
+      <div class="chart-area">
+        <div class="chart-label">Stranded passengers over time</div>
+        <canvas id="chart" height="70"></canvas>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="/static/main.js"></script>
+</body>
+</html>

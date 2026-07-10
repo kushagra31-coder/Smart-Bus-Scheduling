@@ -1,0 +1,830 @@
+{
+  "Treasure Fantasy (Rangwasa)": {
+    "lat": 22.7584,
+    "lon": 75.8152
+  },
+  "Vidur Nagar": {
+    "lat": 22.7501,
+    "lon": 75.8198
+  },
+  "Hawa Bungla (CAT Road)": {
+    "lat": 22.7477,
+    "lon": 75.8202
+  },
+  "Sai Dwar": {
+    "lat": 22.746,
+    "lon": 75.825
+  },
+  "Relax Garden": {
+    "lat": 22.6994,
+    "lon": 75.8754
+  },
+  "Reti Mandi": {
+    "lat": 22.7314,
+    "lon": 75.858
+  },
+  "Gopur Chouki": {
+    "lat": 22.7291,
+    "lon": 75.856
+  },
+  "Jaroliya": {
+    "lat": 22.7338,
+    "lon": 75.8508
+  },
+  "Dastur Garden": {
+    "lat": 22.7201,
+    "lon": 75.8561
+  },
+  "Footi Kothi": {
+    "lat": 22.7051,
+    "lon": 75.8778
+  },
+  "Nurani Nagar": {
+    "lat": 22.7348,
+    "lon": 75.9018
+  },
+  "Chandan Nagar": {
+    "lat": 22.7027,
+    "lon": 75.8744
+  },
+  "Shankar Kirana": {
+    "lat": 22.7362,
+    "lon": 75.9032
+  },
+  "Charu Medicoz": {
+    "lat": 22.7375,
+    "lon": 75.9045
+  },
+  "Ranjeet Hanuman": {
+    "lat": 22.706,
+    "lon": 75.8856
+  },
+  "Dravid Nagar": {
+    "lat": 22.7029,
+    "lon": 75.8876
+  },
+  "Usha Nagar": {
+    "lat": 22.7066,
+    "lon": 75.8867
+  },
+  "Mhow Naka": {
+    "lat": 22.70923143,
+    "lon": 75.98579521
+  },
+  "Old GDC Jairampur Colony Chouraha": {
+    "lat": 22.7388,
+    "lon": 75.9058
+  },
+  "Collector Chauraha": {
+    "lat": 22.7401,
+    "lon": 75.9071
+  },
+  "Palsikar Chauraha": {
+    "lat": 22.7414,
+    "lon": 75.9084
+  },
+  "Juni Indore Bridge": {
+    "lat": 22.7138048,
+    "lon": 75.8543177
+  },
+  "Sindhi Colony": {
+    "lat": 22.7018961,
+    "lon": 75.8666215
+  },
+  "Ashok Nagar Bhauwarkua Main R.": {
+    "lat": 22.7295,
+    "lon": 75.873
+  },
+  "Bhauwarkua Chouraha": {
+    "lat": 22.7318,
+    "lon": 75.8744
+  },
+  "Navlakha Chouraha": {
+    "lat": 22.7218,
+    "lon": 75.8618
+  },
+  "Nemawar Road": {
+    "lat": 22.6814254,
+    "lon": 75.9961743
+  },
+  "Teen Imli": {
+    "lat": 22.689865,
+    "lon": 75.8865053
+  },
+  "Musakhedi": {
+    "lat": 22.6928353,
+    "lon": 75.8997405
+  },
+  "Vidhya Palace Chhota Bangarda": {
+    "lat": 22.7254,
+    "lon": 75.8912
+  },
+  "Yadav Dharmshala": {
+    "lat": 22.7236,
+    "lon": 75.8961
+  },
+  "Rukmani Nagar": {
+    "lat": 22.7211,
+    "lon": 75.8982
+  },
+  "Kali Mata Mandir": {
+    "lat": 22.7189576,
+    "lon": 75.908496
+  },
+  "Rambali Nagar": {
+    "lat": 22.727,
+    "lon": 75.8893
+  },
+  "Doodh Dairy": {
+    "lat": 22.7283,
+    "lon": 75.8875
+  },
+  "Sangam Nagar": {
+    "lat": 22.7015,
+    "lon": 75.8355
+  },
+  "Khada Ganpati": {
+    "lat": 22.7301,
+    "lon": 75.8851
+  },
+  "Mahesh Guard Line Petrol Pump": {
+    "lat": 22.7321,
+    "lon": 75.883
+  },
+  "Banganga Stop Old Naka": {
+    "lat": 22.7148,
+    "lon": 75.8568
+  },
+  "Marimata Chouraha": {
+    "lat": 22.733,
+    "lon": 75.857
+  },
+  "Agniban Press Chouraha": {
+    "lat": 22.7175,
+    "lon": 75.8548
+  },
+  "Rajkumar Bridge (Vallabh Nagar)": {
+    "lat": 22.7179,
+    "lon": 75.8527
+  },
+  "Malwa Mill": {
+    "lat": 22.7369998,
+    "lon": 75.8735413
+  },
+  "Ranisati Gate": {
+    "lat": 22.7165,
+    "lon": 75.8541
+  },
+  "City Office Chouraha": {
+    "lat": 22.7192,
+    "lon": 75.857
+  },
+  "Janjirwala Chouraha": {
+    "lat": 22.7131,
+    "lon": 75.8645
+  },
+  "Industry House": {
+    "lat": 22.7274738,
+    "lon": 75.8880313
+  },
+  "Palasia Thana": {
+    "lat": 22.7252,
+    "lon": 75.8698
+  },
+  "Khajrana Chouraha": {
+    "lat": 22.7229,
+    "lon": 75.9044
+  },
+  "Robot Chouraha": {
+    "lat": 22.7241,
+    "lon": 75.8802
+  },
+  "Malviya Petrol Pump": {
+    "lat": 22.7485719,
+    "lon": 75.9035395
+  },
+  "RTO Old": {
+    "lat": 22.7045,
+    "lon": 75.8762
+  },
+  "Lokmanya Nagar": {
+    "lat": 22.70592264,
+    "lon": 75.98734780000001
+  },
+  "Vinay Nagar": {
+    "lat": 22.70562123,
+    "lon": 75.98678458
+  },
+  "Keshar Bag Railway Bridge": {
+    "lat": 22.7195,
+    "lon": 75.8595
+  },
+  "Silicon City": {
+    "lat": 22.69134687,
+    "lon": 75.98100919000001
+  },
+  "Shiv City": {
+    "lat": 22.70818809,
+    "lon": 75.98476999
+  },
+  "Rajendra Nagar Thana": {
+    "lat": 22.7005,
+    "lon": 75.8801
+  },
+  "Bijalpur Chouraha": {
+    "lat": 22.6891,
+    "lon": 75.8852
+  },
+  "Gadbadi Pooliya": {
+    "lat": 22.698,
+    "lon": 75.8782
+  },
+  "Choithram Mandi Chouraha": {
+    "lat": 22.71564,
+    "lon": 75.98659
+  },
+  "Rajiv Gandhi Chouraha": {
+    "lat": 22.7155,
+    "lon": 75.9073
+  },
+  "Vishnupuri Chouraha": {
+    "lat": 22.6978,
+    "lon": 75.8797
+  },
+  "Bhanwarkua Chouraha": {
+    "lat": 22.7312,
+    "lon": 75.8748
+  },
+  "Indrapuri": {
+    "lat": 22.6905435,
+    "lon": 75.866845
+  },
+  "IT Park Chouraha": {
+    "lat": 22.7143,
+    "lon": 75.9065
+  },
+  "SDPS College": {
+    "lat": 22.6570437,
+    "lon": 75.8861331
+  },
+  "Khandwa Naka Chouraha": {
+    "lat": 22.7088,
+    "lon": 75.8671
+  },
+  "Teen Imli Square": {
+    "lat": 22.721,
+    "lon": 75.878
+  },
+  "Palda Road": {
+    "lat": 22.6876098,
+    "lon": 75.8974546
+  },
+  "Limbodi Gate Rani Bagh": {
+    "lat": 22.7301,
+    "lon": 75.8828
+  },
+  "Kampel": {
+    "lat": 22.61121039,
+    "lon": 75.97336975
+  },
+  "Tejaji Nagar": {
+    "lat": 22.6385241,
+    "lon": 75.8883025
+  },
+  "Sachidnand Nagar": {
+    "lat": 22.7315,
+    "lon": 75.8843
+  },
+  "Dashera Maidan": {
+    "lat": 22.7328,
+    "lon": 75.8858
+  },
+  "Bank Colony Chouraha": {
+    "lat": 22.694,
+    "lon": 75.8855
+  },
+  "Anapurna Mandir": {
+    "lat": 22.6961,
+    "lon": 75.8812
+  },
+  "Mishra Nagar": {
+    "lat": 22.69978542,
+    "lon": 75.98209339
+  },
+  "Chanankya Puri Chouraha": {
+    "lat": 22.6955,
+    "lon": 75.8834
+  },
+  "Vaishali Nagar Chouraha": {
+    "lat": 22.7331,
+    "lon": 75.8501
+  },
+  "Rajendra Nagar Railway Station": {
+    "lat": 22.69860558,
+    "lon": 75.98146687
+  },
+  "Rajendra Nagar Dutt Mandir": {
+    "lat": 22.701,
+    "lon": 75.8798
+  },
+  "Reti Mandi Chouraha": {
+    "lat": 22.7318,
+    "lon": 75.8584
+  },
+  "Kandhari Julewala A.B. Road": {
+    "lat": 22.729,
+    "lon": 75.8812
+  },
+  "Gurudwara Ring Road": {
+    "lat": 22.717,
+    "lon": 75.8571
+  },
+  "Teen Imali Square": {
+    "lat": 22.721,
+    "lon": 75.878
+  },
+  "Mushakhedi Square": {
+    "lat": 22.726,
+    "lon": 75.8848
+  },
+  "Piplya Thana Chouraha": {
+    "lat": 22.7098,
+    "lon": 75.9048
+  },
+  "JMB": {
+    "lat": 22.7531796,
+    "lon": 75.9049875
+  },
+  "Agrawal Public School": {
+    "lat": 22.7148,
+    "lon": 75.9002
+  },
+  "Niranjanpur Chouraha": {
+    "lat": 22.7122,
+    "lon": 75.9028
+  },
+  "Nakshatra Garden": {
+    "lat": 22.7135,
+    "lon": 75.9015
+  },
+  "Rajshree Hospital": {
+    "lat": 22.7159,
+    "lon": 75.8991
+  },
+  "Food Land": {
+    "lat": 22.7172,
+    "lon": 75.8979
+  },
+  "Sica School": {
+    "lat": 22.7555974,
+    "lon": 75.8907478
+  },
+  "Ashish Nursing Home": {
+    "lat": 22.7185,
+    "lon": 75.8966
+  },
+  "Scheme No. 74 Main Road": {
+    "lat": 22.7198,
+    "lon": 75.8953
+  },
+  "Scheme No. 78 Nai Sadak": {
+    "lat": 22.7209,
+    "lon": 75.8939
+  },
+  "Dewas Naka": {
+    "lat": 22.7563,
+    "lon": 75.8936
+  },
+  "Patel Motors": {
+    "lat": 22.7541,
+    "lon": 75.8912
+  },
+  "Panchvati": {
+    "lat": 22.7029,
+    "lon": 75.8394
+  },
+  "Ansal Township / Talawali chanda": {
+    "lat": 22.7502,
+    "lon": 75.8878
+  },
+  "Mangliya Village": {
+    "lat": 22.7465,
+    "lon": 75.8844
+  },
+  "Sun City": {
+    "lat": 22.7543691,
+    "lon": 75.9164327
+  },
+  "County Park": {
+    "lat": 22.744,
+    "lon": 75.8821
+  },
+  "Nariman Point": {
+    "lat": 22.7415,
+    "lon": 75.8799
+  },
+  "Sai Mandir": {
+    "lat": 22.70296854,
+    "lon": 75.97947421
+  },
+  "Mela Ground": {
+    "lat": 22.7389,
+    "lon": 75.8775
+  },
+  "Mahalaxmi Nagar Gate": {
+    "lat": 22.7362,
+    "lon": 75.8752
+  },
+  "Uttam Bhog": {
+    "lat": 22.7531796,
+    "lon": 75.9049875
+  },
+  "Bombay Hospital": {
+    "lat": 22.7546725,
+    "lon": 75.9034903
+  },
+  "Reliance Fresh": {
+    "lat": 22.7538834,
+    "lon": 75.9010902
+  },
+  "Satyasai": {
+    "lat": 22.7424787,
+    "lon": 75.8766819
+  },
+  "Shalimar Palms AB Road": {
+    "lat": 22.700954,
+    "lon": 75.9134584
+  },
+  "Mahindra Showroom": {
+    "lat": 22.7312,
+    "lon": 75.871
+  },
+  "Gulab Baag": {
+    "lat": 22.7288,
+    "lon": 75.8688
+  },
+  "Jhinsi Chouraha": {
+    "lat": 22.7265,
+    "lon": 75.8661
+  },
+  "Neelkanth Colony Chouraha (Badwani Chowki)": {
+    "lat": 22.7241,
+    "lon": 75.8639
+  },
+  "Imli Bazar": {
+    "lat": 22.7218,
+    "lon": 75.8617
+  },
+  "Rambag Chouraha": {
+    "lat": 22.7099,
+    "lon": 75.8659
+  },
+  "Malhar Ashram": {
+    "lat": 22.7276959,
+    "lon": 75.856283
+  },
+  "Rambag Lokhandepul": {
+    "lat": 22.7115,
+    "lon": 75.8643
+  },
+  "Nagar Nigam Chouraha": {
+    "lat": 22.7128,
+    "lon": 75.8632
+  },
+  "Chikmangalur Chouraha (Jail Road)": {
+    "lat": 22.7108,
+    "lon": 75.8615
+  },
+  "Rajkumar Bridge": {
+    "lat": 22.7283296,
+    "lon": 75.8681145
+  },
+  "Vallabh Nagar": {
+    "lat": 22.717,
+    "lon": 75.8524
+  },
+  "Regal Chouraha": {
+    "lat": 22.7188,
+    "lon": 75.8511
+  },
+  "Rajani Bhawan M.G. Road": {
+    "lat": 22.72,
+    "lon": 75.85
+  },
+  "Infront of T.I.": {
+    "lat": 22.7139,
+    "lon": 75.98737
+  },
+  "Indraprastha Tower": {
+    "lat": 22.7142,
+    "lon": 75.98701
+  },
+  "Palasia Chouraha Thana": {
+    "lat": 22.7248,
+    "lon": 75.8706
+  },
+  "Saket Pan Corner": {
+    "lat": 22.71444,
+    "lon": 75.98653
+  },
+  "Anand Bazar": {
+    "lat": 22.7267386,
+    "lon": 75.8944291
+  },
+  "Chandralok Chouraha": {
+    "lat": 22.7148,
+    "lon": 75.9862
+  },
+  "Khajarana Mandir": {
+    "lat": 22.7316032,
+    "lon": 75.9030502
+  },
+  "Zum Zum Chouraha": {
+    "lat": 22.7188,
+    "lon": 75.9012
+  },
+  "Chitragupt Chouraha (Star Chouraha)": {
+    "lat": 22.721,
+    "lon": 75.8991
+  },
+  "Bada Nagda": {
+    "lat": 22.6795,
+    "lon": 75.827
+  },
+  "Pal Nagar": {
+    "lat": 22.678,
+    "lon": 75.8255
+  },
+  "Bypass": {
+    "lat": 22.6841,
+    "lon": 75.8892
+  },
+  "Chuna Khadan": {
+    "lat": 22.6762,
+    "lon": 75.8238
+  },
+  "Anatpura": {
+    "lat": 22.6741,
+    "lon": 75.8219
+  },
+  "Balgarh": {
+    "lat": 22.6718,
+    "lon": 75.8198
+  },
+  "Ganesh Puri": {
+    "lat": 22.6857,
+    "lon": 75.8651
+  },
+  "Stand Doss Bunglow": {
+    "lat": 22.6698,
+    "lon": 75.8178
+  },
+  "Mera Bawri": {
+    "lat": 22.6875,
+    "lon": 75.8338
+  },
+  "Nagda": {
+    "lat": 22.6841,
+    "lon": 75.8311
+  },
+  "Balgad": {
+    "lat": 22.681,
+    "lon": 75.8284
+  },
+  "Atal Chourah": {
+    "lat": 22.6945,
+    "lon": 75.846
+  },
+  "MeeraBawdi": {
+    "lat": 22.6875,
+    "lon": 75.8338
+  },
+  "Sayaji Dwar": {
+    "lat": 22.7095,
+    "lon": 75.8521
+  },
+  "Van Mandal": {
+    "lat": 22.6912,
+    "lon": 75.8431
+  },
+  "Ramnagar": {
+    "lat": 22.6958,
+    "lon": 75.8402
+  },
+  "Kela Devi": {
+    "lat": 22.6748,
+    "lon": 75.7919
+  },
+  "Vikas Nagar": {
+    "lat": 22.6927,
+    "lon": 75.8448
+  },
+  "Shipra": {
+    "lat": 22.6892,
+    "lon": 75.8344
+  },
+  "Dakachya": {
+    "lat": 22.7502,
+    "lon": 75.912
+  },
+  "Nagukhedi": {
+    "lat": 22.7176,
+    "lon": 75.9128
+  },
+  "Kamla Nagar": {
+    "lat": 22.7138,
+    "lon": 75.8981
+  },
+  "Trilok Nagar": {
+    "lat": 22.7138,
+    "lon": 75.9081
+  },
+  "Itawa": {
+    "lat": 22.715,
+    "lon": 75.9098
+  },
+  "Bima Chouraha": {
+    "lat": 22.7162,
+    "lon": 75.9112
+  },
+  "Saraswati School": {
+    "lat": 22.7568,
+    "lon": 75.8988
+  },
+  "Sawaria Dairy": {
+    "lat": 22.7038,
+    "lon": 75.846
+  },
+  "Pioneer School": {
+    "lat": 22.7288,
+    "lon": 75.8968
+  },
+  "Karmdeep School": {
+    "lat": 22.7029,
+    "lon": 75.8448
+  },
+  "Civil Line": {
+    "lat": 22.7212,
+    "lon": 75.8638
+  },
+  "Sayaji Gate": {
+    "lat": 22.7101,
+    "lon": 75.8528
+  },
+  "Ujjain Road Bridge": {
+    "lat": 22.7019,
+    "lon": 75.8429
+  },
+  "Petrol Pump Chouraha": {
+    "lat": 22.7031,
+    "lon": 75.8441
+  },
+  "Lal Gate Saiyaji Dwar": {
+    "lat": 22.7088,
+    "lon": 75.8512
+  },
+  "Ram Nagar": {
+    "lat": 22.7151,
+    "lon": 75.8914
+  },
+  "Apex Hospital": {
+    "lat": 22.7052,
+    "lon": 75.8484
+  },
+  "Kela Devi Jawahar Nagar": {
+    "lat": 22.6761,
+    "lon": 75.7934
+  },
+  "Hero Honda Showroom": {
+    "lat": 22.7045,
+    "lon": 75.8471
+  },
+  "Bavdiya": {
+    "lat": 22.6859,
+    "lon": 75.7982
+  },
+  "Amuna": {
+    "lat": 22.7034,
+    "lon": 75.8468
+  },
+  "Rasalpur": {
+    "lat": 22.7018,
+    "lon": 75.8452
+  },
+  "Kshipra": {
+    "lat": 22.765,
+    "lon": 75.928
+  },
+  "Arjun Badoda": {
+    "lat": 22.6991,
+    "lon": 75.8431
+  },
+  "Barotha Village": {
+    "lat": 22.70253,
+    "lon": 75.96973
+  },
+  "Siroliya": {
+    "lat": 22.70187,
+    "lon": 75.96877
+  },
+  "Napakhedi": {
+    "lat": 22.70124,
+    "lon": 75.96796
+  },
+  "Rajoda": {
+    "lat": 22.69644,
+    "lon": 75.96406
+  },
+  "Kailod Phata": {
+    "lat": 22.70025,
+    "lon": 75.96715
+  },
+  "Golden Chouraha Jaitpura": {
+    "lat": 22.69953,
+    "lon": 75.96643
+  },
+  "Bhopal Chouraha": {
+    "lat": 22.70883,
+    "lon": 75.98704000000001
+  },
+  "Radha Ganj": {
+    "lat": 22.70916,
+    "lon": 75.98746
+  },
+  "Ram Rahim Chauraha": {
+    "lat": 22.7097,
+    "lon": 75.98764
+  },
+  "Chidawat": {
+    "lat": 22.698150000000002,
+    "lon": 75.96496
+  },
+  "Bilawali (Doodh Dairy)": {
+    "lat": 22.69743,
+    "lon": 75.96424
+  },
+  "Bamankheda": {
+    "lat": 22.6968,
+    "lon": 75.96355
+  },
+  "Giriaj Dham": {
+    "lat": 22.69614,
+    "lon": 75.96283
+  },
+  "Jamuna Nagar": {
+    "lat": 22.69554,
+    "lon": 75.96214
+  },
+  "Tulja Vihar": {
+    "lat": 22.69485,
+    "lon": 75.96136
+  },
+  "Awas Nagar Gate": {
+    "lat": 22.69413,
+    "lon": 75.96064
+  },
+  "BNP Thana": {
+    "lat": 22.6935,
+    "lon": 75.95995
+  },
+  "Anaj Mandi": {
+    "lat": 22.69287,
+    "lon": 75.95917
+  },
+  "Vishram Bagh": {
+    "lat": 22.69224,
+    "lon": 75.95848000000001
+  },
+  "Hotel Natraj": {
+    "lat": 22.69164,
+    "lon": 75.95779
+  },
+  "Bus Stand": {
+    "lat": 22.687339,
+    "lon": 75.8841077
+  },
+  "Ujjain Chouraha": {
+    "lat": 22.70766,
+    "lon": 75.98515
+  },
+  "Jawahar Nagar": {
+    "lat": 22.71200619,
+    "lon": 75.98473411
+  },
+  "Bavadiya": {
+    "lat": 22.70337,
+    "lon": 75.97216
+  },
+  "Lohar Pipliya": {
+    "lat": 22.69845,
+    "lon": 75.96133
+  },
+  "Acropolis Institutes": {
+    "lat": 22.8252,
+    "lon": 75.9868
+  },
+  "Rangwasa": {
+    "lat": 22.7584,
+    "lon": 75.8152
+  }
+}

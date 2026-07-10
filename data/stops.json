@@ -1,0 +1,2738 @@
+[
+  {
+    "stopId": "R01-S01",
+    "name": "Treasure Fantasy (Rangwasa)",
+    "order": 1,
+    "route": "R01"
+  },
+  {
+    "stopId": "R01-S02",
+    "name": "Vidur Nagar",
+    "order": 2,
+    "route": "R01"
+  },
+  {
+    "stopId": "R01-S03",
+    "name": "Hawa Bungla (CAT Road)",
+    "order": 3,
+    "route": "R01"
+  },
+  {
+    "stopId": "R01-S04",
+    "name": "Sai Dwar",
+    "order": 4,
+    "route": "R01"
+  },
+  {
+    "stopId": "R01-S05",
+    "name": "Relax Garden",
+    "order": 5,
+    "route": "R01"
+  },
+  {
+    "stopId": "R01-S06",
+    "name": "Reti Mandi",
+    "order": 6,
+    "route": "R01"
+  },
+  {
+    "stopId": "R01-S07",
+    "name": "Gopur Chouki",
+    "order": 7,
+    "route": "R01"
+  },
+  {
+    "stopId": "R01-S08",
+    "name": "Jaroliya",
+    "order": 8,
+    "route": "R01"
+  },
+  {
+    "stopId": "R01-S09",
+    "name": "Dastur Garden",
+    "order": 9,
+    "route": "R01"
+  },
+  {
+    "stopId": "R01-S10",
+    "name": "Footi Kothi",
+    "order": 10,
+    "route": "R01"
+  },
+  {
+    "stopId": "R01-S11",
+    "name": "Nurani Nagar",
+    "order": 11,
+    "route": "R01"
+  },
+  {
+    "stopId": "R01-S12",
+    "name": "Chandan Nagar",
+    "order": 12,
+    "route": "R01"
+  },
+  {
+    "stopId": "R01-S13",
+    "name": "Shankar Kirana",
+    "order": 13,
+    "route": "R01"
+  },
+  {
+    "stopId": "R01-S14",
+    "name": "Charu Medicoz",
+    "order": 14,
+    "route": "R01"
+  },
+  {
+    "stopId": "R01-S15",
+    "name": "Ranjeet Hanuman",
+    "order": 15,
+    "route": "R01"
+  },
+  {
+    "stopId": "R01-S16",
+    "name": "Dravid Nagar",
+    "order": 16,
+    "route": "R01"
+  },
+  {
+    "stopId": "R01-S17",
+    "name": "Usha Nagar",
+    "order": 17,
+    "route": "R01"
+  },
+  {
+    "stopId": "R01-S18",
+    "name": "Mhow Naka",
+    "order": 18,
+    "route": "R01"
+  },
+  {
+    "stopId": "R01-S19",
+    "name": "Old GDC Jairampur Colony Chouraha",
+    "order": 19,
+    "route": "R01"
+  },
+  {
+    "stopId": "R01-S20",
+    "name": "Collector Chauraha",
+    "order": 20,
+    "route": "R01"
+  },
+  {
+    "stopId": "R01-S21",
+    "name": "Palsikar Chauraha",
+    "order": 21,
+    "route": "R01"
+  },
+  {
+    "stopId": "R01-S22",
+    "name": "Juni Indore Bridge",
+    "order": 22,
+    "route": "R01"
+  },
+  {
+    "stopId": "R01-S23",
+    "name": "Sindhi Colony",
+    "order": 23,
+    "route": "R01"
+  },
+  {
+    "stopId": "R01-S24",
+    "name": "Ashok Nagar Bhauwarkua Main R.",
+    "order": 24,
+    "route": "R01"
+  },
+  {
+    "stopId": "R01-S25",
+    "name": "Bhauwarkua Chouraha",
+    "order": 25,
+    "route": "R01"
+  },
+  {
+    "stopId": "R01-S26",
+    "name": "Navlakha Chouraha",
+    "order": 26,
+    "route": "R01"
+  },
+  {
+    "stopId": "R01-S27",
+    "name": "Nemawar Road",
+    "order": 27,
+    "route": "R01"
+  },
+  {
+    "stopId": "R01-S28",
+    "name": "Teen Imli",
+    "order": 28,
+    "route": "R01"
+  },
+  {
+    "stopId": "R01-S29",
+    "name": "Musakhedi",
+    "order": 29,
+    "route": "R01"
+  },
+  {
+    "stopId": "R02-S01",
+    "name": "Vidhya Palace Chhota Bangarda",
+    "order": 1,
+    "route": "R02"
+  },
+  {
+    "stopId": "R02-S02",
+    "name": "Yadav Dharmshala",
+    "order": 2,
+    "route": "R02"
+  },
+  {
+    "stopId": "R02-S03",
+    "name": "Rukmani Nagar",
+    "order": 3,
+    "route": "R02"
+  },
+  {
+    "stopId": "R02-S04",
+    "name": "Kali Mata Mandir",
+    "order": 4,
+    "route": "R02"
+  },
+  {
+    "stopId": "R02-S05",
+    "name": "Rambali Nagar",
+    "order": 5,
+    "route": "R02"
+  },
+  {
+    "stopId": "R02-S06",
+    "name": "Doodh Dairy",
+    "order": 6,
+    "route": "R02"
+  },
+  {
+    "stopId": "R02-S07",
+    "name": "Sangam Nagar",
+    "order": 7,
+    "route": "R02"
+  },
+  {
+    "stopId": "R02-S08",
+    "name": "Khada Ganpati",
+    "order": 8,
+    "route": "R02"
+  },
+  {
+    "stopId": "R02-S09",
+    "name": "Mahesh Guard Line Petrol Pump",
+    "order": 9,
+    "route": "R02"
+  },
+  {
+    "stopId": "R02-S10",
+    "name": "Banganga Stop Old Naka",
+    "order": 10,
+    "route": "R02"
+  },
+  {
+    "stopId": "R02-S11",
+    "name": "Marimata Chouraha",
+    "order": 11,
+    "route": "R02"
+  },
+  {
+    "stopId": "R02-S12",
+    "name": "Agniban Press Chouraha",
+    "order": 12,
+    "route": "R02"
+  },
+  {
+    "stopId": "R02-S13",
+    "name": "Rajkumar Bridge (Vallabh Nagar)",
+    "order": 13,
+    "route": "R02"
+  },
+  {
+    "stopId": "R02-S14",
+    "name": "Malwa Mill",
+    "order": 14,
+    "route": "R02"
+  },
+  {
+    "stopId": "R02-S15",
+    "name": "Ranisati Gate",
+    "order": 15,
+    "route": "R02"
+  },
+  {
+    "stopId": "R02-S16",
+    "name": "City Office Chouraha",
+    "order": 16,
+    "route": "R02"
+  },
+  {
+    "stopId": "R02-S17",
+    "name": "Janjirwala Chouraha",
+    "order": 17,
+    "route": "R02"
+  },
+  {
+    "stopId": "R02-S18",
+    "name": "Industry House",
+    "order": 18,
+    "route": "R02"
+  },
+  {
+    "stopId": "R02-S19",
+    "name": "Palasia Thana",
+    "order": 19,
+    "route": "R02"
+  },
+  {
+    "stopId": "R02-S20",
+    "name": "Khajrana Chouraha",
+    "order": 20,
+    "route": "R02"
+  },
+  {
+    "stopId": "R02-S21",
+    "name": "Robot Chouraha",
+    "order": 21,
+    "route": "R02"
+  },
+  {
+    "stopId": "R02-S22",
+    "name": "Malviya Petrol Pump",
+    "order": 22,
+    "route": "R02"
+  },
+  {
+    "stopId": "R03-S01",
+    "name": "RTO Old",
+    "order": 1,
+    "route": "R03"
+  },
+  {
+    "stopId": "R03-S02",
+    "name": "Lokmanya Nagar",
+    "order": 2,
+    "route": "R03"
+  },
+  {
+    "stopId": "R03-S03",
+    "name": "Vinay Nagar",
+    "order": 3,
+    "route": "R03"
+  },
+  {
+    "stopId": "R03-S04",
+    "name": "Keshar Bag Railway Bridge",
+    "order": 4,
+    "route": "R03"
+  },
+  {
+    "stopId": "R03-S05",
+    "name": "Silicon City",
+    "order": 5,
+    "route": "R03"
+  },
+  {
+    "stopId": "R03-S06",
+    "name": "Shiv City",
+    "order": 6,
+    "route": "R03"
+  },
+  {
+    "stopId": "R03-S07",
+    "name": "Rajendra Nagar Thana",
+    "order": 7,
+    "route": "R03"
+  },
+  {
+    "stopId": "R03-S08",
+    "name": "Bijalpur Chouraha",
+    "order": 8,
+    "route": "R03"
+  },
+  {
+    "stopId": "R03-S09",
+    "name": "Gadbadi Pooliya",
+    "order": 9,
+    "route": "R03"
+  },
+  {
+    "stopId": "R03-S10",
+    "name": "Choithram Mandi Chouraha",
+    "order": 10,
+    "route": "R03"
+  },
+  {
+    "stopId": "R03-S11",
+    "name": "Rajiv Gandhi Chouraha",
+    "order": 11,
+    "route": "R03"
+  },
+  {
+    "stopId": "R03-S12",
+    "name": "Vishnupuri Chouraha",
+    "order": 12,
+    "route": "R03"
+  },
+  {
+    "stopId": "R03-S13",
+    "name": "Bhanwarkua Chouraha",
+    "order": 13,
+    "route": "R03"
+  },
+  {
+    "stopId": "R03-S14",
+    "name": "Indrapuri",
+    "order": 14,
+    "route": "R03"
+  },
+  {
+    "stopId": "R03-S15",
+    "name": "IT Park Chouraha",
+    "order": 15,
+    "route": "R03"
+  },
+  {
+    "stopId": "R03-S16",
+    "name": "SDPS College",
+    "order": 16,
+    "route": "R03"
+  },
+  {
+    "stopId": "R03-S17",
+    "name": "Khandwa Naka Chouraha",
+    "order": 17,
+    "route": "R03"
+  },
+  {
+    "stopId": "R03-S18",
+    "name": "Teen Imli Square",
+    "order": 18,
+    "route": "R03"
+  },
+  {
+    "stopId": "R03-S19",
+    "name": "Palda Road",
+    "order": 19,
+    "route": "R03"
+  },
+  {
+    "stopId": "R03-S20",
+    "name": "Limbodi Gate Rani Bagh",
+    "order": 20,
+    "route": "R03"
+  },
+  {
+    "stopId": "R03-S21",
+    "name": "Kampel",
+    "order": 21,
+    "route": "R03"
+  },
+  {
+    "stopId": "R03-S22",
+    "name": "Tejaji Nagar",
+    "order": 22,
+    "route": "R03"
+  },
+  {
+    "stopId": "R04-S01",
+    "name": "Indorama",
+    "order": 1,
+    "route": "R04"
+  },
+  {
+    "stopId": "R04-S02",
+    "name": "Sagar Kuti",
+    "order": 2,
+    "route": "R04"
+  },
+  {
+    "stopId": "R04-S03",
+    "name": "Chhatra Chhaya (Main Road)",
+    "order": 3,
+    "route": "R04"
+  },
+  {
+    "stopId": "R04-S04",
+    "name": "Choupati",
+    "order": 4,
+    "route": "R04"
+  },
+  {
+    "stopId": "R04-S05",
+    "name": "Chinar/Residency MR",
+    "order": 5,
+    "route": "R04"
+  },
+  {
+    "stopId": "R04-S06",
+    "name": "Shanti Nagar",
+    "order": 6,
+    "route": "R04"
+  },
+  {
+    "stopId": "R04-S07",
+    "name": "Dhar Naka",
+    "order": 7,
+    "route": "R04"
+  },
+  {
+    "stopId": "R04-S08",
+    "name": "Dreamland",
+    "order": 8,
+    "route": "R04"
+  },
+  {
+    "stopId": "R04-S09",
+    "name": "Hotel Shyam Vilas",
+    "order": 9,
+    "route": "R04"
+  },
+  {
+    "stopId": "R04-S10",
+    "name": "Hari Phatak",
+    "order": 10,
+    "route": "R04"
+  },
+  {
+    "stopId": "R04-S11",
+    "name": "Kishanganj Naka",
+    "order": 11,
+    "route": "R04"
+  },
+  {
+    "stopId": "R04-S12",
+    "name": "Rau",
+    "order": 12,
+    "route": "R04"
+  },
+  {
+    "stopId": "R04-S13",
+    "name": "Silicon City",
+    "order": 13,
+    "route": "R04"
+  },
+  {
+    "stopId": "R04-S14",
+    "name": "Tejaji Nagar",
+    "order": 14,
+    "route": "R04"
+  },
+  {
+    "stopId": "R04-S15",
+    "name": "Silver Spring",
+    "order": 15,
+    "route": "R04"
+  },
+  {
+    "stopId": "R04-S16",
+    "name": "Devguradiya Bypass",
+    "order": 16,
+    "route": "R04"
+  },
+  {
+    "stopId": "R05-S01",
+    "name": "Mhow Naka",
+    "order": 1,
+    "route": "R05"
+  },
+  {
+    "stopId": "R05-S02",
+    "name": "Sachidnand Nagar",
+    "order": 2,
+    "route": "R05"
+  },
+  {
+    "stopId": "R05-S03",
+    "name": "Dashera Maidan",
+    "order": 3,
+    "route": "R05"
+  },
+  {
+    "stopId": "R05-S04",
+    "name": "Bank Colony Chouraha",
+    "order": 4,
+    "route": "R05"
+  },
+  {
+    "stopId": "R05-S05",
+    "name": "Anapurna Mandir",
+    "order": 5,
+    "route": "R05"
+  },
+  {
+    "stopId": "R05-S06",
+    "name": "Mishra Nagar",
+    "order": 6,
+    "route": "R05"
+  },
+  {
+    "stopId": "R05-S07",
+    "name": "Chanankya Puri Chouraha",
+    "order": 7,
+    "route": "R05"
+  },
+  {
+    "stopId": "R05-S08",
+    "name": "Vaishali Nagar Chouraha",
+    "order": 8,
+    "route": "R05"
+  },
+  {
+    "stopId": "R05-S09",
+    "name": "Rajendra Nagar Railway Station",
+    "order": 9,
+    "route": "R05"
+  },
+  {
+    "stopId": "R05-S10",
+    "name": "Rajendra Nagar Dutt Mandir",
+    "order": 10,
+    "route": "R05"
+  },
+  {
+    "stopId": "R05-S11",
+    "name": "Reti Mandi Chouraha",
+    "order": 11,
+    "route": "R05"
+  },
+  {
+    "stopId": "R05-S12",
+    "name": "Kandhari Julewala A.B. Road",
+    "order": 12,
+    "route": "R05"
+  },
+  {
+    "stopId": "R05-S13",
+    "name": "Rajendra Nagar Thana",
+    "order": 13,
+    "route": "R05"
+  },
+  {
+    "stopId": "R05-S14",
+    "name": "Bijalpur Chouraha",
+    "order": 14,
+    "route": "R05"
+  },
+  {
+    "stopId": "R05-S15",
+    "name": "Choithram Mandi Chouraha",
+    "order": 15,
+    "route": "R05"
+  },
+  {
+    "stopId": "R05-S16",
+    "name": "Rajiv Gandhi Chouraha",
+    "order": 16,
+    "route": "R05"
+  },
+  {
+    "stopId": "R05-S17",
+    "name": "Gurudwara Ring Road",
+    "order": 17,
+    "route": "R05"
+  },
+  {
+    "stopId": "R05-S18",
+    "name": "IT Park Chouraha",
+    "order": 18,
+    "route": "R05"
+  },
+  {
+    "stopId": "R05-S19",
+    "name": "Teen Imali Square",
+    "order": 19,
+    "route": "R05"
+  },
+  {
+    "stopId": "R05-S20",
+    "name": "Mushakhedi Square",
+    "order": 20,
+    "route": "R05"
+  },
+  {
+    "stopId": "R05-S21",
+    "name": "Piplya Thana Chouraha",
+    "order": 21,
+    "route": "R05"
+  },
+  {
+    "stopId": "R05-S22",
+    "name": "JMB",
+    "order": 22,
+    "route": "R05"
+  },
+  {
+    "stopId": "R05-S23",
+    "name": "Agrawal Public School",
+    "order": 23,
+    "route": "R05"
+  },
+  {
+    "stopId": "R06-S01",
+    "name": "Hatod",
+    "order": 1,
+    "route": "R06"
+  },
+  {
+    "stopId": "R06-S02",
+    "name": "Gandhi Nagar",
+    "order": 2,
+    "route": "R06"
+  },
+  {
+    "stopId": "R06-S03",
+    "name": "60 Ft. Road",
+    "order": 3,
+    "route": "R06"
+  },
+  {
+    "stopId": "R06-S04",
+    "name": "Sukhdev Nagar (Ring Road)",
+    "order": 4,
+    "route": "R06"
+  },
+  {
+    "stopId": "R06-S05",
+    "name": "Palhar Nagar Ring Road",
+    "order": 5,
+    "route": "R06"
+  },
+  {
+    "stopId": "R06-S06",
+    "name": "Aerodrum Thana",
+    "order": 6,
+    "route": "R06"
+  },
+  {
+    "stopId": "R06-S07",
+    "name": "Vidhya Dham",
+    "order": 7,
+    "route": "R06"
+  },
+  {
+    "stopId": "R06-S08",
+    "name": "Kalani Nagar",
+    "order": 8,
+    "route": "R06"
+  },
+  {
+    "stopId": "R06-S09",
+    "name": "Shikshak Nagar",
+    "order": 9,
+    "route": "R06"
+  },
+  {
+    "stopId": "R06-S10",
+    "name": "Ramchandra Nagar Petrol Pump",
+    "order": 10,
+    "route": "R06"
+  },
+  {
+    "stopId": "R06-S11",
+    "name": "Bada Ganpati",
+    "order": 11,
+    "route": "R06"
+  },
+  {
+    "stopId": "R06-S12",
+    "name": "Vaishnav Polytechnic College MOG Lines",
+    "order": 12,
+    "route": "R06"
+  },
+  {
+    "stopId": "R06-S13",
+    "name": "Gangwal Bus Stand",
+    "order": 13,
+    "route": "R06"
+  },
+  {
+    "stopId": "R06-S14",
+    "name": "Rajmohalla Chouraha Petrol Pump",
+    "order": 14,
+    "route": "R06"
+  },
+  {
+    "stopId": "R06-S15",
+    "name": "Malganj Chouraha",
+    "order": 15,
+    "route": "R06"
+  },
+  {
+    "stopId": "R06-S16",
+    "name": "Narsingh Bazar Chouraha",
+    "order": 16,
+    "route": "R06"
+  },
+  {
+    "stopId": "R06-S17",
+    "name": "Bartan Bazar Chouraha",
+    "order": 17,
+    "route": "R06"
+  },
+  {
+    "stopId": "R06-S18",
+    "name": "Gurudwara Jawaharmarg",
+    "order": 18,
+    "route": "R06"
+  },
+  {
+    "stopId": "R06-S19",
+    "name": "Saifi Hotel",
+    "order": 19,
+    "route": "R06"
+  },
+  {
+    "stopId": "R06-S20",
+    "name": "District Court MG Road",
+    "order": 20,
+    "route": "R06"
+  },
+  {
+    "stopId": "R06-S21",
+    "name": "Patel Bridge",
+    "order": 21,
+    "route": "R06"
+  },
+  {
+    "stopId": "R06-S22",
+    "name": "Patel Pratima",
+    "order": 22,
+    "route": "R06"
+  },
+  {
+    "stopId": "R06-S23",
+    "name": "Shrimaya Hotel Madhumilan Chou.",
+    "order": 23,
+    "route": "R06"
+  },
+  {
+    "stopId": "R06-S24",
+    "name": "Dhakkanwala Kua",
+    "order": 24,
+    "route": "R06"
+  },
+  {
+    "stopId": "R07-S01",
+    "name": "Paliya Station",
+    "order": 1,
+    "route": "R07"
+  },
+  {
+    "stopId": "R07-S02",
+    "name": "Aurbindo Hospital",
+    "order": 2,
+    "route": "R07"
+  },
+  {
+    "stopId": "R07-S03",
+    "name": "Divya Vihar Colony",
+    "order": 3,
+    "route": "R07"
+  },
+  {
+    "stopId": "R07-S04",
+    "name": "Lavkush Chouraha",
+    "order": 4,
+    "route": "R07"
+  },
+  {
+    "stopId": "R07-S05",
+    "name": "MR 10 Square",
+    "order": 5,
+    "route": "R07"
+  },
+  {
+    "stopId": "R07-S06",
+    "name": "Heera Nagar Chouraha",
+    "order": 6,
+    "route": "R07"
+  },
+  {
+    "stopId": "R07-S07",
+    "name": "Bapat Chouraha",
+    "order": 7,
+    "route": "R07"
+  },
+  {
+    "stopId": "R07-S08",
+    "name": "Maruti Nagar Chouraha",
+    "order": 8,
+    "route": "R07"
+  },
+  {
+    "stopId": "R07-S09",
+    "name": "ITI Back Side",
+    "order": 9,
+    "route": "R07"
+  },
+  {
+    "stopId": "R07-S10",
+    "name": "Clerk Colony",
+    "order": 10,
+    "route": "R07"
+  },
+  {
+    "stopId": "R07-S11",
+    "name": "Gori Nagar",
+    "order": 11,
+    "route": "R07"
+  },
+  {
+    "stopId": "R07-S12",
+    "name": "ITI Front Side",
+    "order": 12,
+    "route": "R07"
+  },
+  {
+    "stopId": "R07-S13",
+    "name": "MR-10 Chouraha",
+    "order": 13,
+    "route": "R07"
+  },
+  {
+    "stopId": "R07-S14",
+    "name": "Heera Nagar Thana",
+    "order": 14,
+    "route": "R07"
+  },
+  {
+    "stopId": "R07-S15",
+    "name": "Opposite Fortune Landmark",
+    "order": 15,
+    "route": "R07"
+  },
+  {
+    "stopId": "R07-S16",
+    "name": "Bhandari Hospital",
+    "order": 16,
+    "route": "R07"
+  },
+  {
+    "stopId": "R07-S17",
+    "name": "Vijay Nagar Thana",
+    "order": 17,
+    "route": "R07"
+  },
+  {
+    "stopId": "R07-S18",
+    "name": "Hotel Redisson",
+    "order": 18,
+    "route": "R07"
+  },
+  {
+    "stopId": "R07-S19",
+    "name": "Omaxe City & Bypass",
+    "order": 19,
+    "route": "R07"
+  },
+  {
+    "stopId": "R08-S01",
+    "name": "Niranjanpur Chouraha",
+    "order": 1,
+    "route": "R08"
+  },
+  {
+    "stopId": "R08-S02",
+    "name": "Nakshatra Garden",
+    "order": 2,
+    "route": "R08"
+  },
+  {
+    "stopId": "R08-S03",
+    "name": "Rajshree Hospital",
+    "order": 3,
+    "route": "R08"
+  },
+  {
+    "stopId": "R08-S04",
+    "name": "Food Land",
+    "order": 4,
+    "route": "R08"
+  },
+  {
+    "stopId": "R08-S05",
+    "name": "Sica School",
+    "order": 5,
+    "route": "R08"
+  },
+  {
+    "stopId": "R08-S06",
+    "name": "Ashish Nursing Home",
+    "order": 6,
+    "route": "R08"
+  },
+  {
+    "stopId": "R08-S07",
+    "name": "Scheme No. 74 Main Road",
+    "order": 7,
+    "route": "R08"
+  },
+  {
+    "stopId": "R08-S08",
+    "name": "Scheme No. 78 Nai Sadak",
+    "order": 8,
+    "route": "R08"
+  },
+  {
+    "stopId": "R08-S09",
+    "name": "Dewas Naka",
+    "order": 9,
+    "route": "R08"
+  },
+  {
+    "stopId": "R08-S10",
+    "name": "Patel Motors",
+    "order": 10,
+    "route": "R08"
+  },
+  {
+    "stopId": "R08-S11",
+    "name": "Panchvati",
+    "order": 11,
+    "route": "R08"
+  },
+  {
+    "stopId": "R08-S12",
+    "name": "Ansal Township / Talawali chanda",
+    "order": 12,
+    "route": "R08"
+  },
+  {
+    "stopId": "R08-S13",
+    "name": "Mangliya Village",
+    "order": 13,
+    "route": "R08"
+  },
+  {
+    "stopId": "R09-S01",
+    "name": "Sun City",
+    "order": 1,
+    "route": "R09"
+  },
+  {
+    "stopId": "R09-S02",
+    "name": "County Park",
+    "order": 2,
+    "route": "R09"
+  },
+  {
+    "stopId": "R09-S03",
+    "name": "Nariman Point",
+    "order": 3,
+    "route": "R09"
+  },
+  {
+    "stopId": "R09-S04",
+    "name": "Sai Mandir",
+    "order": 4,
+    "route": "R09"
+  },
+  {
+    "stopId": "R09-S05",
+    "name": "Mela Ground",
+    "order": 5,
+    "route": "R09"
+  },
+  {
+    "stopId": "R09-S06",
+    "name": "Mahalaxmi Nagar Gate",
+    "order": 6,
+    "route": "R09"
+  },
+  {
+    "stopId": "R09-S07",
+    "name": "Uttam Bhog",
+    "order": 7,
+    "route": "R09"
+  },
+  {
+    "stopId": "R09-S08",
+    "name": "Bombay Hospital",
+    "order": 8,
+    "route": "R09"
+  },
+  {
+    "stopId": "R09-S09",
+    "name": "Reliance Fresh",
+    "order": 9,
+    "route": "R09"
+  },
+  {
+    "stopId": "R09-S10",
+    "name": "Satyasai",
+    "order": 10,
+    "route": "R09"
+  },
+  {
+    "stopId": "R09-S11",
+    "name": "Shalimar Palms AB Road",
+    "order": 11,
+    "route": "R09"
+  },
+  {
+    "stopId": "R09-S12",
+    "name": "Mahindra Showroom",
+    "order": 12,
+    "route": "R09"
+  },
+  {
+    "stopId": "R09-S13",
+    "name": "Dewas Naka",
+    "order": 13,
+    "route": "R09"
+  },
+  {
+    "stopId": "R09-S14",
+    "name": "Gulab Baag",
+    "order": 14,
+    "route": "R09"
+  },
+  {
+    "stopId": "R10-S01",
+    "name": "Bhamori Plaza",
+    "order": 1,
+    "route": "R10"
+  },
+  {
+    "stopId": "R10-S02",
+    "name": "Astha Talkies",
+    "order": 2,
+    "route": "R10"
+  },
+  {
+    "stopId": "R10-S03",
+    "name": "Bhandari Bridge Thana",
+    "order": 3,
+    "route": "R10"
+  },
+  {
+    "stopId": "R10-S04",
+    "name": "Subhash Nagar",
+    "order": 4,
+    "route": "R10"
+  },
+  {
+    "stopId": "R10-S05",
+    "name": "Pardeshipura",
+    "order": 5,
+    "route": "R10"
+  },
+  {
+    "stopId": "R10-S06",
+    "name": "Nanda Nagar Teen Puliya",
+    "order": 6,
+    "route": "R10"
+  },
+  {
+    "stopId": "R10-S07",
+    "name": "Nanda Nagar",
+    "order": 7,
+    "route": "R10"
+  },
+  {
+    "stopId": "R10-S08",
+    "name": "Patnipura",
+    "order": 8,
+    "route": "R10"
+  },
+  {
+    "stopId": "R10-S09",
+    "name": "Atal Dwar",
+    "order": 9,
+    "route": "R10"
+  },
+  {
+    "stopId": "R10-S10",
+    "name": "Christian Eminent School",
+    "order": 10,
+    "route": "R10"
+  },
+  {
+    "stopId": "R10-S11",
+    "name": "LIG Square",
+    "order": 11,
+    "route": "R10"
+  },
+  {
+    "stopId": "R10-S12",
+    "name": "Press Complex",
+    "order": 12,
+    "route": "R10"
+  },
+  {
+    "stopId": "R10-S13",
+    "name": "Malviya Nagar Chouraha",
+    "order": 13,
+    "route": "R10"
+  },
+  {
+    "stopId": "R10-S14",
+    "name": "Barfani Dham",
+    "order": 14,
+    "route": "R10"
+  },
+  {
+    "stopId": "R10-S15",
+    "name": "Rasoma Chouraha",
+    "order": 15,
+    "route": "R10"
+  },
+  {
+    "stopId": "R10-S16",
+    "name": "Vijay Nagar",
+    "order": 16,
+    "route": "R10"
+  },
+  {
+    "stopId": "R10-S17",
+    "name": "Hotel Redison Chouraha",
+    "order": 17,
+    "route": "R10"
+  },
+  {
+    "stopId": "R10-S18",
+    "name": "Omaxe City & Bypass",
+    "order": 18,
+    "route": "R10"
+  },
+  {
+    "stopId": "R11-S01",
+    "name": "Navlakha Bus Stand",
+    "order": 1,
+    "route": "R11"
+  },
+  {
+    "stopId": "R11-S02",
+    "name": "GPO Chouraha Petrol Pump",
+    "order": 2,
+    "route": "R11"
+  },
+  {
+    "stopId": "R11-S03",
+    "name": "Jaora Compound (BJP Office)",
+    "order": 3,
+    "route": "R11"
+  },
+  {
+    "stopId": "R11-S04",
+    "name": "M.Y. Chauraha",
+    "order": 4,
+    "route": "R11"
+  },
+  {
+    "stopId": "R11-S05",
+    "name": "St. Paul School",
+    "order": 5,
+    "route": "R11"
+  },
+  {
+    "stopId": "R11-S06",
+    "name": "Shivaji Vatika",
+    "order": 6,
+    "route": "R11"
+  },
+  {
+    "stopId": "R11-S07",
+    "name": "Mahatma Gandhi Medical College",
+    "order": 7,
+    "route": "R11"
+  },
+  {
+    "stopId": "R11-S08",
+    "name": "Geeta Bhawan Chouraha",
+    "order": 8,
+    "route": "R11"
+  },
+  {
+    "stopId": "R11-S09",
+    "name": "Palasia Chouraha (Petrol Pump)",
+    "order": 9,
+    "route": "R11"
+  },
+  {
+    "stopId": "R11-S10",
+    "name": "Badwani Plaza",
+    "order": 10,
+    "route": "R11"
+  },
+  {
+    "stopId": "R11-S11",
+    "name": "Patrakar Chouraha",
+    "order": 11,
+    "route": "R11"
+  },
+  {
+    "stopId": "R11-S12",
+    "name": "Kanadia Road Sabji Mandi",
+    "order": 12,
+    "route": "R11"
+  },
+  {
+    "stopId": "R11-S13",
+    "name": "Telephone Chouraha",
+    "order": 13,
+    "route": "R11"
+  },
+  {
+    "stopId": "R11-S14",
+    "name": "Kanadiya Village",
+    "order": 14,
+    "route": "R11"
+  },
+  {
+    "stopId": "R11-S15",
+    "name": "Bengali Chouraha",
+    "order": 15,
+    "route": "R11"
+  },
+  {
+    "stopId": "R11-S16",
+    "name": "Vaibhav Nagar Chouraha",
+    "order": 16,
+    "route": "R11"
+  },
+  {
+    "stopId": "R11-S17",
+    "name": "Sanchar Nagar",
+    "order": 17,
+    "route": "R11"
+  },
+  {
+    "stopId": "R11-S18",
+    "name": "Manavta Nagar Chouraha",
+    "order": 18,
+    "route": "R11"
+  },
+  {
+    "stopId": "R11-S19",
+    "name": "Kanadiya Bypass",
+    "order": 19,
+    "route": "R11"
+  },
+  {
+    "stopId": "R11-S20",
+    "name": "Jhalariya Village",
+    "order": 20,
+    "route": "R11"
+  },
+  {
+    "stopId": "R12-S01",
+    "name": "Tilak Nagar Jain Mandir",
+    "order": 1,
+    "route": "R12"
+  },
+  {
+    "stopId": "R12-S02",
+    "name": "Telephone Nagar Tempo Stand",
+    "order": 2,
+    "route": "R12"
+  },
+  {
+    "stopId": "R12-S03",
+    "name": "Mahavir Nagar",
+    "order": 3,
+    "route": "R12"
+  },
+  {
+    "stopId": "R12-S04",
+    "name": "Telephone Chouraha",
+    "order": 4,
+    "route": "R12"
+  },
+  {
+    "stopId": "R12-S05",
+    "name": "Bengali Chouraha",
+    "order": 5,
+    "route": "R12"
+  },
+  {
+    "stopId": "R12-S06",
+    "name": "Adarsh Shishu Viahar School",
+    "order": 6,
+    "route": "R12"
+  },
+  {
+    "stopId": "R12-S07",
+    "name": "Columbia Convent School",
+    "order": 7,
+    "route": "R12"
+  },
+  {
+    "stopId": "R12-S08",
+    "name": "Kanadiya Bypass",
+    "order": 8,
+    "route": "R12"
+  },
+  {
+    "stopId": "R13-S01",
+    "name": "Jhinsi Chouraha",
+    "order": 1,
+    "route": "R13"
+  },
+  {
+    "stopId": "R13-S02",
+    "name": "Neelkanth Colony Chouraha (Badwani Chowki)",
+    "order": 2,
+    "route": "R13"
+  },
+  {
+    "stopId": "R13-S03",
+    "name": "Imli Bazar",
+    "order": 3,
+    "route": "R13"
+  },
+  {
+    "stopId": "R13-S04",
+    "name": "Rambag Chouraha",
+    "order": 4,
+    "route": "R13"
+  },
+  {
+    "stopId": "R13-S05",
+    "name": "Malhar Ashram",
+    "order": 5,
+    "route": "R13"
+  },
+  {
+    "stopId": "R13-S06",
+    "name": "Rambag Lokhandepul",
+    "order": 6,
+    "route": "R13"
+  },
+  {
+    "stopId": "R13-S07",
+    "name": "Nagar Nigam Chouraha",
+    "order": 7,
+    "route": "R13"
+  },
+  {
+    "stopId": "R13-S08",
+    "name": "Chikmangalur Chouraha (Jail Road)",
+    "order": 8,
+    "route": "R13"
+  },
+  {
+    "stopId": "R13-S09",
+    "name": "Rajkumar Bridge",
+    "order": 9,
+    "route": "R13"
+  },
+  {
+    "stopId": "R13-S10",
+    "name": "Vallabh Nagar",
+    "order": 10,
+    "route": "R13"
+  },
+  {
+    "stopId": "R13-S11",
+    "name": "Regal Chouraha",
+    "order": 11,
+    "route": "R13"
+  },
+  {
+    "stopId": "R13-S12",
+    "name": "Rajani Bhawan M.G. Road",
+    "order": 12,
+    "route": "R13"
+  },
+  {
+    "stopId": "R13-S13",
+    "name": "Infront of T.I.",
+    "order": 13,
+    "route": "R13"
+  },
+  {
+    "stopId": "R13-S14",
+    "name": "Indraprastha Tower",
+    "order": 14,
+    "route": "R13"
+  },
+  {
+    "stopId": "R13-S15",
+    "name": "Palasia Chouraha Thana",
+    "order": 15,
+    "route": "R13"
+  },
+  {
+    "stopId": "R13-S16",
+    "name": "Saket Pan Corner",
+    "order": 16,
+    "route": "R13"
+  },
+  {
+    "stopId": "R13-S17",
+    "name": "Anand Bazar",
+    "order": 17,
+    "route": "R13"
+  },
+  {
+    "stopId": "R13-S18",
+    "name": "Chandralok Chouraha",
+    "order": 18,
+    "route": "R13"
+  },
+  {
+    "stopId": "R13-S19",
+    "name": "Khajrana Chouraha",
+    "order": 19,
+    "route": "R13"
+  },
+  {
+    "stopId": "R13-S20",
+    "name": "Khajarana Mandir",
+    "order": 20,
+    "route": "R13"
+  },
+  {
+    "stopId": "R13-S21",
+    "name": "Zum Zum Chouraha",
+    "order": 21,
+    "route": "R13"
+  },
+  {
+    "stopId": "R13-S22",
+    "name": "Chitragupt Chouraha (Star Chouraha)",
+    "order": 22,
+    "route": "R13"
+  },
+  {
+    "stopId": "R14-S01",
+    "name": "Six Bunglow Sitla Mata Mandir",
+    "order": 1,
+    "route": "R14"
+  },
+  {
+    "stopId": "R14-S02",
+    "name": "Reliance Fresh Manik Bagh",
+    "order": 2,
+    "route": "R14"
+  },
+  {
+    "stopId": "R14-S03",
+    "name": "Palsikar Chouraha",
+    "order": 3,
+    "route": "R14"
+  },
+  {
+    "stopId": "R14-S04",
+    "name": "Manik Bagh Bridge",
+    "order": 4,
+    "route": "R14"
+  },
+  {
+    "stopId": "R14-S05",
+    "name": "Khatiwala Tank",
+    "order": 5,
+    "route": "R14"
+  },
+  {
+    "stopId": "R14-S06",
+    "name": "Tower Chouraha",
+    "order": 6,
+    "route": "R14"
+  },
+  {
+    "stopId": "R14-S07",
+    "name": "Sapna Sangeeta",
+    "order": 7,
+    "route": "R14"
+  },
+  {
+    "stopId": "R14-S08",
+    "name": "Lotus",
+    "order": 8,
+    "route": "R14"
+  },
+  {
+    "stopId": "R14-S09",
+    "name": "Agrasen Chouraha",
+    "order": 9,
+    "route": "R14"
+  },
+  {
+    "stopId": "R14-S10",
+    "name": "Azad Nagar Chouraha",
+    "order": 10,
+    "route": "R14"
+  },
+  {
+    "stopId": "R14-S11",
+    "name": "Musakhedi Chouraha Inside",
+    "order": 11,
+    "route": "R14"
+  },
+  {
+    "stopId": "R14-S12",
+    "name": "Daily College",
+    "order": 12,
+    "route": "R14"
+  },
+  {
+    "stopId": "R14-S13",
+    "name": "Agriculture College Chouraha",
+    "order": 13,
+    "route": "R14"
+  },
+  {
+    "stopId": "R14-S14",
+    "name": "Piplihana Chouraha",
+    "order": 14,
+    "route": "R14"
+  },
+  {
+    "stopId": "R14-S15",
+    "name": "Hanuman Mandir Ring Road",
+    "order": 15,
+    "route": "R14"
+  },
+  {
+    "stopId": "R14-S16",
+    "name": "Bengali Chouraha",
+    "order": 16,
+    "route": "R14"
+  },
+  {
+    "stopId": "R15-S01",
+    "name": "Bada Nagda",
+    "order": 1,
+    "route": "R15"
+  },
+  {
+    "stopId": "R15-S02",
+    "name": "Pal Nagar",
+    "order": 2,
+    "route": "R15"
+  },
+  {
+    "stopId": "R15-S03",
+    "name": "Bypass",
+    "order": 3,
+    "route": "R15"
+  },
+  {
+    "stopId": "R15-S04",
+    "name": "Chuna Khadan",
+    "order": 4,
+    "route": "R15"
+  },
+  {
+    "stopId": "R15-S05",
+    "name": "Anatpura",
+    "order": 5,
+    "route": "R15"
+  },
+  {
+    "stopId": "R15-S06",
+    "name": "Balgarh",
+    "order": 6,
+    "route": "R15"
+  },
+  {
+    "stopId": "R15-S07",
+    "name": "Ganesh Puri",
+    "order": 7,
+    "route": "R15"
+  },
+  {
+    "stopId": "R15-S08",
+    "name": "Stand Doss Bunglow",
+    "order": 8,
+    "route": "R15"
+  },
+  {
+    "stopId": "R15-S09",
+    "name": "Mera Bawri",
+    "order": 9,
+    "route": "R15"
+  },
+  {
+    "stopId": "R15-S10",
+    "name": "Nagda",
+    "order": 10,
+    "route": "R15"
+  },
+  {
+    "stopId": "R15-S11",
+    "name": "Chuna Khadan",
+    "order": 11,
+    "route": "R15"
+  },
+  {
+    "stopId": "R15-S12",
+    "name": "Balgad",
+    "order": 12,
+    "route": "R15"
+  },
+  {
+    "stopId": "R15-S13",
+    "name": "Atal Chourah",
+    "order": 13,
+    "route": "R15"
+  },
+  {
+    "stopId": "R15-S14",
+    "name": "Ganesh Puri",
+    "order": 14,
+    "route": "R15"
+  },
+  {
+    "stopId": "R15-S15",
+    "name": "MeeraBawdi",
+    "order": 15,
+    "route": "R15"
+  },
+  {
+    "stopId": "R15-S16",
+    "name": "Sayaji Dwar",
+    "order": 16,
+    "route": "R15"
+  },
+  {
+    "stopId": "R15-S17",
+    "name": "Van Mandal",
+    "order": 17,
+    "route": "R15"
+  },
+  {
+    "stopId": "R15-S18",
+    "name": "Ramnagar",
+    "order": 18,
+    "route": "R15"
+  },
+  {
+    "stopId": "R15-S19",
+    "name": "Kela Devi",
+    "order": 19,
+    "route": "R15"
+  },
+  {
+    "stopId": "R15-S20",
+    "name": "Vikas Nagar",
+    "order": 20,
+    "route": "R15"
+  },
+  {
+    "stopId": "R15-S21",
+    "name": "Shipra",
+    "order": 21,
+    "route": "R15"
+  },
+  {
+    "stopId": "R15-S22",
+    "name": "Dakachya",
+    "order": 22,
+    "route": "R15"
+  },
+  {
+    "stopId": "R16-S01",
+    "name": "Nagukhedi",
+    "order": 1,
+    "route": "R16"
+  },
+  {
+    "stopId": "R16-S02",
+    "name": "Kamla Nagar",
+    "order": 2,
+    "route": "R16"
+  },
+  {
+    "stopId": "R16-S03",
+    "name": "Trilok Nagar",
+    "order": 3,
+    "route": "R16"
+  },
+  {
+    "stopId": "R16-S04",
+    "name": "Itawa",
+    "order": 4,
+    "route": "R16"
+  },
+  {
+    "stopId": "R16-S05",
+    "name": "Bima Chouraha",
+    "order": 5,
+    "route": "R16"
+  },
+  {
+    "stopId": "R16-S06",
+    "name": "Saraswati School",
+    "order": 6,
+    "route": "R16"
+  },
+  {
+    "stopId": "R16-S07",
+    "name": "Sawaria Dairy",
+    "order": 7,
+    "route": "R16"
+  },
+  {
+    "stopId": "R16-S08",
+    "name": "Pioneer School",
+    "order": 8,
+    "route": "R16"
+  },
+  {
+    "stopId": "R16-S09",
+    "name": "Karmdeep School",
+    "order": 9,
+    "route": "R16"
+  },
+  {
+    "stopId": "R16-S10",
+    "name": "Civil Line",
+    "order": 10,
+    "route": "R16"
+  },
+  {
+    "stopId": "R16-S11",
+    "name": "Sayaji Gate",
+    "order": 11,
+    "route": "R16"
+  },
+  {
+    "stopId": "R16-S12",
+    "name": "Ujjain Road Bridge",
+    "order": 12,
+    "route": "R16"
+  },
+  {
+    "stopId": "R16-S13",
+    "name": "Petrol Pump Chouraha",
+    "order": 13,
+    "route": "R16"
+  },
+  {
+    "stopId": "R16-S14",
+    "name": "Lal Gate Saiyaji Dwar",
+    "order": 14,
+    "route": "R16"
+  },
+  {
+    "stopId": "R16-S15",
+    "name": "Van Mandal",
+    "order": 15,
+    "route": "R16"
+  },
+  {
+    "stopId": "R16-S16",
+    "name": "Ram Nagar",
+    "order": 16,
+    "route": "R16"
+  },
+  {
+    "stopId": "R16-S17",
+    "name": "Apex Hospital",
+    "order": 17,
+    "route": "R16"
+  },
+  {
+    "stopId": "R16-S18",
+    "name": "Kela Devi Jawahar Nagar",
+    "order": 18,
+    "route": "R16"
+  },
+  {
+    "stopId": "R16-S19",
+    "name": "Hero Honda Showroom",
+    "order": 19,
+    "route": "R16"
+  },
+  {
+    "stopId": "R16-S20",
+    "name": "Vikas Nagar",
+    "order": 20,
+    "route": "R16"
+  },
+  {
+    "stopId": "R16-S21",
+    "name": "Bavdiya",
+    "order": 21,
+    "route": "R16"
+  },
+  {
+    "stopId": "R16-S22",
+    "name": "Amuna",
+    "order": 22,
+    "route": "R16"
+  },
+  {
+    "stopId": "R16-S23",
+    "name": "Rasalpur",
+    "order": 23,
+    "route": "R16"
+  },
+  {
+    "stopId": "R16-S24",
+    "name": "Kshipra",
+    "order": 24,
+    "route": "R16"
+  },
+  {
+    "stopId": "R16-S25",
+    "name": "Arjun Badoda",
+    "order": 25,
+    "route": "R16"
+  },
+  {
+    "stopId": "R16-S26",
+    "name": "Dakachya",
+    "order": 26,
+    "route": "R16"
+  },
+  {
+    "stopId": "R17-S01",
+    "name": "Datana",
+    "order": 1,
+    "route": "R17"
+  },
+  {
+    "stopId": "R17-S02",
+    "name": "Semliya Phata",
+    "order": 2,
+    "route": "R17"
+  },
+  {
+    "stopId": "R17-S03",
+    "name": "Narwar",
+    "order": 3,
+    "route": "R17"
+  },
+  {
+    "stopId": "R17-S04",
+    "name": "Achnariya",
+    "order": 4,
+    "route": "R17"
+  },
+  {
+    "stopId": "R17-S05",
+    "name": "Palkhanda",
+    "order": 5,
+    "route": "R17"
+  },
+  {
+    "stopId": "R17-S06",
+    "name": "Bangar",
+    "order": 6,
+    "route": "R17"
+  },
+  {
+    "stopId": "R17-S07",
+    "name": "Singawda",
+    "order": 7,
+    "route": "R17"
+  },
+  {
+    "stopId": "R17-S08",
+    "name": "Mangawda (Gaushala)",
+    "order": 8,
+    "route": "R17"
+  },
+  {
+    "stopId": "R17-S09",
+    "name": "Nagukhedi (Bypass)",
+    "order": 9,
+    "route": "R17"
+  },
+  {
+    "stopId": "R17-S10",
+    "name": "Kamla Nagar",
+    "order": 10,
+    "route": "R17"
+  },
+  {
+    "stopId": "R17-S11",
+    "name": "Trilok Nagar",
+    "order": 11,
+    "route": "R17"
+  },
+  {
+    "stopId": "R17-S12",
+    "name": "Etawa",
+    "order": 12,
+    "route": "R17"
+  },
+  {
+    "stopId": "R17-S13",
+    "name": "Bima Chaurha",
+    "order": 13,
+    "route": "R17"
+  },
+  {
+    "stopId": "R17-S14",
+    "name": "Ujjain Road Bridge",
+    "order": 14,
+    "route": "R17"
+  },
+  {
+    "stopId": "R17-S15",
+    "name": "Pump Chaurha",
+    "order": 15,
+    "route": "R17"
+  },
+  {
+    "stopId": "R17-S16",
+    "name": "Sayaji Gate",
+    "order": 16,
+    "route": "R17"
+  },
+  {
+    "stopId": "R17-S17",
+    "name": "Ram Nagar",
+    "order": 17,
+    "route": "R17"
+  },
+  {
+    "stopId": "R17-S18",
+    "name": "Apex Hospital",
+    "order": 18,
+    "route": "R17"
+  },
+  {
+    "stopId": "R17-S19",
+    "name": "Kela Devi Jawahar Nagar",
+    "order": 19,
+    "route": "R17"
+  },
+  {
+    "stopId": "R17-S20",
+    "name": "Hero Honda Showroom",
+    "order": 20,
+    "route": "R17"
+  },
+  {
+    "stopId": "R17-S21",
+    "name": "Vikas Nagar",
+    "order": 21,
+    "route": "R17"
+  },
+  {
+    "stopId": "R17-S22",
+    "name": "Bavdiya",
+    "order": 22,
+    "route": "R17"
+  },
+  {
+    "stopId": "R17-S23",
+    "name": "Amuna",
+    "order": 23,
+    "route": "R17"
+  },
+  {
+    "stopId": "R17-S24",
+    "name": "Rasalpur",
+    "order": 24,
+    "route": "R17"
+  },
+  {
+    "stopId": "R17-S25",
+    "name": "Kshipra",
+    "order": 25,
+    "route": "R17"
+  },
+  {
+    "stopId": "R17-S26",
+    "name": "Arjun Badoda",
+    "order": 26,
+    "route": "R17"
+  },
+  {
+    "stopId": "R17-S27",
+    "name": "Dakachya",
+    "order": 27,
+    "route": "R17"
+  },
+  {
+    "stopId": "R18-S01",
+    "name": "Barotha Village",
+    "order": 1,
+    "route": "R18"
+  },
+  {
+    "stopId": "R18-S02",
+    "name": "Siroliya",
+    "order": 2,
+    "route": "R18"
+  },
+  {
+    "stopId": "R18-S03",
+    "name": "Napakhedi",
+    "order": 3,
+    "route": "R18"
+  },
+  {
+    "stopId": "R18-S04",
+    "name": "Rajoda",
+    "order": 4,
+    "route": "R18"
+  },
+  {
+    "stopId": "R18-S05",
+    "name": "Kailod Phata",
+    "order": 5,
+    "route": "R18"
+  },
+  {
+    "stopId": "R18-S06",
+    "name": "Golden Chouraha Jaitpura",
+    "order": 6,
+    "route": "R18"
+  },
+  {
+    "stopId": "R18-S07",
+    "name": "Bhopal Chouraha",
+    "order": 7,
+    "route": "R18"
+  },
+  {
+    "stopId": "R18-S08",
+    "name": "Radha Ganj",
+    "order": 8,
+    "route": "R18"
+  },
+  {
+    "stopId": "R18-S09",
+    "name": "Ram Rahim Chauraha",
+    "order": 9,
+    "route": "R18"
+  },
+  {
+    "stopId": "R18-S10",
+    "name": "Chidawat",
+    "order": 10,
+    "route": "R18"
+  },
+  {
+    "stopId": "R18-S11",
+    "name": "Bilawali (Doodh Dairy)",
+    "order": 11,
+    "route": "R18"
+  },
+  {
+    "stopId": "R18-S12",
+    "name": "Bamankheda",
+    "order": 12,
+    "route": "R18"
+  },
+  {
+    "stopId": "R18-S13",
+    "name": "Giriaj Dham",
+    "order": 13,
+    "route": "R18"
+  },
+  {
+    "stopId": "R18-S14",
+    "name": "Jamuna Nagar",
+    "order": 14,
+    "route": "R18"
+  },
+  {
+    "stopId": "R18-S15",
+    "name": "Tulja Vihar",
+    "order": 15,
+    "route": "R18"
+  },
+  {
+    "stopId": "R18-S16",
+    "name": "Awas Nagar Gate",
+    "order": 16,
+    "route": "R18"
+  },
+  {
+    "stopId": "R18-S17",
+    "name": "BNP Thana",
+    "order": 17,
+    "route": "R18"
+  },
+  {
+    "stopId": "R18-S18",
+    "name": "Anaj Mandi",
+    "order": 18,
+    "route": "R18"
+  },
+  {
+    "stopId": "R18-S19",
+    "name": "Vishram Bagh",
+    "order": 19,
+    "route": "R18"
+  },
+  {
+    "stopId": "R18-S20",
+    "name": "Bhopal Chouraha",
+    "order": 20,
+    "route": "R18"
+  },
+  {
+    "stopId": "R18-S21",
+    "name": "Hotel Natraj",
+    "order": 21,
+    "route": "R18"
+  },
+  {
+    "stopId": "R18-S22",
+    "name": "Bus Stand",
+    "order": 22,
+    "route": "R18"
+  },
+  {
+    "stopId": "R18-S23",
+    "name": "Ujjain Chouraha",
+    "order": 23,
+    "route": "R18"
+  },
+  {
+    "stopId": "R18-S24",
+    "name": "Lal Gate Saiyaji Dwar",
+    "order": 24,
+    "route": "R18"
+  },
+  {
+    "stopId": "R18-S25",
+    "name": "Van Mandal",
+    "order": 25,
+    "route": "R18"
+  },
+  {
+    "stopId": "R18-S26",
+    "name": "Ram Nagar",
+    "order": 26,
+    "route": "R18"
+  },
+  {
+    "stopId": "R18-S27",
+    "name": "Apex Hospital",
+    "order": 27,
+    "route": "R18"
+  },
+  {
+    "stopId": "R18-S28",
+    "name": "Jawahar Nagar",
+    "order": 28,
+    "route": "R18"
+  },
+  {
+    "stopId": "R18-S29",
+    "name": "Kela Devi",
+    "order": 29,
+    "route": "R18"
+  },
+  {
+    "stopId": "R18-S30",
+    "name": "Vikas Nagar",
+    "order": 30,
+    "route": "R18"
+  },
+  {
+    "stopId": "R18-S31",
+    "name": "Bavadiya",
+    "order": 31,
+    "route": "R18"
+  },
+  {
+    "stopId": "R18-S32",
+    "name": "Amuna",
+    "order": 32,
+    "route": "R18"
+  },
+  {
+    "stopId": "R18-S33",
+    "name": "Rasalpur",
+    "order": 33,
+    "route": "R18"
+  },
+  {
+    "stopId": "R18-S34",
+    "name": "Lohar Pipliya",
+    "order": 34,
+    "route": "R18"
+  },
+  {
+    "stopId": "R18-S35",
+    "name": "Shipra",
+    "order": 35,
+    "route": "R18"
+  },
+  {
+    "stopId": "R18-S36",
+    "name": "Arjun Badoda",
+    "order": 36,
+    "route": "R18"
+  },
+  {
+    "stopId": "R19-S01",
+    "name": "Radhaganj",
+    "order": 1,
+    "route": "R19"
+  },
+  {
+    "stopId": "R19-S02",
+    "name": "Ram Rahim",
+    "order": 2,
+    "route": "R19"
+  },
+  {
+    "stopId": "R19-S03",
+    "name": "Mandi",
+    "order": 3,
+    "route": "R19"
+  },
+  {
+    "stopId": "R19-S04",
+    "name": "Bhopal Chouraha",
+    "order": 4,
+    "route": "R19"
+  },
+  {
+    "stopId": "R19-S05",
+    "name": "Bus Stand",
+    "order": 5,
+    "route": "R19"
+  },
+  {
+    "stopId": "R19-S06",
+    "name": "Sayaji Dwar",
+    "order": 6,
+    "route": "R19"
+  },
+  {
+    "stopId": "R19-S07",
+    "name": "Van Mandal",
+    "order": 7,
+    "route": "R19"
+  },
+  {
+    "stopId": "R19-S08",
+    "name": "Ram Nagar",
+    "order": 8,
+    "route": "R19"
+  },
+  {
+    "stopId": "R19-S09",
+    "name": "Keladevi",
+    "order": 9,
+    "route": "R19"
+  },
+  {
+    "stopId": "R19-S10",
+    "name": "Vikas Nagar",
+    "order": 10,
+    "route": "R19"
+  },
+  {
+    "stopId": "R19-S11",
+    "name": "Bawdiya",
+    "order": 11,
+    "route": "R19"
+  },
+  {
+    "stopId": "R19-S12",
+    "name": "Amuna",
+    "order": 12,
+    "route": "R19"
+  },
+  {
+    "stopId": "R19-S13",
+    "name": "Rasalpur",
+    "order": 13,
+    "route": "R19"
+  },
+  {
+    "stopId": "R19-S14",
+    "name": "Kshipra",
+    "order": 14,
+    "route": "R19"
+  },
+  {
+    "stopId": "R19-S15",
+    "name": "Arjun Baroda",
+    "order": 15,
+    "route": "R19"
+  },
+  {
+    "stopId": "R20-S01",
+    "name": "Maksi",
+    "order": 1,
+    "route": "R20"
+  },
+  {
+    "stopId": "R20-S02",
+    "name": "Jalapura",
+    "order": 2,
+    "route": "R20"
+  },
+  {
+    "stopId": "R20-S03",
+    "name": "Badkheda",
+    "order": 3,
+    "route": "R20"
+  },
+  {
+    "stopId": "R20-S04",
+    "name": "Padliya Jod",
+    "order": 4,
+    "route": "R20"
+  },
+  {
+    "stopId": "R20-S05",
+    "name": "Chidawad",
+    "order": 5,
+    "route": "R20"
+  },
+  {
+    "stopId": "R20-S06",
+    "name": "Tok Kala",
+    "order": 6,
+    "route": "R20"
+  },
+  {
+    "stopId": "R20-S07",
+    "name": "Kalma",
+    "order": 7,
+    "route": "R20"
+  },
+  {
+    "stopId": "R20-S08",
+    "name": "Siya",
+    "order": 8,
+    "route": "R20"
+  },
+  {
+    "stopId": "R20-S09",
+    "name": "Bilawali",
+    "order": 9,
+    "route": "R20"
+  },
+  {
+    "stopId": "R20-S10",
+    "name": "Baman Kheda",
+    "order": 10,
+    "route": "R20"
+  },
+  {
+    "stopId": "R21-S01",
+    "name": "Gandharwpuri",
+    "order": 1,
+    "route": "R21"
+  },
+  {
+    "stopId": "R21-S02",
+    "name": "Gandharwpuri Fata",
+    "order": 2,
+    "route": "R21"
+  },
+  {
+    "stopId": "R21-S03",
+    "name": "Mandi Gate",
+    "order": 3,
+    "route": "R21"
+  },
+  {
+    "stopId": "R21-S04",
+    "name": "Bus Stop",
+    "order": 4,
+    "route": "R21"
+  },
+  {
+    "stopId": "R21-S05",
+    "name": "Saver",
+    "order": 5,
+    "route": "R21"
+  },
+  {
+    "stopId": "R21-S06",
+    "name": "Power House",
+    "order": 6,
+    "route": "R21"
+  },
+  {
+    "stopId": "R21-S07",
+    "name": "Pushp Giri",
+    "order": 7,
+    "route": "R21"
+  },
+  {
+    "stopId": "R21-S08",
+    "name": "Navri Fata",
+    "order": 8,
+    "route": "R21"
+  },
+  {
+    "stopId": "R21-S09",
+    "name": "Bhorasa",
+    "order": 9,
+    "route": "R21"
+  },
+  {
+    "stopId": "R21-S10",
+    "name": "Bhorasa Fata",
+    "order": 10,
+    "route": "R21"
+  },
+  {
+    "stopId": "R21-S11",
+    "name": "Jamgod",
+    "order": 11,
+    "route": "R21"
+  },
+  {
+    "stopId": "R21-S12",
+    "name": "Khatamba",
+    "order": 12,
+    "route": "R21"
+  },
+  {
+    "stopId": "R21-S13",
+    "name": "D Mart",
+    "order": 13,
+    "route": "R21"
+  },
+  {
+    "stopId": "R22-S01",
+    "name": "Beema Hospital Agar Road Ujjain",
+    "order": 1,
+    "route": "R22"
+  },
+  {
+    "stopId": "R22-S02",
+    "name": "Chamunda Mata Mandir",
+    "order": 2,
+    "route": "R22"
+  },
+  {
+    "stopId": "R22-S03",
+    "name": "Ghantaghar (Tower Chouraha)",
+    "order": 3,
+    "route": "R22"
+  },
+  {
+    "stopId": "R22-S04",
+    "name": "Teen Batti Chouraha",
+    "order": 4,
+    "route": "R22"
+  },
+  {
+    "stopId": "R22-S05",
+    "name": "Taran Taal",
+    "order": 5,
+    "route": "R22"
+  },
+  {
+    "stopId": "R22-S06",
+    "name": "Hrishi Nagar",
+    "order": 6,
+    "route": "R22"
+  },
+  {
+    "stopId": "R22-S07",
+    "name": "Mahananda",
+    "order": 7,
+    "route": "R22"
+  },
+  {
+    "stopId": "R22-S08",
+    "name": "Circuit House",
+    "order": 8,
+    "route": "R22"
+  },
+  {
+    "stopId": "R22-S09",
+    "name": "Naag Jhiri",
+    "order": 9,
+    "route": "R22"
+  },
+  {
+    "stopId": "R22-S10",
+    "name": "Rukmani Bazaz",
+    "order": 10,
+    "route": "R22"
+  },
+  {
+    "stopId": "R22-S11",
+    "name": "Malanvasa",
+    "order": 11,
+    "route": "R22"
+  },
+  {
+    "stopId": "R22-S12",
+    "name": "Triveni (Prashanti Dham)",
+    "order": 12,
+    "route": "R22"
+  },
+  {
+    "stopId": "R22-S13",
+    "name": "Sanver Bypass",
+    "order": 13,
+    "route": "R22"
+  },
+  {
+    "stopId": "R22-S14",
+    "name": "Mangliya Deepo",
+    "order": 14,
+    "route": "R22"
+  },
+  {
+    "stopId": "R22-S15",
+    "name": "Kshipra",
+    "order": 15,
+    "route": "R22"
+  },
+  {
+    "stopId": "R23-S01",
+    "name": "Chapri (Kshipra)",
+    "order": 1,
+    "route": "R23"
+  },
+  {
+    "stopId": "R23-S02",
+    "name": "Tigariya Chota",
+    "order": 2,
+    "route": "R23"
+  },
+  {
+    "stopId": "R23-S03",
+    "name": "Sumrakhedi",
+    "order": 3,
+    "route": "R23"
+  },
+  {
+    "stopId": "R23-S04",
+    "name": "Sukhliya",
+    "order": 4,
+    "route": "R23"
+  },
+  {
+    "stopId": "R23-S05",
+    "name": "Sunnani Mahakal",
+    "order": 5,
+    "route": "R23"
+  },
+  {
+    "stopId": "R23-S06",
+    "name": "Kshipra",
+    "order": 6,
+    "route": "R23"
+  },
+  {
+    "stopId": "R23-S07",
+    "name": "Kshipra Kheda",
+    "order": 7,
+    "route": "R23"
+  },
+  {
+    "stopId": "R23-S08",
+    "name": "Peerkaradia",
+    "order": 8,
+    "route": "R23"
+  },
+  {
+    "stopId": "R23-S09",
+    "name": "Acropolis College",
+    "order": 9,
+    "route": "R23"
+  },
+  {
+    "stopId": "R24-S01",
+    "name": "Dakachya",
+    "order": 1,
+    "route": "R24"
+  },
+  {
+    "stopId": "R24-S02",
+    "name": "Salotia",
+    "order": 2,
+    "route": "R24"
+  },
+  {
+    "stopId": "R24-S03",
+    "name": "New Salotia",
+    "order": 3,
+    "route": "R24"
+  },
+  {
+    "stopId": "R24-S04",
+    "name": "Palasiya",
+    "order": 4,
+    "route": "R24"
+  },
+  {
+    "stopId": "R24-S05",
+    "name": "Mandlawda",
+    "order": 5,
+    "route": "R24"
+  },
+  {
+    "stopId": "R24-S06",
+    "name": "Mahudia",
+    "order": 6,
+    "route": "R24"
+  },
+  {
+    "stopId": "R24-S07",
+    "name": "Nariakhedi",
+    "order": 7,
+    "route": "R24"
+  },
+  {
+    "stopId": "R24-S08",
+    "name": "Khelod",
+    "order": 8,
+    "route": "R24"
+  },
+  {
+    "stopId": "R24-S09",
+    "name": "Tihariu",
+    "order": 9,
+    "route": "R24"
+  },
+  {
+    "stopId": "R24-S10",
+    "name": "Vyas Khedi",
+    "order": 10,
+    "route": "R24"
+  },
+  {
+    "stopId": "R24-S11",
+    "name": "Pharaspur",
+    "order": 11,
+    "route": "R24"
+  },
+  {
+    "stopId": "R24-S12",
+    "name": "Kadwali",
+    "order": 12,
+    "route": "R24"
+  },
+  {
+    "stopId": "R24-S13",
+    "name": "Bhondwas",
+    "order": 13,
+    "route": "R24"
+  },
+  {
+    "stopId": "R24-S14",
+    "name": "Sulakhedi",
+    "order": 14,
+    "route": "R24"
+  },
+  {
+    "stopId": "R25-S01",
+    "name": "Indus Satellite 2",
+    "order": 1,
+    "route": "R25"
+  },
+  {
+    "stopId": "R25-S02",
+    "name": "Singpore City",
+    "order": 2,
+    "route": "R25"
+  },
+  {
+    "stopId": "R25-S03",
+    "name": "Dhabli Village",
+    "order": 3,
+    "route": "R25"
+  }
+]

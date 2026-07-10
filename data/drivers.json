@@ -1,0 +1,422 @@
+[
+  {
+    "driver": "Rajesh Choudhary",
+    "phone": "7747877707",
+    "bus": "G54",
+    "route": "R01"
+  },
+  {
+    "driver": "Ram Thakur",
+    "phone": "9977604564",
+    "bus": "G4",
+    "route": "R01"
+  },
+  {
+    "driver": "Deepak Rathore",
+    "phone": "8349188345",
+    "bus": "G5",
+    "route": "R01"
+  },
+  {
+    "driver": "Pravin Soni",
+    "phone": "9893101215",
+    "bus": "G76",
+    "route": "R01"
+  },
+  {
+    "driver": "Onkarlal Choudhary",
+    "phone": "7869852937",
+    "bus": "G9",
+    "route": "R02"
+  },
+  {
+    "driver": "Sanjay Dwivedi",
+    "phone": "9425953756",
+    "bus": "G39",
+    "route": "R02"
+  },
+  {
+    "driver": "Kapil Dhepte",
+    "phone": "8839413711",
+    "bus": "G47",
+    "route": "R02"
+  },
+  {
+    "driver": "Dhannalal Makwana",
+    "phone": "9009777457",
+    "bus": "G72",
+    "route": "R03"
+  },
+  {
+    "driver": "Jitendra Giri",
+    "phone": "8889131347",
+    "bus": "G17",
+    "route": "R03"
+  },
+  {
+    "driver": "Jeevan Thakur",
+    "phone": "9754570028",
+    "bus": "G1",
+    "route": "R03"
+  },
+  {
+    "driver": "Satish Chouhan",
+    "phone": "9399326211",
+    "bus": "G30",
+    "route": "R03"
+  },
+  {
+    "driver": "Pravin Yadav",
+    "phone": "9009491009",
+    "bus": "G51",
+    "route": "R04"
+  },
+  {
+    "driver": "Rohit Solanki",
+    "phone": "9144912556",
+    "bus": "G8",
+    "route": "R04"
+  },
+  {
+    "driver": "Abhishek Meena",
+    "phone": "7869591143",
+    "bus": "G75",
+    "route": "R04"
+  },
+  {
+    "driver": "Leeladhar Prajapat",
+    "phone": "9617820297",
+    "bus": "G34",
+    "route": "R04"
+  },
+  {
+    "driver": "Santosh Tawar",
+    "phone": "7389721434",
+    "bus": "G55",
+    "route": "R05"
+  },
+  {
+    "driver": "Jeevan Chavda",
+    "phone": "7770956715",
+    "bus": "G57",
+    "route": "R05"
+  },
+  {
+    "driver": "Raju Jadhav",
+    "phone": "8839435254",
+    "bus": "G78",
+    "route": "R06"
+  },
+  {
+    "driver": "Gajju Limanpure",
+    "phone": "7389869292",
+    "bus": "G56",
+    "route": "R06"
+  },
+  {
+    "driver": "Jitendra Kelwa",
+    "phone": "9926454445",
+    "bus": "G3",
+    "route": "R06"
+  },
+  {
+    "driver": "Lakhan Thakur",
+    "phone": "9977784697",
+    "bus": "G2",
+    "route": "R07"
+  },
+  {
+    "driver": "Meharban Makwana",
+    "phone": "9926955625",
+    "bus": "G21",
+    "route": "R07"
+  },
+  {
+    "driver": "Dinesh Makwana",
+    "phone": "9753364275",
+    "bus": "G35",
+    "route": "R07"
+  },
+  {
+    "driver": "Tej Singh",
+    "phone": "8358043299",
+    "bus": "G40",
+    "route": "R07"
+  },
+  {
+    "driver": "Pradeep Nagar",
+    "phone": "9589494367",
+    "bus": "G36",
+    "route": "R07"
+  },
+  {
+    "driver": "Rahul Thakur",
+    "phone": "6265440827",
+    "bus": "G77",
+    "route": "R08"
+  },
+  {
+    "driver": "Rajendra Singh Rathod",
+    "phone": "9165959942",
+    "bus": "G6",
+    "route": "R08"
+  },
+  {
+    "driver": "Kailash Choudhary",
+    "phone": "8085873285",
+    "bus": "G74",
+    "route": "R08"
+  },
+  {
+    "driver": "Nilesh Patel",
+    "phone": "9977117101",
+    "bus": "G50",
+    "route": "R08"
+  },
+  {
+    "driver": "Ranjeet Patel",
+    "phone": "9977893010",
+    "bus": "G62",
+    "route": "R09"
+  },
+  {
+    "driver": "Sunil Parmar",
+    "phone": "9977878981",
+    "bus": "G63",
+    "route": "R09"
+  },
+  {
+    "driver": "Santosh Malviya",
+    "phone": "9516350085",
+    "bus": "G61",
+    "route": "R09"
+  },
+  {
+    "driver": "Lalji Malviya",
+    "phone": "9826061693",
+    "bus": "G70",
+    "route": "R10"
+  },
+  {
+    "driver": "Chintu Parmar",
+    "phone": "9522352707",
+    "bus": "G42",
+    "route": "R10"
+  },
+  {
+    "driver": "Nirmal Makwana",
+    "phone": "9755718946",
+    "bus": "G73",
+    "route": "R10"
+  },
+  {
+    "driver": "Sohan Choudhary",
+    "phone": "9755960207",
+    "bus": "G46",
+    "route": "R10"
+  },
+  {
+    "driver": "Mohan Silawat",
+    "phone": "9826463595",
+    "bus": "G32",
+    "route": "R11"
+  },
+  {
+    "driver": "Jagdish Jatwa",
+    "phone": "9826076397",
+    "bus": "G71",
+    "route": "R11"
+  },
+  {
+    "driver": "Akhilesh Patel",
+    "phone": "9754401108",
+    "bus": "G7",
+    "route": "R11"
+  },
+  {
+    "driver": "Arjun Choudhary",
+    "phone": "9752057319",
+    "bus": "G16",
+    "route": "R12"
+  },
+  {
+    "driver": "Anil Choudhary",
+    "phone": "9826274384",
+    "bus": "G19",
+    "route": "R12"
+  },
+  {
+    "driver": "Ishtikhar Hussain",
+    "phone": "9009921786",
+    "bus": "G41",
+    "route": "R13"
+  },
+  {
+    "driver": "Rajesh Nagar",
+    "phone": "9630337359",
+    "bus": "G38",
+    "route": "R13"
+  },
+  {
+    "driver": "Pancham Lal Patel",
+    "phone": "9399893872",
+    "bus": "G79",
+    "route": "R13"
+  },
+  {
+    "driver": "Ramchandra Baloniya",
+    "phone": "9827516766",
+    "bus": "G69",
+    "route": "R14"
+  },
+  {
+    "driver": "Arun Malviya",
+    "phone": "8963975628",
+    "bus": "G33",
+    "route": "R14"
+  },
+  {
+    "driver": "Shankar Patel",
+    "phone": "9111647416",
+    "bus": "G31",
+    "route": "R15"
+  },
+  {
+    "driver": "Govardhan Parmar",
+    "phone": "8349260504",
+    "bus": "G27",
+    "route": "R15"
+  },
+  {
+    "driver": "Arshad Ali",
+    "phone": "9039345217",
+    "bus": "G",
+    "route": "R16"
+  },
+  {
+    "driver": "Azmat Ali",
+    "phone": "9893493872",
+    "bus": "G45",
+    "route": "R16"
+  },
+  {
+    "driver": "Reetooraj Solanki",
+    "phone": "6260581901",
+    "bus": "G28",
+    "route": "R16"
+  },
+  {
+    "driver": "Reetooraj Solanki",
+    "phone": "6260581901",
+    "bus": "G28",
+    "route": "R17"
+  },
+  {
+    "driver": "Ramesh Rawat",
+    "phone": "7869885313",
+    "bus": "G49",
+    "route": "R18"
+  },
+  {
+    "driver": "Dinesh Patel",
+    "phone": "9669392823",
+    "bus": "G48",
+    "route": "R18"
+  },
+  {
+    "driver": "Om Prakash Choudhary",
+    "phone": "9755847143",
+    "bus": "G44",
+    "route": "R19"
+  },
+  {
+    "driver": "Bharat Patel",
+    "phone": "9399875021",
+    "bus": "G37",
+    "route": "R19"
+  },
+  {
+    "driver": "Mukesh Patel",
+    "phone": "9977605624",
+    "bus": "G64",
+    "route": "R20"
+  },
+  {
+    "driver": "Balkrishna Choudhary",
+    "phone": "7828183492",
+    "bus": "G58",
+    "route": "R20"
+  },
+  {
+    "driver": "Rajarm Polaya",
+    "phone": "9826199542",
+    "bus": "G52",
+    "route": "R20"
+  },
+  {
+    "driver": "Yusuf Patel",
+    "phone": "9165252812",
+    "bus": "G68",
+    "route": "R21"
+  },
+  {
+    "driver": "Surendra Singh",
+    "phone": "9827346588",
+    "bus": "G67",
+    "route": "R21"
+  },
+  {
+    "driver": "Maksud Khan",
+    "phone": "9893621989",
+    "bus": "G53",
+    "route": "R22"
+  },
+  {
+    "driver": "Ashok Rathod",
+    "phone": "9993904141",
+    "bus": "G15",
+    "route": "R22"
+  },
+  {
+    "driver": "Sanjay Makwana",
+    "phone": "9685311199",
+    "bus": "G66",
+    "route": "R22"
+  },
+  {
+    "driver": "Charan Das",
+    "phone": "8103912694",
+    "bus": "G59",
+    "route": "R22"
+  },
+  {
+    "driver": "Deepak Patel",
+    "phone": "9098074135",
+    "bus": "G25",
+    "route": "R23"
+  },
+  {
+    "driver": "Babulal Patel",
+    "phone": "9754638615",
+    "bus": "G43",
+    "route": "R24"
+  },
+  {
+    "driver": "Chaganlal",
+    "phone": "7489674939",
+    "bus": "G10",
+    "route": "R24"
+  },
+  {
+    "driver": "Chandar Singh",
+    "phone": "9575998500",
+    "bus": "G26",
+    "route": "R24"
+  },
+  {
+    "driver": "Jagdish Prajapati",
+    "phone": "9516715945",
+    "bus": "G60",
+    "route": "R25"
+  }
+]

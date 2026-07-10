@@ -1,0 +1,4 @@
+Scenario,Generated,Transported,Stranded,Avg Wait (mins),Median Wait (mins),Reallocations,Runtime (s)
+Baseline,9220,993,8227,27.11,12.0,0,0.0
+Greedy,9220,1065,8155,27.04,15.0,3,0.0443
+Dynamic Programming,9220,1065,8155,27.04,15.0,3,0.2083

@@ -1,0 +1,11 @@
+scenario,scheduler,reallocations,transported,stranded,elapsed_ms
+S1 - R15/R16/R18 symmetric 3-way surge,Greedy,0,90,3165,19.89
+S1 - R15/R16/R18 symmetric 3-way surge,DP,0,90,3165,25.29
+"S2 - R15/R16/R18 asymmetric: R15 heavy, R16 medium, R18 empty",Greedy,4,90,1571,6.27
+"S2 - R15/R16/R18 asymmetric: R15 heavy, R16 medium, R18 empty",DP,4,90,1571,12.72
+"S3 - 3-way competing targets: R15=heavy, R16=heavy, R18=empty",Greedy,2,90,2225,5.95
+"S3 - 3-way competing targets: R15=heavy, R16=heavy, R18=empty",DP,2,90,2225,12.61
+S4 - R08/R09 two-way cluster surge,Greedy,0,225,845,5.72
+S4 - R08/R09 two-way cluster surge,DP,0,225,845,9.08
+S5 - Full 10-route saturation (no spare capacity),Greedy,0,810,12990,18.94
+S5 - Full 10-route saturation (no spare capacity),DP,0,810,12990,80.44

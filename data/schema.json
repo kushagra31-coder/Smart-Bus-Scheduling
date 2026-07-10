@@ -1,0 +1,6 @@
+{
+  "Bus": {"busNumber":"str e.g. G54","driver":"str","phone":"str","assignedRoute":"str routeId","capacity":"int, NOT in source, must simulate (suggest 40-52 seater)","status":"active|inactive"},
+  "Route": {"routeId":"str e.g. R01","startStop":"str","destination":"Acropolis Institutes (fixed)","numStops":"int","assignedBuses":"[busNumber]","arrivalTimes":"str shift1/shift2","stopSequence":"[stopName ordered]"},
+  "Stop": {"stopId":"str routeId-Snn","name":"str","order":"int within route","route":"str routeId"},
+  "Driver": {"driver":"str name","phone":"str","bus":"busNumber","route":"str routeId"}
+}

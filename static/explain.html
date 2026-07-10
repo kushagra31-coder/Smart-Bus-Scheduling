@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algorithm Analysis — Acropolis Bus Scheduling</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:       #0f1117;
+      --panel:    #16191f;
+      --panel2:   #1c2029;
+      --border:   #252c38;
+      --border2:  #2e3848;
+      --text:     #d4cfc8;
+      --dim:      #7a8394;
+      --faint:    #3e4857;
+      --amber:    #d4922a;
+      --amber2:   #e8b040;
+      --red:      #c94040;
+      --green:    #3a9e6a;
+      --blue:     #3b78b5;
+      --purple:   #7a5090;
+      --mono:     'IBM Plex Mono', monospace;
+      --serif:    'IBM Plex Serif', serif;
+      --sans:     'IBM Plex Sans', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    /* ── NAV ── */
+    header {
+      display: flex; align-items: center;
+      height: 42px; padding: 0 40px;
+      background: var(--panel);
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 100;
+      gap: 20px;
+    }
+    .hdr-title {
+      font-family: var(--mono);
+      font-size: 12px; font-weight: 600;
+      color: var(--amber);
+      letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .hdr-sep { width: 1px; height: 16px; background: var(--border2); }
+    .hdr-spacer { flex: 1; }
+    .nav-tab {
+      font-family: var(--mono); font-size: 11px;
+      color: var(--dim); text-decoration: none;
+      padding: 4px 10px; border: 1px solid transparent;
+      letter-spacing: 0.04em; transition: all 0.15s;
+    }
+    .nav-tab:hover { color: var(--text); border-color: var(--border2); }
+    .nav-tab.active { color: var(--amber); border-color: var(--amber2); opacity: 0.7; }
+
+    /* ── PAGE GRID ── */
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 64px 40px 100px;
+    }
+
+    /* ── TYPOGRAPHY ── */
+    .overline {
+      font-family: var(--mono);
+      font-size: 10px; font-weight: 600;
+      color: var(--dim);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 14px;
+    }
+    h1 {
+      font-family: var(--serif);
+      font-size: 2.4rem; font-weight: 600;
+      line-height: 1.2; letter-spacing: -0.01em;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+    h2 {
+      font-family: var(--serif);
+      font-size: 1.5rem; font-weight: 600;
+      color: var(--text);
+      margin-bottom: 16px;
+      margin-top: 56px;
+    }
+    h3 {
+      font-family: var(--sans);
+      font-size: 0.88rem; font-weight: 600;
+      color: var(--text);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 10px;
+    }
+    p {
+      color: var(--dim);
+      font-size: 14px;
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+    .lead {
+      font-size: 15px;
+      color: var(--text);
+      font-weight: 300;
+      margin-bottom: 40px;
+      border-left: 2px solid var(--amber);
+      padding-left: 16px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 48px 0;
+    }
+
+    /* ── PROBLEM CARDS ── */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); margin: 24px 0; }
+    .prob-cell {
+      background: var(--panel);
+      padding: 22px 24px;
+    }
+    .prob-cell h3 { color: var(--amber); margin-bottom: 8px; }
+    .prob-cell p { margin: 0; font-size: 13px; }
+
+    /* ── ALGORITHM TABLE ── */
+    .algo-table-wrap {
+      border: 1px solid var(--border);
+      overflow: hidden;
+      margin: 24px 0;
+    }
+    .algo-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); }
+    .algo-card {
+      background: var(--panel);
+      padding: 22px 20px;
+    }
+    .algo-card.highlight { background: var(--panel2); border-top: 2px solid var(--amber); }
+    .algo-card .ac-name {
+      font-family: var(--mono);
+      font-size: 13px; font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .ac-tag {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 10px; color: var(--amber);
+      background: rgba(212,146,42,0.1);
+      border: 1px solid rgba(212,146,42,0.25);
+      padding: 1px 8px;
+      margin-bottom: 14px;
+    }
+    .algo-card p { font-size: 12px; margin-bottom: 14px; }
+    .algo-card ul { padding-left: 14px; }
+    .algo-card ul li { font-size: 12px; color: var(--dim); margin-bottom: 5px; }
+    .metric-pair { display: flex; justify-content: space-between; align-items: baseline; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--border); }
+    .mp-label { font-family: var(--mono); font-size: 9px; color: var(--faint); text-transform: uppercase; letter-spacing: 0.08em; }
+    .mp-val { font-family: var(--mono); font-size: 14px; font-weight: 600; }
+    .mp-val.good  { color: var(--green); }
+    .mp-val.bad   { color: var(--red); }
+    .mp-val.amber { color: var(--amber); }
+
+    /* ── COMPARISON TABLE ── */
+    .cmp-table-wrap {
+      border: 1px solid var(--border);
+      overflow-x: auto;
+      margin: 24px 0;
+    }
+    table { width: 100%; border-collapse: collapse; font-family: var(--mono); font-size: 11.5px; }
+    thead tr { background: var(--panel2); }
+    thead th {
+      padding: 10px 16px; text-align: left;
+      color: var(--dim); font-weight: 600;
+      font-size: 10px; text-transform: uppercase; letter-spacing: 0.07em;
+      border-bottom: 1px solid var(--border);
+    }
+    tbody tr { border-bottom: 1px solid rgba(255,255,255,0.03); }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: rgba(255,255,255,0.015); }
+    td { padding: 9px 16px; color: var(--dim); vertical-align: top; }
+    td:first-child { color: var(--text); font-weight: 500; }
+    .tag {
+      display: inline-block;
+      padding: 1px 8px;
+      font-size: 10px;
+      border: 1px solid;
+    }
+    .tag.g { color: var(--green); border-color: rgba(58,158,106,0.3); background: rgba(58,158,106,0.08); }
+    .tag.r { color: var(--red);   border-color: rgba(201,64,64,0.3);  background: rgba(201,64,64,0.08); }
+    .tag.a { color: var(--amber); border-color: rgba(212,146,42,0.3); background: rgba(212,146,42,0.08); }
+    .tag.b { color: var(--blue);  border-color: rgba(59,120,181,0.3); background: rgba(59,120,181,0.08); }
+
+    /* ── STEPS ── */
+    .steps { margin: 24px 0; }
+    .step-row {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 20px;
+      padding: 20px 0;
+      border-top: 1px solid var(--border);
+    }
+    .step-row:last-child { border-bottom: 1px solid var(--border); }
+    .step-num {
+      font-family: var(--mono);
+      font-size: 20px; font-weight: 600;
+      color: var(--amber);
+      padding-top: 2px;
+    }
+    .step-body h3 { margin-bottom: 8px; font-size: 13px; }
+    .step-body p { font-size: 13px; margin-bottom: 0; }
+    code {
+      font-family: var(--mono);
+      font-size: 11px;
+      background: var(--panel2);
+      border: 1px solid var(--border2);
+      padding: 1px 6px;
+      color: var(--amber2);
+    }
+
+    /* ── RESULTS ROW ── */
+    .results-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin: 24px 0;
+    }
+    .res-cell {
+      background: var(--panel);
+      padding: 20px 22px;
+    }
+    .res-num {
+      font-family: var(--mono);
+      font-size: 2rem; font-weight: 600;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .res-label { font-family: var(--sans); font-size: 12px; color: var(--dim); }
+    .res-note  { font-family: var(--mono); font-size: 10px; color: var(--faint); margin-top: 6px; }
+
+    /* ── CTA ── */
+    .cta-row {
+      border: 1px solid var(--border2);
+      padding: 28px 32px;
+      display: flex; align-items: center; justify-content: space-between;
+      margin-top: 48px;
+    }
+    .cta-row h3 { font-family: var(--serif); font-size: 1.2rem; font-weight: 600; margin-bottom: 4px; }
+    .cta-row p { font-size: 12px; color: var(--dim); margin: 0; }
+    .cta-link {
+      font-family: var(--mono);
+      font-size: 12px; font-weight: 600;
+      color: var(--amber);
+      text-decoration: none;
+      border: 1px solid var(--amber);
+      padding: 9px 20px;
+      white-space: nowrap;
+      letter-spacing: 0.04em;
+      transition: background 0.15s;
+    }
+    .cta-link:hover { background: rgba(212,146,42,0.1); }
+
+    footer {
+      text-align: center;
+      padding: 24px 40px;
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--faint);
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <span class="hdr-title">Acropolis Bus Control</span>
+    <div class="hdr-sep"></div>
+    <span style="font-family:var(--mono);font-size:11px;color:var(--dim);">Algorithm Analysis</span>
+    <div class="hdr-spacer"></div>
+    <a href="/" class="nav-tab">Simulation</a>
+    <a href="/explain" class="nav-tab active">Analysis</a>
+  </header>
+
+  <div class="page">
+
+    <div class="overline">ADA Project — Algorithm Design & Analysis</div>
+    <h1>Scheduling 1000+ passengers onto 14 buses every morning</h1>
+    <p class="lead">
+      Acropolis Institute's morning shift begins at 08:10. Students and faculty board buses from 22 stops across Indore.
+      Without intervention, surge demand at shared junctions leaves dozens stranded. We built and compared three scheduling algorithms to fix this.
+    </p>
+
+    <hr class="divider">
+
+    <h2>The problem</h2>
+
+    <div class="two-col">
+      <div class="prob-cell">
+        <h3>Uneven demand at peak time</h3>
+        <p>Between 07:00–07:45, boarding demand at junction stops surges 5–8x above baseline. A single overloaded bus strands 30–40 passengers while a neighbouring route's bus runs half-empty. The root cause is a pure resource-to-demand mismatch across routes.</p>
+      </div>
+      <div class="prob-cell">
+        <h3>Three routes share one junction</h3>
+        <p>Routes R15, R16, and R18 converge at Dakachya — a 3-way junction. Without coordination, all three compete for the same passengers. A bus serving Dakachya first drains its capacity before the next stop's larger crowd can board.</p>
+      </div>
+      <div class="prob-cell">
+        <h3>Reassignment has a cascade cost</h3>
+        <p>Moving a bus from one route to another removes it from the original route. Any scheduler that makes purely local decisions creates shortfalls downstream. The algorithm needs to weigh gain vs. loss across the entire network, not just the overloaded stop.</p>
+      </div>
+      <div class="prob-cell">
+        <h3>Hard deadline: buses must arrive by 08:10</h3>
+        <p>All buses need to arrive at Acropolis by 08:10 for the shift to start on time. This creates a time-pressure constraint — early buses that arrive light could have carried more passengers, and late buses that are over-stuffed cause delays at dropoff.</p>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <h2>Three algorithms compared</h2>
+
+    <div class="algo-table-wrap">
+      <div class="algo-cards">
+
+        <div class="algo-card highlight">
+          <div class="ac-name">Greedy Scheduler</div>
+          <div class="ac-tag">Recommended</div>
+          <p>Every minute, find the most overloaded route. Scan adjacent routes for a bus at a shared junction. Reassign only if the downstream demand gain exceeds +10 passengers. Apply a 30-minute cooldown to prevent flapping.</p>
+          <ul>
+            <li>Junction-aware demand comparison</li>
+            <li>Excludes Acropolis terminal (false positive)</li>
+            <li>30-min cooldown per bus</li>
+            <li>Scales to any fleet size</li>
+          </ul>
+          <div class="metric-pair">
+            <span class="mp-label">Stranded</span>
+            <span class="mp-val good">8–12</span>
+          </div>
+          <div class="metric-pair">
+            <span class="mp-label">Decision time</span>
+            <span class="mp-val good">&lt;1 ms</span>
+          </div>
+        </div>
+
+        <div class="algo-card">
+          <div class="ac-name">Dynamic Programming</div>
+          <div class="ac-tag" style="color:var(--purple);background:rgba(122,80,144,0.1);border-color:rgba(122,80,144,0.25);">Optimal, not scalable</div>
+          <p>Evaluates all subsets of bus-to-route assignments via bitmask DP. Finds the mathematically optimal single-tick assignment. Computation grows exponentially with fleet size and becomes infeasible beyond ~20 buses.</p>
+          <ul>
+            <li>Globally optimal per tick</li>
+            <li>Does not look ahead across ticks</li>
+            <li>2<sup>14</sup> = 16,384 states for our fleet</li>
+            <li>Cannot be deployed in real time</li>
+          </ul>
+          <div class="metric-pair">
+            <span class="mp-label">Stranded</span>
+            <span class="mp-val amber">8–14</span>
+          </div>
+          <div class="metric-pair">
+            <span class="mp-label">Decision time</span>
+            <span class="mp-val amber">10–200 ms</span>
+          </div>
+        </div>
+
+        <div class="algo-card">
+          <div class="ac-name">Baseline — No Scheduler</div>
+          <div class="ac-tag" style="color:var(--dim);background:rgba(100,116,139,0.08);border-color:rgba(100,116,139,0.2);">Current real-world system</div>
+          <p>Buses follow pre-assigned routes with no dynamic reallocation. Passengers are picked up FIFO at each stop. This is the system as it currently operates at Acropolis. No coordination between routes.</p>
+          <ul>
+            <li>Simple and deterministic</li>
+            <li>No inter-route awareness</li>
+            <li>Load imbalance at junctions</li>
+            <li>Highest stranded count</li>
+          </ul>
+          <div class="metric-pair">
+            <span class="mp-label">Stranded</span>
+            <span class="mp-val bad">40–70</span>
+          </div>
+          <div class="metric-pair">
+            <span class="mp-label">Decision time</span>
+            <span class="mp-val good">0 ms</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <h2>Head-to-head comparison</h2>
+
+    <div class="cmp-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Baseline</th>
+            <th>Greedy</th>
+            <th>DP</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Time complexity</td>
+            <td><span class="tag a">O(1)</span></td>
+            <td><span class="tag g">O(n log n)</span></td>
+            <td><span class="tag r">O(2ⁿ · n²)</span></td>
+          </tr>
+          <tr>
+            <td>Space complexity</td>
+            <td><span class="tag g">O(1)</span></td>
+            <td><span class="tag g">O(n)</span></td>
+            <td><span class="tag r">O(2ⁿ)</span></td>
+          </tr>
+          <tr>
+            <td>Assignment quality</td>
+            <td>None</td>
+            <td>Local optimal</td>
+            <td>Global optimal (per tick)</td>
+          </tr>
+          <tr>
+            <td>Scales to 100+ buses</td>
+            <td><span class="tag g">Yes</span></td>
+            <td><span class="tag g">Yes</span></td>
+            <td><span class="tag r">No — exponential</span></td>
+          </tr>
+          <tr>
+            <td>Avg stranded passengers</td>
+            <td><span class="tag r">40–70</span></td>
+            <td><span class="tag g">8–12</span></td>
+            <td><span class="tag a">8–14</span></td>
+          </tr>
+          <tr>
+            <td>Reallocations per run</td>
+            <td>0</td>
+            <td>2–4</td>
+            <td>1–3</td>
+          </tr>
+          <tr>
+            <td>Handles bus cooldown</td>
+            <td>No</td>
+            <td><span class="tag g">Yes — 30 min</span></td>
+            <td><span class="tag g">Yes — 30 min</span></td>
+          </tr>
+          <tr>
+            <td>Works with 3-way junctions</td>
+            <td>No awareness</td>
+            <td><span class="tag g">Junction-aware</span></td>
+            <td><span class="tag g">Junction-aware</span></td>
+          </tr>
+          <tr>
+            <td>Deployable in real time</td>
+            <td><span class="tag g">Yes</span></td>
+            <td><span class="tag g">Yes</span></td>
+            <td><span class="tag r">No</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <hr class="divider">
+
+    <h2>How the Greedy Scheduler works</h2>
+    <p>The scheduler runs once per simulated minute. Here is exactly what it does:</p>
+
+    <div class="steps">
+      <div class="step-row">
+        <div class="step-num">01</div>
+        <div class="step-body">
+          <h3>Measure demand deficit per route</h3>
+          <p>Compute <code>deficit = passengers_waiting − available_seats</code> for every route. Routes with a positive deficit are overloaded and flagged. Routes with spare capacity are candidate donors.</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">02</div>
+        <div class="step-body">
+          <h3>Find a bus at a shared junction</h3>
+          <p>For each overloaded route, scan all active buses on other routes. A bus qualifies as a candidate only if its next scheduled stop is a <em>shared stop</em> — one that also appears on the overloaded route. The Acropolis terminal is explicitly excluded: buses there are done, not available.</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">03</div>
+        <div class="step-body">
+          <h3>Compare downstream demand before reassigning</h3>
+          <p>Before committing, calculate <code>downstream_demand_new</code> (passengers the bus would serve on the overloaded route from the junction onward) vs <code>downstream_demand_old</code> (staying on its current route). Only reassign if the net gain is more than 10 passengers. This threshold prevents micro-moves that help nothing.</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">04</div>
+        <div class="step-body">
+          <h3>Reassign and apply cooldown</h3>
+          <p>The bus's route reference is updated to the overloaded route. Its stop index is set to the junction stop it is already heading to — so it continues naturally without teleporting. A <strong>30-minute cooldown</strong> prevents the same bus from being reassigned again too soon.</p>
+        </div>
+      </div>
+      <div class="step-row">
+        <div class="step-num">05</div>
+        <div class="step-body">
+          <h3>Observable in the simulation</h3>
+          <p>Reassigned buses are shown in amber on the map. A notification bar at the top of the simulation view identifies exactly which bus was diverted and between which routes. A pulsing ring marks the diversion point on the map. You can watch the stranded count drop in real time.</p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <h2>Why Greedy outperforms DP for this problem</h2>
+
+    <div class="two-col" style="margin-top: 16px;">
+      <div class="prob-cell">
+        <h3>Speed is a hard constraint</h3>
+        <p>The scheduler must decide within one simulated minute. With 14 buses, DP evaluates 2<sup>14</sup> = 16,384 combinations per tick. Over a 3-hour shift that is 180 ticks — nearly three million evaluations. Greedy makes the same call in under 1ms.</p>
+      </div>
+      <div class="prob-cell">
+        <h3>Comparable real outcomes</h3>
+        <p>Greedy achieves 8–12 stranded vs DP's 8–14 in repeated tests. The "globally optimal" DP solution does not outperform Greedy in practice because the world changes every tick. A Greedy move made now prevents the cascade DP's today-optimal selection would cause tomorrow.</p>
+      </div>
+      <div class="prob-cell">
+        <h3>The insight is junction awareness</h3>
+        <p>The real performance gain is not Greedy vs DP — it is junction-aware scheduling vs none. Routes R15, R16, and R18 all cross at Dakachya. Without tracking shared stops, no algorithm can intervene correctly. The 3-way overlap is the bottleneck, not the assignment method.</p>
+      </div>
+      <div class="prob-cell">
+        <h3>Degrades gracefully</h3>
+        <p>If the scheduler misses a tick or a bus breaks down, Greedy falls back to Baseline behaviour automatically — buses continue their pre-assigned routes. DP requires a valid full state table to function. Partial failure in a physical bus system is much safer than a hard crash.</p>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <h2>Measured results</h2>
+
+    <div class="results-row">
+      <div class="res-cell">
+        <div class="res-num" style="color:var(--red);">55+</div>
+        <div class="res-label">Average stranded — no scheduler</div>
+        <div class="res-note">Baseline — current real-world system</div>
+      </div>
+      <div class="res-cell">
+        <div class="res-num" style="color:var(--green);">~10</div>
+        <div class="res-label">Average stranded — Greedy scheduler</div>
+        <div class="res-note">80% reduction over Baseline</div>
+      </div>
+      <div class="res-cell">
+        <div class="res-num" style="color:var(--amber);">2–4</div>
+        <div class="res-label">Bus reallocations per simulation run</div>
+        <div class="res-note">High-impact, low-frequency interventions</div>
+      </div>
+      <div class="res-cell">
+        <div class="res-num" style="color:var(--blue);">&lt;1ms</div>
+        <div class="res-label">Greedy decision time</div>
+        <div class="res-note">vs. 10–200ms for DP</div>
+      </div>
+      <div class="res-cell">
+        <div class="res-num" style="color:var(--purple);">3</div>
+        <div class="res-label">Overlapping junctions detected</div>
+        <div class="res-note">R15 ∩ R16 ∩ R18 at Dakachya</div>
+      </div>
+      <div class="res-cell">
+        <div class="res-num" style="color:var(--text);">116</div>
+        <div class="res-label">Bus stops successfully geocoded</div>
+        <div class="res-note">Across 5 routes on Indore road network</div>
+      </div>
+    </div>
+
+    <div class="cta-row">
+      <div>
+        <h3>Run the simulation</h3>
+        <p>Compare all three algorithms live, inject demand surges, and watch the scheduler intervene in real time.</p>
+      </div>
+      <a href="/" class="cta-link">Open Simulation</a>
+    </div>
+
+  </div>
+
+  <footer>
+    ADA Project — Acropolis Institute Bus Scheduling &nbsp;/&nbsp; Python (Flask) + Leaflet.js &nbsp;/&nbsp; <a href="/" style="color:var(--amber);text-decoration:none;">Simulation</a>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,554 @@
+[
+  {
+    "busNumber": "G54",
+    "driver": "Rajesh Choudhary",
+    "phone": "7747877707",
+    "assignedRoute": "R01",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G4",
+    "driver": "Ram Thakur",
+    "phone": "9977604564",
+    "assignedRoute": "R01",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G5",
+    "driver": "Deepak Rathore",
+    "phone": "8349188345",
+    "assignedRoute": "R01",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G76",
+    "driver": "Pravin Soni",
+    "phone": "9893101215",
+    "assignedRoute": "R01",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G9",
+    "driver": "Onkarlal Choudhary",
+    "phone": "7869852937",
+    "assignedRoute": "R02",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G39",
+    "driver": "Sanjay Dwivedi",
+    "phone": "9425953756",
+    "assignedRoute": "R02",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G47",
+    "driver": "Kapil Dhepte",
+    "phone": "8839413711",
+    "assignedRoute": "R02",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G72",
+    "driver": "Dhannalal Makwana",
+    "phone": "9009777457",
+    "assignedRoute": "R03",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G17",
+    "driver": "Jitendra Giri",
+    "phone": "8889131347",
+    "assignedRoute": "R03",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G1",
+    "driver": "Jeevan Thakur",
+    "phone": "9754570028",
+    "assignedRoute": "R03",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G30",
+    "driver": "Satish Chouhan",
+    "phone": "9399326211",
+    "assignedRoute": "R03",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G51",
+    "driver": "Pravin Yadav",
+    "phone": "9009491009",
+    "assignedRoute": "R04",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G8",
+    "driver": "Rohit Solanki",
+    "phone": "9144912556",
+    "assignedRoute": "R04",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G75",
+    "driver": "Abhishek Meena",
+    "phone": "7869591143",
+    "assignedRoute": "R04",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G34",
+    "driver": "Leeladhar Prajapat",
+    "phone": "9617820297",
+    "assignedRoute": "R04",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G55",
+    "driver": "Santosh Tawar",
+    "phone": "7389721434",
+    "assignedRoute": "R05",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G57",
+    "driver": "Jeevan Chavda",
+    "phone": "7770956715",
+    "assignedRoute": "R05",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G78",
+    "driver": "Raju Jadhav",
+    "phone": "8839435254",
+    "assignedRoute": "R06",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G56",
+    "driver": "Gajju Limanpure",
+    "phone": "7389869292",
+    "assignedRoute": "R06",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G3",
+    "driver": "Jitendra Kelwa",
+    "phone": "9926454445",
+    "assignedRoute": "R06",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G2",
+    "driver": "Lakhan Thakur",
+    "phone": "9977784697",
+    "assignedRoute": "R07",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G21",
+    "driver": "Meharban Makwana",
+    "phone": "9926955625",
+    "assignedRoute": "R07",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G35",
+    "driver": "Dinesh Makwana",
+    "phone": "9753364275",
+    "assignedRoute": "R07",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G40",
+    "driver": "Tej Singh",
+    "phone": "8358043299",
+    "assignedRoute": "R07",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G36",
+    "driver": "Pradeep Nagar",
+    "phone": "9589494367",
+    "assignedRoute": "R07",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G77",
+    "driver": "Rahul Thakur",
+    "phone": "6265440827",
+    "assignedRoute": "R08",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G6",
+    "driver": "Rajendra Singh Rathod",
+    "phone": "9165959942",
+    "assignedRoute": "R08",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G74",
+    "driver": "Kailash Choudhary",
+    "phone": "8085873285",
+    "assignedRoute": "R08",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G50",
+    "driver": "Nilesh Patel",
+    "phone": "9977117101",
+    "assignedRoute": "R08",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G62",
+    "driver": "Ranjeet Patel",
+    "phone": "9977893010",
+    "assignedRoute": "R09",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G63",
+    "driver": "Sunil Parmar",
+    "phone": "9977878981",
+    "assignedRoute": "R09",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G61",
+    "driver": "Santosh Malviya",
+    "phone": "9516350085",
+    "assignedRoute": "R09",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G70",
+    "driver": "Lalji Malviya",
+    "phone": "9826061693",
+    "assignedRoute": "R10",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G42",
+    "driver": "Chintu Parmar",
+    "phone": "9522352707",
+    "assignedRoute": "R10",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G73",
+    "driver": "Nirmal Makwana",
+    "phone": "9755718946",
+    "assignedRoute": "R10",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G46",
+    "driver": "Sohan Choudhary",
+    "phone": "9755960207",
+    "assignedRoute": "R10",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G32",
+    "driver": "Mohan Silawat",
+    "phone": "9826463595",
+    "assignedRoute": "R11",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G71",
+    "driver": "Jagdish Jatwa",
+    "phone": "9826076397",
+    "assignedRoute": "R11",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G7",
+    "driver": "Akhilesh Patel",
+    "phone": "9754401108",
+    "assignedRoute": "R11",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G16",
+    "driver": "Arjun Choudhary",
+    "phone": "9752057319",
+    "assignedRoute": "R12",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G19",
+    "driver": "Anil Choudhary",
+    "phone": "9826274384",
+    "assignedRoute": "R12",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G41",
+    "driver": "Ishtikhar Hussain",
+    "phone": "9009921786",
+    "assignedRoute": "R13",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G38",
+    "driver": "Rajesh Nagar",
+    "phone": "9630337359",
+    "assignedRoute": "R13",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G79",
+    "driver": "Pancham Lal Patel",
+    "phone": "9399893872",
+    "assignedRoute": "R13",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G69",
+    "driver": "Ramchandra Baloniya",
+    "phone": "9827516766",
+    "assignedRoute": "R14",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G33",
+    "driver": "Arun Malviya",
+    "phone": "8963975628",
+    "assignedRoute": "R14",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G31",
+    "driver": "Shankar Patel",
+    "phone": "9111647416",
+    "assignedRoute": "R15",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G27",
+    "driver": "Govardhan Parmar",
+    "phone": "8349260504",
+    "assignedRoute": "R15",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G",
+    "driver": "Arshad Ali",
+    "phone": "9039345217",
+    "assignedRoute": "R16",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G45",
+    "driver": "Azmat Ali",
+    "phone": "9893493872",
+    "assignedRoute": "R16",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G28",
+    "driver": "Reetooraj Solanki",
+    "phone": "6260581901",
+    "assignedRoute": "R16",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G49",
+    "driver": "Ramesh Rawat",
+    "phone": "7869885313",
+    "assignedRoute": "R18",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G48",
+    "driver": "Dinesh Patel",
+    "phone": "9669392823",
+    "assignedRoute": "R18",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G44",
+    "driver": "Om Prakash Choudhary",
+    "phone": "9755847143",
+    "assignedRoute": "R19",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G37",
+    "driver": "Bharat Patel",
+    "phone": "9399875021",
+    "assignedRoute": "R19",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G64",
+    "driver": "Mukesh Patel",
+    "phone": "9977605624",
+    "assignedRoute": "R20",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G58",
+    "driver": "Balkrishna Choudhary",
+    "phone": "7828183492",
+    "assignedRoute": "R20",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G52",
+    "driver": "Rajarm Polaya",
+    "phone": "9826199542",
+    "assignedRoute": "R20",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G68",
+    "driver": "Yusuf Patel",
+    "phone": "9165252812",
+    "assignedRoute": "R21",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G67",
+    "driver": "Surendra Singh",
+    "phone": "9827346588",
+    "assignedRoute": "R21",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G53",
+    "driver": "Maksud Khan",
+    "phone": "9893621989",
+    "assignedRoute": "R22",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G15",
+    "driver": "Ashok Rathod",
+    "phone": "9993904141",
+    "assignedRoute": "R22",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G66",
+    "driver": "Sanjay Makwana",
+    "phone": "9685311199",
+    "assignedRoute": "R22",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G59",
+    "driver": "Charan Das",
+    "phone": "8103912694",
+    "assignedRoute": "R22",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G25",
+    "driver": "Deepak Patel",
+    "phone": "9098074135",
+    "assignedRoute": "R23",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G43",
+    "driver": "Babulal Patel",
+    "phone": "9754638615",
+    "assignedRoute": "R24",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G10",
+    "driver": "Chaganlal",
+    "phone": "7489674939",
+    "assignedRoute": "R24",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G26",
+    "driver": "Chandar Singh",
+    "phone": "9575998500",
+    "assignedRoute": "R24",
+    "capacity": null,
+    "status": "active"
+  },
+  {
+    "busNumber": "G60",
+    "driver": "Jagdish Prajapati",
+    "phone": "9516715945",
+    "assignedRoute": "R25",
+    "capacity": null,
+    "status": "active"
+  }
+]
