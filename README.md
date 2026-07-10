@@ -1,36 +1,59 @@
-# Acropolis Bus Scheduling — DAA Project Starter Package
+# Acropolis Bus Scheduling System — DAA Project
 
-This package contains everything needed to hand off to an AI coding assistant (e.g. Antigravity) to start building the project.
+A dynamic bus scheduling and reallocation simulation built for Acropolis Institute, Indore. This project compares three different scheduling algorithms (Greedy, Dynamic Programming, and a Baseline with no scheduler) to solve the problem of surge demand and stranded passengers at shared route junctions during the morning shift.
 
-## Contents
+## Features
 
+- **Live Dispatch Dashboard**: An interactive Leaflet map simulating the bus network.
+- **Three Algorithms**: Compare O(n log n) Greedy vs O(2ⁿ) DP vs O(1) Baseline.
+- **Dynamic Reallocation**: Watch buses get intelligently diverted from under-utilized routes to overloaded routes at shared junctions in real-time.
+- **Demand Injection**: Manually inject surge demand at any stop and watch the scheduler adapt.
+
+---
+
+## 🛠️ Installation & Setup
+
+### Prerequisites
+You need **Python 3.8+** installed on your system.
+
+### Step 1: Clone the repository
+```bash
+git clone https://github.com/your-username/acropolis-bus-scheduler.git
+cd acropolis-bus-scheduler
 ```
-PROJECT_CONTEXT.md   ← paste this into Antigravity first, as project context / system prompt material
-README.md            ← this file
-data/
-  buses.json          69 real buses (bus number, driver, phone, assigned route)
-  routes.json         25 real routes (stop sequence, assigned buses, arrival times)
-  drivers.json        70 real drivers (name, phone, bus, route)
-  stops.json          456 real stop entries, 398 unique stop names, with route + order
-  schema.json         field reference for the four files above
+
+### Step 2: Install dependencies
+The project requires `Flask` for the backend server and `networkx` for graph routing (if needed for DP).
+```bash
+pip install Flask networkx flask-cors
 ```
 
-## How to use this with Antigravity
+### Step 3: Run the simulation
+Start the Flask development server:
+```bash
+python app.py
+```
 
-1. Start a new project / workspace in Antigravity.
-2. Drop the `data/` folder into the project as-is — this is your static dataset layer.
-3. Paste `PROJECT_CONTEXT.md` into the chat/context so the AI understands: (a) this is a DAA project where the algorithm is the deliverable, not a bus app, (b) the data is real but incomplete (no capacity/occupancy/GPS — those must be simulated), (c) the build order is simulation → scheduler interface → greedy → metrics → alternatives → visualization, NOT UI-first.
-4. Ask it to start with **Phase 1 only**: load `data/*.json`, build the simulation clock, passenger generation, bus movement, boarding, and occupancy tracking. No optimization algorithm yet.
-5. Once Phase 1 runs and produces sensible occupancy/waiting numbers, move to Phase 2 (GreedyScheduler) using the shared-stop junction insight in §8 of `PROJECT_CONTEXT.md` to define which buses are valid reassignment candidates.
+### Step 4: Open in browser
+Open your web browser and navigate to:
+```
+http://127.0.0.1:5000/
+```
 
-## Known data gaps to configure (not real, must be simulated)
+- **Live Simulation:** `http://127.0.0.1:5000/`
+- **Algorithm Analysis:** `http://127.0.0.1:5000/explain`
 
-- Bus seating capacity — suggest 40–52 seats per bus, configurable per bus if you want variety.
-- Live passenger/faculty counts at each stop — generate via a random/Poisson arrival model, higher during peak windows.
-- GPS positions / distances between stops / bus speed — either simulate abstractly (stop-index distance) or, if you want real geography, geocode the stop names separately (not included here).
+---
 
-## Data quality notes
+## 📂 Core Project Files
 
-- One bus number is illegible in the source PDF and recorded as `"G"` — treat as unknown/needs correction if you find the original number.
-- A few stop timing cells were blank or garbled in the source table; these were left blank/approximate rather than invented.
-- Several routes have multiple starting branches that merge into one trunk before reaching campus — see §6 of `PROJECT_CONTEXT.md`.
+This repository has been cleaned up. The main files driving the simulation are:
+
+- **`app.py`**: The Flask backend server that serves the UI and processes simulation ticks via API endpoints.
+- **`simulate.py`**: The core simulation engine. Manages time, passenger generation, bus movement, boarding/alighting logic, and tracking stranded passenger metrics.
+- **`scheduler.py`**: Contains the implementations for the `GreedyScheduler` and `DPScheduler`. This is where the core DAA algorithms live.
+- **`static/`**:
+  - `index.html`: The main operations dashboard UI.
+  - `explain.html`: The algorithm analysis and comparison page.
+  - `main.js`: Frontend logic for fetching topology, managing Leaflet maps, and stepping through the simulation.
+- **`data/`**: JSON files containing the real-world route data, bus assignments, and geocoded stop coordinates for Indore.

@@ -26,7 +26,6 @@ TOTAL_TICKS = SIM_END_MINS - SIM_START_MINS
 
 # Shift arrival times in minutes from midnight
 SHIFT_1_ARRIVAL = time_to_mins("08:10")
-SHIFT_2_ARRIVAL = time_to_mins("10:10")
 
 class Passenger:
     def __init__(self, p_type, arrival_time):
@@ -165,8 +164,7 @@ class SimulationEngine:
             self.buses[bus_id] = bus
             self.total_capacity += cap
             
-        # Two shifts -> double the daily capacity
-        self.daily_capacity = self.total_capacity * 2
+        self.daily_capacity = self.total_capacity
 
     def assign_bus_trips(self, shift_arrival_time, shift_name):
         """Simple assignment: send buses to arrive near the shift arrival time."""
@@ -356,7 +354,6 @@ class SimulationEngine:
         print("Starting baseline simulation...")
         
         self.shift_1_scheduled = False
-        self.shift_2_scheduled = False
         self.reallocations_log = []
 
         for tick in range(TOTAL_TICKS):

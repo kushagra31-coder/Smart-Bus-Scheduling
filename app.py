@@ -18,7 +18,6 @@ def init_engine():
     engine.scheduler = None 
     
     engine.shift_1_scheduled = False
-    engine.shift_2_scheduled = False
     engine.reallocations_log = []
     current_tick = 0
 
