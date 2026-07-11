@@ -220,22 +220,16 @@ class SimulationEngine:
                 
             peak1 = SHIFT_1_ARRIVAL - stop.mins_to_destination - 15
             
-            # Base background rate (very low, so buses are mostly empty)
-            current_rate = 0.05
-            
-            # Localized surge on specific routes to trigger reallocation!
-            if stop.route_id in ["R01", "R02"] and (peak1 - 15 <= current_time_mins <= peak1 + 15):
-                current_rate = 5.0
+            # Generate a fixed realistic count of passengers 15 minutes before the bus is scheduled to arrive
+            # using a sequence like the user requested: 2, 4, 7, 4, 1
+            if current_time_mins == peak1:
+                seq = [2, 4, 7, 4, 1, 3, 5, 2, 6, 8]
+                generated = seq[stop.order % len(seq)]
                 
-            generated = 0
-            if random.random() < (current_rate - int(current_rate)):
-                generated += 1
-            generated += int(current_rate)
-            
-            for _ in range(generated):
-                p_type = "faculty" if random.random() < FACULTY_RATIO else "student"
-                stop.waiting_passengers.append(Passenger(p_type, current_time_mins))
-                self.total_generated += 1
+                for _ in range(generated):
+                    p_type = "faculty" if random.random() < FACULTY_RATIO else "student"
+                    stop.waiting_passengers.append(Passenger(p_type, current_time_mins))
+                    self.total_generated += 1
 
     def step(self, current_time_mins):
         hh = current_time_mins // 60

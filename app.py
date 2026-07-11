@@ -58,6 +58,12 @@ def get_topology():
     except FileNotFoundError:
         geo_data = {}
         
+    try:
+        with open('data/edge_geometries.json', 'r') as f:
+            edge_geoms = json.load(f)
+    except FileNotFoundError:
+        edge_geoms = {}
+        
     nodes = []
     # Merge Acropolis for the frontend map as well, so it draws one giant star
     added_acro = False
@@ -101,7 +107,12 @@ def get_topology():
             s1 = "ACROPOLIS" if "acropolis" in route.stops[i].name.lower() else route.stops[i].stop_id
             s2 = "ACROPOLIS" if "acropolis" in route.stops[i+1].name.lower() else route.stops[i+1].stop_id
             if s1 in valid_node_ids and s2 in valid_node_ids:
-                edges.append({"source": s1, "target": s2})
+                edge_id = f"{s1}|{s2}"
+                if edge_geoms and edge_id not in edge_geoms:
+                    # Skip branch jumps that were filtered out by fetch_geometries.py
+                    continue
+                geom = edge_geoms.get(edge_id)
+                edges.append({"source": s1, "target": s2, "geometry": geom})
                 
     return jsonify({"nodes": nodes, "edges": edges})
 

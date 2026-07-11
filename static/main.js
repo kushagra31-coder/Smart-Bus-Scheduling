@@ -3,6 +3,7 @@ let nodesData      = [];
 let routePolylines = {};
 let markers        = {};
 let busMarkers     = {};
+window.edgeGeometries = {};
 let isPlaying      = false;
 let playInterval   = null;
 let currentSelectedStop = null;
@@ -155,7 +156,11 @@ function drawMap(edges) {
         const tgt = nodesData.find(n => n.id === e.target);
         if (!src || !tgt) return;
         const rid = src.id === 'ACROPOLIS' ? tgt.routeId : src.routeId;
-        const pl = L.polyline([[src.lat, src.lng], [tgt.lat, tgt.lng]], {
+        
+        const pts = e.geometry ? e.geometry : [[src.lat, src.lng], [tgt.lat, tgt.lng]];
+        window.edgeGeometries[`${e.source}|${e.target}`] = pts;
+        
+        const pl = L.polyline(pts, {
             color:   routeColor(rid),
             weight:  2.5,
             opacity: 0.6,
@@ -236,7 +241,37 @@ function addLog(text, type) {
     document.getElementById('log-count').textContent = `${logCount} entries`;
 }
 
-// ── Render ────────────────────────────────────────────────────────────────────
+// ── Timeline & Render ─────────────────────────────────────────────────────────
+
+function interpolateAlongPolyline(pts, progress) {
+    if (!pts || pts.length < 2) return null;
+    if (progress <= 0) return pts[0];
+    if (progress >= 1) return pts[pts.length - 1];
+
+    let totalDist = 0;
+    const dists = [];
+    for (let i = 0; i < pts.length - 1; i++) {
+        const dx = pts[i+1][0] - pts[i][0];
+        const dy = pts[i+1][1] - pts[i][1];
+        const d = Math.sqrt(dx*dx + dy*dy);
+        dists.push(d);
+        totalDist += d;
+    }
+
+    const targetDist = totalDist * progress;
+    let currDist = 0;
+    for (let i = 0; i < dists.length; i++) {
+        if (currDist + dists[i] >= targetDist) {
+            const segmentProgress = dists[i] === 0 ? 0 : (targetDist - currDist) / dists[i];
+            const lat = pts[i][0] + (pts[i+1][0] - pts[i][0]) * segmentProgress;
+            const lng = pts[i][1] + (pts[i+1][1] - pts[i][1]) * segmentProgress;
+            return [lat, lng];
+        }
+        currDist += dists[i];
+    }
+    return pts[pts.length - 1];
+}
+
 function renderState(state) {
     document.getElementById('time-display').textContent = fmtTime(state.time_mins);
     document.getElementById('val-stranded').textContent = state.stranded;
@@ -259,12 +294,19 @@ function renderState(state) {
     busMarkers = {};
 
     state.buses.forEach(b => {
-        const pNode = nodesData.find(n => n.id === b.prev_stop);
-        const tNode = nodesData.find(n => n.id === b.target_stop);
-        if (!pNode || !tNode) return;
+        const edgeKey = `${b.prev_stop}|${b.target_stop}`;
+        let pts = window.edgeGeometries[edgeKey];
+        
+        if (!pts) {
+            const pNode = nodesData.find(n => n.id === b.prev_stop);
+            const tNode = nodesData.find(n => n.id === b.target_stop);
+            if (pNode && tNode) pts = [[pNode.lat, pNode.lng], [tNode.lat, tNode.lng]];
+        }
+        if (!pts) return;
 
-        const lat = pNode.lat + (tNode.lat - pNode.lat) * b.progress;
-        const lng = pNode.lng + (tNode.lng - pNode.lng) * b.progress;
+        const coords = interpolateAlongPolyline(pts, b.progress);
+        if (!coords) return;
+        const [lat, lng] = coords;
 
         // Detect reassignment
         const prev = prevBusRoutes[b.id];
