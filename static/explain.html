@@ -293,10 +293,10 @@
   <div class="page">
 
     <div class="overline">ADA Project — Algorithm Design & Analysis</div>
-    <h1>Scheduling 1000+ passengers onto 14 buses every morning</h1>
+    <h1>Dynamic scheduling for 14 buses across five Indore routes</h1>
     <p class="lead">
-      Acropolis Institute's morning shift begins at 08:10. Students and faculty board buses from 22 stops across Indore.
-      Without intervention, surge demand at shared junctions leaves dozens stranded. We built and compared three scheduling algorithms to fix this.
+      Acropolis Institute's morning shift target is 08:10. Students and faculty board buses across 111 non-terminal stops on five connected routes.
+      This deterministic reference scenario generates 428 passengers and compares three scheduling strategies under the same demand pattern.
     </p>
 
     <hr class="divider">
@@ -317,8 +317,8 @@
         <p>Moving a bus from one route to another removes it from the original route. Any scheduler that makes purely local decisions creates shortfalls downstream. The algorithm needs to weigh gain vs. loss across the entire network, not just the overloaded stop.</p>
       </div>
       <div class="prob-cell">
-        <h3>Hard deadline: buses must arrive by 08:10</h3>
-        <p>All buses need to arrive at Acropolis by 08:10 for the shift to start on time. This creates a time-pressure constraint — early buses that arrive light could have carried more passengers, and late buses that are over-stuffed cause delays at dropoff.</p>
+        <h3>Target arrival: 08:10</h3>
+        <p>The morning shift target is 08:10. The simulation retains a 60-minute grace window so the final buses can complete their route and every passenger outcome is recorded.</p>
       </div>
     </div>
 
@@ -337,11 +337,11 @@
             <li>Junction-aware demand comparison</li>
             <li>Excludes Acropolis terminal (false positive)</li>
             <li>30-min cooldown per bus</li>
-            <li>Scales to any fleet size</li>
+            <li>Practical for larger fleet sizes</li>
           </ul>
           <div class="metric-pair">
             <span class="mp-label">Stranded</span>
-            <span class="mp-val good">8–12</span>
+            <span class="mp-val good">18</span>
           </div>
           <div class="metric-pair">
             <span class="mp-label">Decision time</span>
@@ -352,20 +352,20 @@
         <div class="algo-card">
           <div class="ac-name">Dynamic Programming</div>
           <div class="ac-tag" style="color:var(--purple);background:rgba(122,80,144,0.1);border-color:rgba(122,80,144,0.25);">Optimal, not scalable</div>
-          <p>Evaluates all subsets of bus-to-route assignments via bitmask DP. Finds the mathematically optimal single-tick assignment. Computation grows exponentially with fleet size and becomes infeasible beyond ~20 buses.</p>
+          <p>Uses memoized search to compare candidate bus-to-route assignments for the current tick. It evaluates alternatives globally for the current state, but its state space grows rapidly as more candidates and routes are added.</p>
           <ul>
-            <li>Globally optimal per tick</li>
+            <li>Global candidate assignment per tick</li>
             <li>Does not look ahead across ticks</li>
-            <li>2<sup>14</sup> = 16,384 states for our fleet</li>
-            <li>Cannot be deployed in real time</li>
+            <li>Memoized state search</li>
+            <li>Higher cost as candidate count grows</li>
           </ul>
           <div class="metric-pair">
             <span class="mp-label">Stranded</span>
-            <span class="mp-val amber">8–14</span>
+            <span class="mp-val amber">44</span>
           </div>
           <div class="metric-pair">
             <span class="mp-label">Decision time</span>
-            <span class="mp-val amber">10–200 ms</span>
+            <span class="mp-val amber">Scenario-dependent</span>
           </div>
         </div>
 
@@ -381,7 +381,7 @@
           </ul>
           <div class="metric-pair">
             <span class="mp-label">Stranded</span>
-            <span class="mp-val bad">40–70</span>
+            <span class="mp-val bad">62</span>
           </div>
           <div class="metric-pair">
             <span class="mp-label">Decision time</span>
@@ -410,38 +410,44 @@
           <tr>
             <td>Time complexity</td>
             <td><span class="tag a">O(1)</span></td>
-            <td><span class="tag g">O(n log n)</span></td>
-            <td><span class="tag r">O(2ⁿ · n²)</span></td>
+            <td><span class="tag g">Route/bus scan per tick</span></td>
+            <td><span class="tag r">Memoized candidate search</span></td>
           </tr>
           <tr>
             <td>Space complexity</td>
             <td><span class="tag g">O(1)</span></td>
-            <td><span class="tag g">O(n)</span></td>
-            <td><span class="tag r">O(2ⁿ)</span></td>
+            <td><span class="tag g">Linear working state</span></td>
+            <td><span class="tag r">State-dependent memo</span></td>
           </tr>
           <tr>
             <td>Assignment quality</td>
             <td>None</td>
-            <td>Local optimal</td>
-            <td>Global optimal (per tick)</td>
+            <td>Best available local move</td>
+            <td>Best evaluated current-tick assignment</td>
           </tr>
           <tr>
             <td>Scales to 100+ buses</td>
             <td><span class="tag g">Yes</span></td>
-            <td><span class="tag g">Yes</span></td>
-            <td><span class="tag r">No — exponential</span></td>
+            <td><span class="tag g">Likely, with validation</span></td>
+            <td><span class="tag r">Limited by candidate-state growth</span></td>
           </tr>
           <tr>
-            <td>Avg stranded passengers</td>
-            <td><span class="tag r">40–70</span></td>
-            <td><span class="tag g">8–12</span></td>
-            <td><span class="tag a">8–14</span></td>
+            <td>Stranded (Gaussian load)</td>
+            <td><span class="tag r">65</span></td>
+            <td><span class="tag g">23</span></td>
+            <td><span class="tag a">44</span></td>
           </tr>
           <tr>
-            <td>Reallocations per run</td>
+            <td>Transported (Gaussian load)</td>
+            <td>394</td>
+            <td>436</td>
+            <td>384</td>
+          </tr>
+          <tr>
+            <td>Reallocations</td>
             <td>0</td>
-            <td>2–4</td>
-            <td>1–3</td>
+            <td>2 pre-dispatch</td>
+            <td>1</td>
           </tr>
           <tr>
             <td>Handles bus cooldown</td>
@@ -459,7 +465,7 @@
             <td>Deployable in real time</td>
             <td><span class="tag g">Yes</span></td>
             <td><span class="tag g">Yes</span></td>
-            <td><span class="tag r">No</span></td>
+            <td><span class="tag a">Depends on fleet size</span></td>
           </tr>
         </tbody>
       </table>
@@ -510,24 +516,46 @@
 
     <hr class="divider">
 
+    <h2>Inter-Bus Communication (COMM)</h2>
+    <div class="two-col" style="margin-top: 16px;">
+      <div class="prob-cell">
+        <h3>Predicting downstream capacity</h3>
+        <p>Buses are no longer completely greedy at shared junctions. When a bus arrives at a stop (e.g. Van Mandal), it calculates how many passengers it needs for its <i>own</i> exclusive downstream stops.</p>
+      </div>
+      <div class="prob-cell">
+        <h3>Looking ahead on the schedule</h3>
+        <p>If the bus needs seats, it scans the network to see if another bus is scheduled to arrive at this current stop later (from any route). If a trailing bus has capacity, the current bus will intentionally "leave" students behind.</p>
+      </div>
+      <div class="prob-cell">
+        <h3>Observable [COMM] action</h3>
+        <p>This appears in the dispatch log as <code>[COMM] Bus X reserved Y seats for downstream, leaving students for Bus Z</code>. By leaving these students for the trailing bus, the first bus guarantees it will have room for its own unique downstream passengers.</p>
+      </div>
+      <div class="prob-cell">
+        <h3>Last Resort Overload</h3>
+        <p>Buses operate strictly at a 45-passenger limit, but are allowed a 3-passenger overload buffer. If a small group (<= 3) is stranded and no trailing bus is coming, the bus will utilize its overload buffer up to the hard maximum of 48 to ensure no one is left behind.</p>
+      </div>
+    </div>
+
+    <hr class="divider">
+
     <h2>Why Greedy outperforms DP for this problem</h2>
 
     <div class="two-col" style="margin-top: 16px;">
       <div class="prob-cell">
-        <h3>Speed is a hard constraint</h3>
-        <p>The scheduler must decide within one simulated minute. With 14 buses, DP evaluates 2<sup>14</sup> = 16,384 combinations per tick. Over a 3-hour shift that is 180 ticks — nearly three million evaluations. Greedy makes the same call in under 1ms.</p>
+        <h3>Speed matters</h3>
+        <p>The scheduler runs once per simulated minute. Greedy performs direct route and bus scans, while DP stores intermediate candidate-assignment states. This makes Greedy the safer choice as the fleet and junction network grow.</p>
       </div>
       <div class="prob-cell">
-        <h3>Comparable real outcomes</h3>
-        <p>Greedy achieves 8–12 stranded vs DP's 8–14 in repeated tests. The "globally optimal" DP solution does not outperform Greedy in practice because the world changes every tick. A Greedy move made now prevents the cascade DP's today-optimal selection would cause tomorrow.</p>
+        <h3>Comparable reference outcome</h3>
+        <p>In the current deterministic reference run, Greedy transports 410 passengers and leaves 18 stranded, compared with 366 transported and 62 stranded for Baseline. It does this by moving one truly spare bus before departure; every boarded passenger remains within the 45-seat bus capacity.</p>
       </div>
       <div class="prob-cell">
         <h3>The insight is junction awareness</h3>
         <p>The real performance gain is not Greedy vs DP — it is junction-aware scheduling vs none. Routes R15, R16, and R18 all cross at Dakachya. Without tracking shared stops, no algorithm can intervene correctly. The 3-way overlap is the bottleneck, not the assignment method.</p>
       </div>
       <div class="prob-cell">
-        <h3>Degrades gracefully</h3>
-        <p>If the scheduler misses a tick or a bus breaks down, Greedy falls back to Baseline behaviour automatically — buses continue their pre-assigned routes. DP requires a valid full state table to function. Partial failure in a physical bus system is much safer than a hard crash.</p>
+        <h3>Conservative fallback</h3>
+        <p>If no eligible reallocation is found, the Greedy scheduler leaves every bus on its assigned route. This preserves normal baseline movement while avoiding low-value diversions.</p>
       </div>
     </div>
 
@@ -537,35 +565,80 @@
 
     <div class="results-row">
       <div class="res-cell">
-        <div class="res-num" style="color:var(--red);">55+</div>
-        <div class="res-label">Average stranded — no scheduler</div>
-        <div class="res-note">Baseline — current real-world system</div>
+        <div class="res-num" style="color:var(--red);">65</div>
+        <div class="res-label">Stranded — Baseline</div>
+        <div class="res-note">Reference run; no scheduler</div>
       </div>
       <div class="res-cell">
-        <div class="res-num" style="color:var(--green);">~10</div>
-        <div class="res-label">Average stranded — Greedy scheduler</div>
-        <div class="res-note">80% reduction over Baseline</div>
+        <div class="res-num" style="color:var(--green);">23</div>
+        <div class="res-label">Stranded — Greedy</div>
+        <div class="res-note">64% lower than Baseline</div>
       </div>
       <div class="res-cell">
-        <div class="res-num" style="color:var(--amber);">2–4</div>
-        <div class="res-label">Bus reallocations per simulation run</div>
-        <div class="res-note">High-impact, low-frequency interventions</div>
+        <div class="res-num" style="color:var(--amber);">1</div>
+        <div class="res-label">Pre-dispatch reallocation</div>
+        <div class="res-note">One spare bus moved before departure</div>
       </div>
       <div class="res-cell">
         <div class="res-num" style="color:var(--blue);">&lt;1ms</div>
         <div class="res-label">Greedy decision time</div>
-        <div class="res-note">vs. 10–200ms for DP</div>
+        <div class="res-note">Reference-machine measurement</div>
       </div>
       <div class="res-cell">
-        <div class="res-num" style="color:var(--purple);">3</div>
-        <div class="res-label">Overlapping junctions detected</div>
-        <div class="res-note">R15 ∩ R16 ∩ R18 at Dakachya</div>
+        <div class="res-num" style="color:var(--purple);">5</div>
+        <div class="res-label">Routes in the simulation</div>
+        <div class="res-note">R08, R09, R15, R16, and R18</div>
       </div>
       <div class="res-cell">
-        <div class="res-num" style="color:var(--text);">116</div>
-        <div class="res-label">Bus stops successfully geocoded</div>
-        <div class="res-note">Across 5 routes on Indore road network</div>
+        <div class="res-num" style="color:var(--text);">111</div>
+        <div class="res-label">Passenger stops</div>
+        <div class="res-note">Non-terminal stops across all routes</div>
       </div>
+    </div>
+
+    <hr class="divider">
+
+    <h2>Initial Conditions & Route Directory</h2>
+    <p>The simulation initializes with 25 distinct routes mapped to physical locations around Indore. Below are the assigned routes, starting stops, and buses for the morning shift.</p>
+    
+    <div class="cmp-table-wrap" style="margin-top:24px;">
+      <table>
+        <thead>
+          <tr>
+            <th>Route ID</th>
+            <th>Start Stop</th>
+            <th>Assigned Buses</th>
+            <th>Stops</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>R01</strong></td><td>Treasure Fantasy (Rangwasa)</td><td>G54, G4, G5, G76</td><td>29</td></tr>
+          <tr><td><strong>R02</strong></td><td>Vidhya Palace Chhota Bangarda</td><td>G9, G39, G47</td><td>22</td></tr>
+          <tr><td><strong>R03</strong></td><td>RTO Old</td><td>G72, G17, G1, G30</td><td>22</td></tr>
+          <tr><td><strong>R04</strong></td><td>Indorama</td><td>G51, G8, G75, G34</td><td>16</td></tr>
+          <tr><td><strong>R05</strong></td><td>Mhow Naka</td><td>G55, G57</td><td>23</td></tr>
+          <tr><td><strong>R06</strong></td><td>Hatod</td><td>G78, G56, G3</td><td>24</td></tr>
+          <tr><td><strong>R07</strong></td><td>Paliya Station</td><td>G2, G21, G35, G40, G36</td><td>19</td></tr>
+          <tr><td><strong>R08</strong></td><td>Niranjanpur Chouraha</td><td>G77, G6, G74, G50</td><td>13</td></tr>
+          <tr><td><strong>R09</strong></td><td>Sun City</td><td>G62, G63, G61</td><td>14</td></tr>
+          <tr><td><strong>R10</strong></td><td>Bhamori Plaza</td><td>G70, G42, G73, G46</td><td>18</td></tr>
+          <tr><td><strong>R11</strong></td><td>Navlakha Bus Stand</td><td>G32, G71, G7</td><td>20</td></tr>
+          <tr><td><strong>R12</strong></td><td>Tilak Nagar Jain Mandir</td><td>G16, G19</td><td>8</td></tr>
+          <tr><td><strong>R13</strong></td><td>Jhinsi Chouraha</td><td>G41, G38, G79</td><td>22</td></tr>
+          <tr><td><strong>R14</strong></td><td>Six Bunglow Sitla Mata Mandir</td><td>G69, G33</td><td>16</td></tr>
+          <tr><td><strong>R15</strong></td><td>Bada Nagda</td><td>G31, G27</td><td>22</td></tr>
+          <tr><td><strong>R16</strong></td><td>Nagukhedi</td><td>G, G45, G28</td><td>26</td></tr>
+          <tr><td><strong>R17</strong></td><td>Datana</td><td>G28</td><td>27</td></tr>
+          <tr><td><strong>R18</strong></td><td>Barotha Village</td><td>G49, G48</td><td>36</td></tr>
+          <tr><td><strong>R19</strong></td><td>Radhaganj</td><td>G44, G37</td><td>15</td></tr>
+          <tr><td><strong>R20</strong></td><td>Maksi</td><td>G64, G58, G52</td><td>10</td></tr>
+          <tr><td><strong>R21</strong></td><td>Gandharwpuri</td><td>G68, G67</td><td>13</td></tr>
+          <tr><td><strong>R22</strong></td><td>Beema Hospital Agar Road Ujjain</td><td>G53, G15, G66, G59</td><td>15</td></tr>
+          <tr><td><strong>R23</strong></td><td>Chapri (Kshipra)</td><td>G25</td><td>9</td></tr>
+          <tr><td><strong>R24</strong></td><td>Dakachya</td><td>G43, G10, G26</td><td>14</td></tr>
+          <tr><td><strong>R25</strong></td><td>Indus Satellite 2</td><td>G60</td><td>3</td></tr>
+        </tbody>
+      </table>
     </div>
 
     <div class="cta-row">

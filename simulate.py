@@ -1,7 +1,6 @@
 import json
 import math
 import random
-random.seed(42)
 import time
 import statistics
 from collections import defaultdict
@@ -15,6 +14,7 @@ TICK_RATE_MINS = 1
 
 FACULTY_RATIO = 0.10
 TARGET_DEMAND_MULTIPLIER = 1.2
+MIN_BUSES_PER_ROUTE = 2
 
 def time_to_mins(t_str):
     h, m = map(int, t_str.split(':'))
@@ -66,10 +66,15 @@ class Bus:
         self.route = None
         self.current_stop_idx = 0
         self.time_to_next_stop = 0
+        self.travel_duration_mins = 0
         self.state = "IDLE" # IDLE, EN_ROUTE, ARRIVED
         self.start_time = -1 # When to start the trip
         self.is_helper = False
         self.last_stop_id = None
+        # The physical stop a bus is currently travelling towards.  This remains
+        # on the original route during a junction reassignment, allowing the map
+        # to render the incoming leg on its actual road geometry.
+        self.travel_target_stop_id = None
         
         # Stats
         self.total_transported = 0
@@ -80,7 +85,12 @@ class Bus:
         return len(self.passengers)
 
 class SimulationEngine:
-    def __init__(self):
+    def __init__(self, randomize=False):
+        if not randomize:
+            random.seed(42)
+        else:
+            random.seed()
+            
         self.stops = {}
         self.routes = {}
         self.buses = {}
@@ -93,6 +103,7 @@ class SimulationEngine:
         # Stats specifically requested
         self.faculty_transported = 0
         self.students_transported = 0
+        self.pre_dispatch_reallocations = 0
         
         self.scheduler = DPScheduler()
         
@@ -167,8 +178,77 @@ class SimulationEngine:
             
         self.daily_capacity = self.total_capacity
 
+    def forecast_route_demand(self):
+        """Return the deterministic morning demand forecast used by this simulation."""
+        sequence = [2, 4, 7, 4, 1, 3, 5, 2, 6, 8]
+        return {
+            route_id: sum(
+                sequence[stop.order % len(sequence)]
+                for stop in route.stops
+                if (
+                    "acropolis" not in stop.name.lower()
+                    and SIM_START_MINS <= SHIFT_1_ARRIVAL - stop.mins_to_destination - 15 < SHIFT_1_ARRIVAL
+                )
+            )
+            for route_id, route in self.routes.items()
+        }
+
+    def rebalance_pre_dispatch(self):
+        """Move only genuinely spare buses before departure to maximise seated passengers.
+
+        A donor route must retain at least two buses and enough seats for its own
+        forecast. This never exceeds a bus's stated capacity, so every boarded
+        passenger has a seat.
+        """
+        forecast = self.forecast_route_demand()
+        logs = []
+
+        def assigned_capacity(route):
+            return sum(self.buses[bus_id].capacity for bus_id in route.assigned_buses if bus_id in self.buses)
+
+        while True:
+            deficits = {
+                route_id: forecast[route_id] - assigned_capacity(route)
+                for route_id, route in self.routes.items()
+            }
+            targets = [route_id for route_id, deficit in deficits.items() if deficit > 0]
+            if not targets:
+                break
+
+            target_id = max(targets, key=lambda route_id: deficits[route_id])
+            donors = []
+            for donor_id, donor_route in self.routes.items():
+                if donor_id == target_id or len(donor_route.assigned_buses) <= MIN_BUSES_PER_ROUTE:
+                    continue
+                for bus_id in donor_route.assigned_buses:
+                    bus = self.buses.get(bus_id)
+                    if bus and assigned_capacity(donor_route) - bus.capacity >= forecast[donor_id]:
+                        donors.append((assigned_capacity(donor_route) - forecast[donor_id], donor_id, bus_id))
+
+            if not donors:
+                break
+
+            _, donor_id, bus_id = max(donors, key=lambda candidate: candidate[0])
+            self.routes[donor_id].assigned_buses.remove(bus_id)
+            self.routes[target_id].assigned_buses.append(bus_id)
+            self.pre_dispatch_reallocations += 1
+            message = (
+                f"[PRE-DISPATCH] Reassigned Bus {bus_id} from {donor_id} to {target_id} "
+                f"using forecast demand (seated capacity only)."
+            )
+            logs.append(message)
+            print(message)
+
+        return logs
+
     def assign_bus_trips(self, shift_arrival_time, shift_name):
         """Simple assignment: send buses to arrive near the shift arrival time."""
+        # This is the Greedy strategy's pre-departure optimisation. Baseline
+        # and DP remain unchanged so their comparison stays meaningful.
+        if isinstance(self.scheduler, GreedyScheduler):
+            pre_dispatch_logs = self.rebalance_pre_dispatch()
+            if pre_dispatch_logs:
+                self.reallocations_log.extend(pre_dispatch_logs)
         for rid, route in self.routes.items():
             buses_for_route = [self.buses[bid] for bid in route.assigned_buses if bid in self.buses]
             if not buses_for_route: continue
@@ -193,7 +273,32 @@ class SimulationEngine:
                 bus.route = route
                 bus.current_stop_idx = start_idx
                 bus.last_stop_id = route.stops[start_idx].stop_id
+                bus.travel_target_stop_id = None
+                bus.travel_duration_mins = 0
                 bus.passengers = []
+                # Stagger buses on the same branch by 10 minutes
+                bus_branch_order = i // num_branches
+                bus.start_time = branch_start_time - (bus_branch_order * 10)
+                
+                if bus.start_time < SIM_START_MINS:
+                    bus.start_time = SIM_START_MINS # clamp to sim start
+                bus.state = "SCHEDULED"
+
+    def generate_passengers(self, current_time_mins):
+        total_stops = len([s for s in self.stops.values() if s.name.lower() != "acropolis institutes"])
+        if total_stops == 0: return
+        
+        target_total_passengers = self.daily_capacity * TARGET_DEMAND_MULTIPLIER
+        target_per_stop = target_total_passengers / total_stops
+        std_dev = 20 # minutes
+        
+        multiplier = target_per_stop / (std_dev * math.sqrt(2 * math.pi) * 2)
+        if current_time_mins >= SHIFT_1_ARRIVAL:
+            return
+            
+        for stop in self.stops.values():
+            if stop.name.lower() == "acropolis institutes":
+                continue
                 # Stagger buses on the same branch by 10 minutes
                 bus_branch_order = i // num_branches
                 bus.start_time = branch_start_time - (bus_branch_order * 10)
@@ -223,8 +328,7 @@ class SimulationEngine:
             # Generate a fixed realistic count of passengers 15 minutes before the bus is scheduled to arrive
             # using a sequence like the user requested: 2, 4, 7, 4, 1
             if current_time_mins == peak1:
-                seq = [2, 4, 7, 4, 1, 3, 5, 2, 6, 8]
-                generated = seq[stop.order % len(seq)]
+                generated = max(0, int(round(random.gauss(4.2, 2.0))))
                 
                 for _ in range(generated):
                     p_type = "faculty" if random.random() < FACULTY_RATIO else "student"
@@ -287,19 +391,26 @@ class SimulationEngine:
                         print(f"{time_str} Bus {bus.bus_id} arrived at DESTINATION {current_stop.name}. Unloading {bus.occupancy} pax.")
                         bus.state = "ARRIVED"
                         bus.passengers = []
+                        bus.travel_target_stop_id = None
+                        bus.travel_duration_mins = 0
                     else:
                         # Priority Boarding Logic
-                        available_capacity = bus.capacity - bus.occupancy
+                        MAX_CAPACITY = bus.capacity + 3
+                        # Priority Boarding Logic
                         boarded_this_stop = 0
+                        faculty_overloaded = False
                         
                         # Separate faculty and students
                         faculty = [p for p in current_stop.waiting_passengers if p.p_type == "faculty"]
                         students = [p for p in current_stop.waiting_passengers if p.p_type == "student"]
                         
-                        # Board faculty first
-                        faculty_to_board = faculty[:available_capacity]
+                        # Board faculty first (even if normal capacity is reached, up to MAX_CAPACITY)
+                        available_for_faculty = max(0, MAX_CAPACITY - bus.occupancy)
+                        faculty_to_board = faculty[:available_for_faculty]
+                        if bus.occupancy + len(faculty_to_board) > bus.capacity:
+                            faculty_overloaded = True
+                            
                         bus.passengers.extend(faculty_to_board)
-                        available_capacity -= len(faculty_to_board)
                         boarded_this_stop += len(faculty_to_board)
                         
                         for p in faculty_to_board:
@@ -307,9 +418,40 @@ class SimulationEngine:
                             self.wait_times.append(p.wait_time)
                             self.faculty_transported += 1
                             self.total_transported += 1
+                            
+                        # Recalculate available capacity for students (normal capacity)
+                        normal_available_for_students = max(0, bus.capacity - bus.occupancy)
                         
-                        # Board students next
-                        students_to_board = students[:available_capacity]
+                        # [COMM] Logic: Reserve seats for downstream if trailing bus is coming
+                        downstream_demand = sum(len(s.waiting_passengers) for s in bus.route.stops[bus.current_stop_idx+1:])
+                        reserved_seats = 0
+                        trailing_capacity = 0
+                        trailing_buses = []
+                        
+                        if downstream_demand > normal_available_for_students and len(students) > 0:
+                            for other_bus in self.buses.values():
+                                if other_bus.bus_id == bus.bus_id or other_bus.state not in ["SCHEDULED", "EN_ROUTE"] or not other_bus.route:
+                                    continue
+                                search_start = other_bus.current_stop_idx if other_bus.state == "EN_ROUTE" else 0
+                                for s_idx in range(search_start, len(other_bus.route.stops)):
+                                    if other_bus.route.stops[s_idx].name.lower() == current_stop.name.lower():
+                                        cap = other_bus.capacity - other_bus.occupancy
+                                        if cap > 0:
+                                            trailing_capacity += cap
+                                            trailing_buses.append(other_bus.bus_id)
+                                        break
+                                        
+                            if trailing_capacity > 0:
+                                reserved_seats = min(normal_available_for_students, downstream_demand, trailing_capacity, len(students))
+                                if reserved_seats > 0:
+                                    normal_available_for_students -= reserved_seats
+                                    msg = f"[COMM] Bus {bus.bus_id} reserved {reserved_seats} seats for downstream, leaving students for {', '.join(trailing_buses)}"
+                                    if not hasattr(self, 'reallocations_log'): self.reallocations_log = []
+                                    self.reallocations_log.append(msg)
+                                    print(f"{time_str} {msg}")
+
+                        # Board students next up to normal capacity
+                        students_to_board = students[:normal_available_for_students]
                         bus.passengers.extend(students_to_board)
                         boarded_this_stop += len(students_to_board)
                         
@@ -318,34 +460,77 @@ class SimulationEngine:
                             self.wait_times.append(p.wait_time)
                             self.students_transported += 1
                             self.total_transported += 1
+                            
+                        students_left = students[len(students_to_board):]
+                        faculty_left = faculty[len(faculty_to_board):]
+                        overload_count = 0
+                        overload_reason = ""
+                        
+                        # [LAST RESORT OVERLOAD]
+                        total_left = len(students_left) + len(faculty_left)
+                        if 0 < len(students_left) <= 3 and len(faculty_left) == 0:
+                            overload_available = max(0, MAX_CAPACITY - bus.occupancy)
+                            if overload_available >= len(students_left):
+                                is_stranded = True
+                                if trailing_capacity > 0:
+                                    is_stranded = False # Trailing bus is coming
+                                else:
+                                    # Re-check strictly for any incoming bus
+                                    for other_bus in self.buses.values():
+                                        if other_bus.bus_id == bus.bus_id or other_bus.state not in ["SCHEDULED", "EN_ROUTE"] or not other_bus.route: continue
+                                        search_start = other_bus.current_stop_idx if other_bus.state == "EN_ROUTE" else 0
+                                        for s_idx in range(search_start, len(other_bus.route.stops)):
+                                            if other_bus.route.stops[s_idx].name.lower() == current_stop.name.lower():
+                                                if (other_bus.capacity - other_bus.occupancy) > 0:
+                                                    is_stranded = False
+                                                break
+                                        if not is_stranded: break
+                                        
+                                if is_stranded:
+                                    overload_count = len(students_left)
+                                    bus.passengers.extend(students_left)
+                                    boarded_this_stop += overload_count
+                                    for p in students_left:
+                                        p.wait_time = current_time_mins - p.arrival_time
+                                        self.wait_times.append(p.wait_time)
+                                        self.students_transported += 1
+                                        self.total_transported += 1
+                                    students_left = []
+                                    total_left = 0
+                                    overload_reason = " (Overloaded to avoid stranding small group)"
+                            else:
+                                overload_reason = f" — {total_left} stranded (Bus hit absolute max 48 capacity)"
+                        elif len(students_left) > 3:
+                            if reserved_seats > 0:
+                                overload_reason = f" — {total_left} left intentionally (Saved seats for downstream)"
+                            else:
+                                overload_reason = f" — {total_left} stranded (Group too large for 3-person overload limit)"
+                        elif len(faculty_left) > 0:
+                            overload_reason = f" — {total_left} stranded (Bus hit absolute max 48 capacity)"
+                        elif reserved_seats > 0:
+                            overload_reason = f" — {total_left} left intentionally (Saved seats for downstream)"
+                        elif total_left > 0:
+                            overload_reason = f" — {total_left} stranded"
+                            
+                        if faculty_overloaded and not overload_reason:
+                            overload_reason = " (Faculty priority - forced overload)"
+                            
+                        current_stop.waiting_passengers = faculty_left + students_left
                         
                         bus.total_transported += boarded_this_stop
-                        
-                        # Update stop queues
-                        current_stop.waiting_passengers = faculty[len(faculty_to_board):] + students[len(students_to_board):]
-                        
                         if bus.occupancy > bus.peak_occupancy:
                             bus.peak_occupancy = bus.occupancy
-                        
-                        if boarded_this_stop > 0:
-                            faculty_boarded = len(faculty_to_board)
-                            students_boarded = len(students_to_board)
-                            left = len(current_stop.waiting_passengers)
-                            parts = []
-                            if students_boarded: parts.append(f"{students_boarded} student{'s' if students_boarded>1 else ''}")
-                            if faculty_boarded:  parts.append(f"{faculty_boarded} faculty")
-                            boarded_str = " & ".join(parts) if parts else "0"
-                            log_msg = (f"[BOARD] Bus {bus.bus_id} ({bus.occupancy}/{bus.capacity}) "
-                                       f"picked up {boarded_str} at {current_stop.name}"
-                                       + (f" — {left} still waiting" if left > 0 else ""))
-                            if not hasattr(self, 'reallocations_log'):
-                                self.reallocations_log = []
-                            self.reallocations_log.append(log_msg)
-                            print(log_msg)
-                        
+                            
+                        if boarded_this_stop > 0 or total_left > 0:
+                            msg = f"Bus {bus.bus_id} ({bus.occupancy}/{bus.capacity}) picked up {boarded_this_stop} pax at {current_stop.name}{overload_reason}"
+                            print(f"{time_str} [BOARD] {msg}")
+                            if not hasattr(self, 'reallocations_log'): self.reallocations_log = []
+                            self.reallocations_log.append(f"[BOARD] {msg}")
                         # Set time to next stop
                         bus.time_to_next_stop = bus.route.travel_times[bus.current_stop_idx]
+                        bus.travel_duration_mins = bus.time_to_next_stop
                         bus.current_stop_idx += 1
+                        bus.travel_target_stop_id = bus.route.stops[bus.current_stop_idx].stop_id
 
     def run(self):
         print("Starting baseline simulation...")
@@ -366,12 +551,15 @@ class SimulationEngine:
         
         left_behind = sum(len(s.waiting_passengers) for s in self.stops.values())
         print(f"Total Passengers Left at Stops: {left_behind}")
+        if left_behind > 0:
+            print("  (Note: Passengers are stranded only when groups exceed the 3-person overload limit,")
+            print("         or when a bus reaches the absolute hard maximum capacity of 48 passengers.)")
         
         if self.wait_times:
             print(f"Average Wait Time (Transported): {statistics.mean(self.wait_times):.2f} mins")
             print(f"Median Wait Time (Transported): {statistics.median(self.wait_times):.2f} mins")
             
-        if self.scheduler:
+        if hasattr(self, 'scheduler') and self.scheduler:
             print(f"Total Reallocations by Scheduler: {self.scheduler.reallocations}")
             print(f"Scheduler Execution Time: {self.scheduler.total_runtime:.4f} seconds")
             

@@ -149,6 +149,7 @@ function drawMap(edges) {
     Object.values(markers).forEach(m => { if (map.hasLayer(m)) map.removeLayer(m); });
     routePolylines = {};
     markers = {};
+    window.edgeGeometries = {};
 
     // Route polylines
     edges.forEach(e => {
@@ -277,6 +278,8 @@ function renderState(state) {
     document.getElementById('val-stranded').textContent = state.stranded;
     document.getElementById('val-moved').textContent    = state.transported;
     document.getElementById('val-buses').textContent    = state.buses.length;
+    totalReallocations = Math.max(totalReallocations, state.pre_dispatch_reallocations || 0);
+    document.getElementById('val-realloc').textContent  = totalReallocations;
 
     // Stop demand colours
     state.nodes.forEach(ns => {
@@ -297,12 +300,13 @@ function renderState(state) {
         const edgeKey = `${b.prev_stop}|${b.target_stop}`;
         let pts = window.edgeGeometries[edgeKey];
         
+        // Do not ever fall back to a direct geographic line: it would make the
+        // bus appear to fly across the map. Every displayed leg must have a
+        // saved, road-following geometry from the topology response.
         if (!pts) {
-            const pNode = nodesData.find(n => n.id === b.prev_stop);
-            const tNode = nodesData.find(n => n.id === b.target_stop);
-            if (pNode && tNode) pts = [[pNode.lat, pNode.lng], [tNode.lat, tNode.lng]];
+            console.warn(`No road geometry for bus ${b.id}: ${edgeKey}`);
+            return;
         }
-        if (!pts) return;
 
         const coords = interpolateAlongPolyline(pts, b.progress);
         if (!coords) return;
@@ -379,6 +383,15 @@ async function stepSim() {
                 `SHIFT ENDED  ${fmtTime(state.time_mins)}  |  stranded: ${state.stranded}  transported: ${state.transported}`,
                 'end'
             );
+            
+            // Show the Summary Modal
+            document.getElementById('sum-gen').textContent = state.stranded + state.transported; 
+            document.getElementById('sum-trans').textContent = state.transported;
+            document.getElementById('sum-stud').textContent = state.students_transported;
+            document.getElementById('sum-fac').textContent = state.faculty_transported;
+            document.getElementById('sum-strand').textContent = state.stranded;
+            document.getElementById('sum-realloc').textContent = totalReallocations + (state.pre_dispatch_reallocations || 0);
+            document.getElementById('summary-modal').style.display = 'block';
         }
     }
 
@@ -392,7 +405,7 @@ function scrubTimeline(val) {
 }
 
 // ── Reset ─────────────────────────────────────────────────────────────────────
-async function resetSim() {
+async function resetSim(randomize = false) {
     clearInterval(playInterval);
     playInterval = null;
     isPlaying = false;
@@ -402,7 +415,7 @@ async function resetSim() {
     await fetch('/reset', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ scheduler: currentAlgo })
+        body: JSON.stringify({ scheduler: currentAlgo, randomize: randomize })
     });
 
     stateHistory = [];
@@ -430,6 +443,10 @@ async function resetSim() {
 
     await fetchTopology();
     addLog(`[RESET] ${currentAlgo} scheduler loaded. Simulation ready.`, 'arrive');
+}
+
+function randomizeStudents() {
+    resetSim(true);
 }
 
 // ── Play / Pause ──────────────────────────────────────────────────────────────

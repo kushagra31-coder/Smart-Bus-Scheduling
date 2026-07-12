@@ -45,11 +45,9 @@ def fetch_all():
                     
                 d = calc_dist(c1['lat'], c1['lon'], c2['lat'], c2['lon'])
                 
-                # If distance is > 8km, it's highly likely a branch jump in the flat list
-                # (Connecting the end of one branch to the start of another)
-                if d > 8.0:
-                    print(f"Skipping branch jump on {r}: {s1_name} -> {s2_name} ({d:.1f} km)")
-                    continue
+                # Retain every scheduled leg.  Some route records include distant
+                # branch transitions; those still need a road geometry so a bus is
+                # never rendered as a direct, off-road line on the dashboard.
                     
                 s1_id = r_stops[i]['stopId']
                 s2_id = r_stops[i+1]['stopId']
@@ -65,10 +63,17 @@ def fetch_all():
 
     print(f"Found {len(edges)} valid edges to route.")
     
-    geometries = {}
+    try:
+        with open('data/edge_geometries.json', 'r') as f:
+            geometries = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        geometries = {}
     
     for i, (s1_id, lat1, lon1, s2_id, lat2, lon2) in enumerate(edges):
         edge_key = f"{s1_id}|{s2_id}"
+        if edge_key in geometries:
+            print(f"[{i+1}/{len(edges)}] Keeping existing road route for {edge_key}.")
+            continue
         print(f"[{i+1}/{len(edges)}] Fetching route for {edge_key}...")
         
         # OSRM expects longitude,latitude
@@ -83,17 +88,13 @@ def fetch_all():
                         geom = [[pt[1], pt[0]] for pt in data['routes'][0]['geometry']['coordinates']]
                         geometries[edge_key] = round_coords(geom, 5)
                     else:
-                        print(f"  OSRM Warning for {edge_key}: {data['code']}. Falling back to straight line.")
-                        geometries[edge_key] = [[round(lat1, 5), round(lon1, 5)], [round(lat2, 5), round(lon2, 5)]]
+                        print(f"  OSRM Warning for {edge_key}: {data['code']}. No geometry was saved.")
                 else:
-                    print(f"  OSRM Error {response.status} for {edge_key}. Falling back to straight line.")
-                    geometries[edge_key] = [[round(lat1, 5), round(lon1, 5)], [round(lat2, 5), round(lon2, 5)]]
+                    print(f"  OSRM Error {response.status} for {edge_key}. No geometry was saved.")
         except urllib.error.URLError as e:
-            print(f"  Request failed for {edge_key}: {e}. Falling back to straight line.")
-            geometries[edge_key] = [[round(lat1, 5), round(lon1, 5)], [round(lat2, 5), round(lon2, 5)]]
+            print(f"  Request failed for {edge_key}: {e}. No geometry was saved.")
         except Exception as e:
-            print(f"  Request failed for {edge_key}: {e}. Falling back to straight line.")
-            geometries[edge_key] = [[round(lat1, 5), round(lon1, 5)], [round(lat2, 5), round(lon2, 5)]]
+            print(f"  Request failed for {edge_key}: {e}. No geometry was saved.")
             
         time.sleep(1.5) # Be nice to OSRM public server
         

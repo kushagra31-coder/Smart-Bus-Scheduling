@@ -10,9 +10,9 @@ engine = None
 current_tick = 0
 pos_cache = None
 
-def init_engine():
+def init_engine(randomize=False):
     global engine, current_tick
-    engine = SimulationEngine()
+    engine = SimulationEngine(randomize=randomize)
     engine.load_data()
     # Let's set it to Greedy for the visualizer by default, or read from request
     engine.scheduler = None 
@@ -33,7 +33,8 @@ def explain():
 def reset():
     data = request.json
     scheduler_type = data.get('scheduler', 'Greedy')
-    init_engine()
+    randomize = data.get('randomize', False)
+    init_engine(randomize=randomize)
     
     if scheduler_type == 'Greedy':
         from scheduler import GreedyScheduler
@@ -151,14 +152,25 @@ def step_simulation():
     for bus in engine.buses.values():
         if bus.state in ["EN_ROUTE", "SCHEDULED", "ARRIVED"]:
             if bus.state == "EN_ROUTE":
-                # Find the index of the stop we just left (to look up the correct travel time leg)
-                prev_idx = next((i for i, s in enumerate(bus.route.stops) if s.stop_id == bus.last_stop_id), 0)
-                total_time = bus.route.travel_times[prev_idx] if prev_idx < len(bus.route.travel_times) else 1
+                # Retain the original duration of the current road leg. This is
+                # particularly important when a bus changes route at a shared
+                # junction while it is still approaching that junction.
+                total_time = bus.travel_duration_mins
+                if total_time <= 0:
+                    prev_idx = next((i for i, s in enumerate(bus.route.stops) if s.stop_id == bus.last_stop_id), 0)
+                    total_time = bus.route.travel_times[prev_idx] if prev_idx < len(bus.route.travel_times) else 1
                 if total_time <= 0: total_time = 1
                 progress = 1.0 - (bus.time_to_next_stop / total_time)
                 
                 prev_stop_obj = engine.stops.get(bus.last_stop_id)
-                target_stop_obj = bus.route.stops[bus.current_stop_idx]
+                # A helper bus can change route while approaching a shared
+                # junction.  Keep rendering its incoming leg to the physical
+                # stop it was already travelling to; the next leg then follows
+                # the newly assigned route.
+                target_stop_obj = (
+                    engine.stops.get(bus.travel_target_stop_id)
+                    if bus.travel_target_stop_id else bus.route.stops[bus.current_stop_idx]
+                )
             elif bus.state == "ARRIVED":
                 # Show bus parked at Acropolis (last stop)
                 progress = 1.0
@@ -203,6 +215,9 @@ def step_simulation():
         "logs": engine.reallocations_log,
         "stranded": stranded,
         "transported": engine.total_transported,
+        "students_transported": engine.students_transported,
+        "faculty_transported": engine.faculty_transported,
+        "pre_dispatch_reallocations": engine.pre_dispatch_reallocations,
         "done": simulation_done
     })
 

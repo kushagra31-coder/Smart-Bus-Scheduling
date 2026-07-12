@@ -470,6 +470,43 @@
       border-radius: 50%;
       animation: ring-out 1s ease-out forwards;
     }
+
+    /* ── SUMMARY MODAL ── */
+    #summary-modal {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--panel);
+      border: 1px solid var(--amber);
+      padding: 24px 32px;
+      z-index: 1000;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+      min-width: 400px;
+    }
+    #summary-modal h2 {
+      font-family: var(--sans);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--amber);
+      margin-bottom: 16px;
+    }
+    .sum-stat {
+      display: flex; justify-content: space-between;
+      margin-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 4px;
+    }
+    .sum-val { font-family: var(--mono); font-weight: 600; }
+    .sum-val.red { color: var(--red); }
+    .sum-val.green { color: var(--green); }
+    .sum-close {
+      margin-top: 20px; width: 100%; padding: 8px;
+      background: var(--panel2); color: var(--text);
+      border: 1px solid var(--border2); cursor: pointer;
+    }
+    .sum-close:hover { background: var(--border); }
   </style>
 </head>
 <body>
@@ -548,6 +585,7 @@
         <div class="section-label">Controls</div>
         <div class="ctrl-row" style="margin-bottom:6px;">
           <button class="ctrl-btn" onclick="resetSim()">Reset</button>
+          <button class="ctrl-btn" onclick="randomizeStudents()" title="Randomize the number of students at stops">Randomized Students</button>
           <button class="ctrl-btn run-btn" id="play-btn" onclick="togglePlay()">Run</button>
           <button class="ctrl-btn run-btn" id="pause-btn" onclick="togglePlay()" style="display:none;">Pause</button>
         </div>
@@ -623,6 +661,23 @@
             Stop — low demand
           </div>
         </div>
+        
+        <div class="legend-divider"></div>
+        <div class="section-label" style="margin-top:8px;">Terminology</div>
+        <div class="bus-legend" style="margin-bottom:12px;">
+          <div class="bus-legend-item">
+            <span style="color:var(--text);font-weight:600;">SCHEDULED:</span> Waiting to depart.
+          </div>
+          <div class="bus-legend-item">
+            <span style="color:var(--text);font-weight:600;">EN_ROUTE:</span> Actively driving.
+          </div>
+          <div class="bus-legend-item">
+            <span style="color:var(--text);font-weight:600;">COMM:</span> Bus reserving seats for downstream, leaving students for a trailing bus.
+          </div>
+          <div class="bus-legend-item">
+            <span style="color:var(--text);font-weight:600;">overload:</span> Taking up to 3 extra standing passengers as a last resort to avoid stranding them.
+          </div>
+        </div>
       </div>
 
     </div>
@@ -660,9 +715,39 @@
         <canvas id="chart" height="70"></canvas>
       </div>
     </div>
-
   </div>
 
+  <!-- SUMMARY MODAL -->
+  <div id="summary-modal">
+    <h2>Simulation Complete</h2>
+    <div class="sum-stat">
+      <span>Total Passengers Generated:</span>
+      <span class="sum-val" id="sum-gen">0</span>
+    </div>
+    <div class="sum-stat">
+      <span>Total Transported:</span>
+      <span class="sum-val green" id="sum-trans">0</span>
+    </div>
+    <div class="sum-stat">
+      <span>Students Transported:</span>
+      <span class="sum-val green" id="sum-stud">0</span>
+    </div>
+    <div class="sum-stat">
+      <span>Faculty Transported:</span>
+      <span class="sum-val green" id="sum-fac">0</span>
+    </div>
+    <div class="sum-stat">
+      <span>Stranded (Left at Stops):</span>
+      <span class="sum-val red" id="sum-strand">0</span>
+    </div>
+    <div class="sum-stat" style="margin-top:10px; border-top:1px solid var(--border); padding-top:10px;">
+      <span>Scheduler Reallocations:</span>
+      <span class="sum-val amber" id="sum-realloc">0</span>
+    </div>
+    <button class="sum-close" onclick="document.getElementById('summary-modal').style.display='none'">Close</button>
+  </div>
+
+  <!-- Scripts -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="/static/main.js"></script>
